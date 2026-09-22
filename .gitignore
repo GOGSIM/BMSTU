@@ -1,2 +1,2 @@
 /_git_backups_before_cleanup
-/build/
+**/build/
