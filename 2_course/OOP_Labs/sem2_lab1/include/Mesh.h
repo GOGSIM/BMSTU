@@ -7,6 +7,12 @@
 class Mesh
 {
 public:
+    Mesh(
+            std::vector<Node> nodes,
+            std::vector<FiniteElement> elements,
+            std::vector<FiniteElement> boundaryElements
+        );
+
     const std::vector<Node>& getNodes() const;
     const std::vector<FiniteElement>& getElements() const;
     const std::vector<FiniteElement>& getBoundaryElements() const;

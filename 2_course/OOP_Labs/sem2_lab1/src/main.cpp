@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-
 #include "AneuMeshLoader.h"
 
 int main(int argc, char* argv[])
@@ -17,6 +16,10 @@ int main(int argc, char* argv[])
     Mesh mesh = loader.loadMesh(fileName);
 
     std::cout << "Mesh file: " << fileName << '\n';
+    std::cout << "Nodes: " << mesh.getNodes().size() << '\n';
+    std::cout << "Finite elements: " << mesh.getElements().size() << '\n';
+    std::cout << "Boundary elements: "
+              << mesh.getBoundaryElements().size() << '\n';
 
     return 0;
 }
