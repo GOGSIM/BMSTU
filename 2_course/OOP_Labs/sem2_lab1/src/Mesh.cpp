@@ -1,5 +1,6 @@
 #include "Mesh.h"
 #include <algorithm>
+#include <stdexcept>
 #include <unordered_set>
 #include <utility>
 
@@ -229,4 +230,179 @@ std::vector<std::size_t> Mesh::findBoundaryNodesByBoundaryId(
     );
 
     return result;
+}
+
+std::vector<std::unordered_set<std::size_t>>
+Mesh::buildNodeAdjacency() const
+{
+    std::vector<std::unordered_set<std::size_t>> adjacency(
+        nodes_.size() + 1
+    );
+
+    std::for_each(
+        elements_.cbegin(),
+        elements_.cend(),
+        [&adjacency](const FiniteElement& element)
+        {
+            for (std::size_t i = 0; i < element.nodeIds.size(); ++i)
+            {
+                for (
+                    std::size_t j = i + 1;
+                    j < element.nodeIds.size();
+                    ++j
+                )
+                {
+                    const std::size_t firstNodeId =
+                        element.nodeIds[i];
+
+                    const std::size_t secondNodeId =
+                        element.nodeIds[j];
+
+                    adjacency[firstNodeId].insert(secondNodeId);
+                    adjacency[secondNodeId].insert(firstNodeId);
+                }
+            }
+        }
+    );
+
+    return adjacency;
+}
+
+std::size_t Mesh::getOrCreateMidpointNode(
+    const Edge& edge,
+    std::unordered_map<Edge, std::size_t, EdgeHash>& edgeMidpoints
+)
+{
+    const auto existingMidpoint = edgeMidpoints.find(edge);
+
+    if (existingMidpoint != edgeMidpoints.end())
+    {
+        return existingMidpoint->second;
+    }
+
+    if (
+        edge.firstNodeId == 0
+        || edge.secondNodeId == 0
+        || edge.firstNodeId > nodes_.size()
+        || edge.secondNodeId > nodes_.size()
+    )
+    {
+        throw std::out_of_range("Edge references invalid node ID");
+    }
+
+    const Node& firstNode = nodes_[edge.firstNodeId - 1];
+    const Node& secondNode = nodes_[edge.secondNodeId - 1];
+
+    Node midpoint;
+
+    midpoint.id = nodes_.size() + 1;
+
+    midpoint.x = (firstNode.x + secondNode.x) / 2.0;
+    midpoint.y = (firstNode.y + secondNode.y) / 2.0;
+    midpoint.z = (firstNode.z + secondNode.z) / 2.0;
+
+    midpoint.isVertex = false;
+
+    nodes_.push_back(midpoint);
+
+    edgeMidpoints.emplace(edge, midpoint.id);
+
+    return midpoint.id;
+}
+
+void Mesh::insertMidpointNodes()
+{
+    const bool invalidTetrahedron =
+        std::any_of(
+            elements_.cbegin(),
+            elements_.cend(),
+            [](const FiniteElement& element)
+            {
+                return element.nodeIds.size() != 4;
+            }
+        );
+
+    const bool invalidBoundaryElement =
+        std::any_of(
+            boundaryElements_.cbegin(),
+            boundaryElements_.cend(),
+            [](const FiniteElement& element)
+            {
+                return element.nodeIds.size() != 3;
+            }
+        );
+
+    if (invalidTetrahedron || invalidBoundaryElement)
+    {
+        throw std::logic_error(
+            "Midpoint nodes can only be inserted into the original linear mesh"
+        );
+    }
+
+    std::unordered_map<Edge, std::size_t, EdgeHash> edgeMidpoints;
+
+    edgeMidpoints.reserve(
+        elements_.size() * 6
+        + boundaryElements_.size() * 3
+    );
+
+    const auto addMidpoints =
+        [this, &edgeMidpoints](
+            FiniteElement& element,
+            std::size_t vertexCount
+        )
+    {
+        std::vector<std::size_t> midpointIds;
+
+        midpointIds.reserve(
+            vertexCount * (vertexCount - 1) / 2
+        );
+
+        for (std::size_t i = 0; i < vertexCount; ++i)
+        {
+            for (
+                std::size_t j = i + 1;
+                j < vertexCount;
+                ++j
+            )
+            {
+                const Edge edge(
+                    element.nodeIds[i],
+                    element.nodeIds[j]
+                );
+
+                const std::size_t midpointId =
+                    getOrCreateMidpointNode(
+                        edge,
+                        edgeMidpoints
+                    );
+
+                midpointIds.push_back(midpointId);
+            }
+        }
+
+        element.nodeIds.insert(
+            element.nodeIds.end(),
+            midpointIds.cbegin(),
+            midpointIds.cend()
+        );
+    };
+
+    std::for_each(
+        elements_.begin(),
+        elements_.end(),
+        [&addMidpoints](FiniteElement& element)
+        {
+            addMidpoints(element, 4);
+        }
+    );
+
+    std::for_each(
+        boundaryElements_.begin(),
+        boundaryElements_.end(),
+        [&addMidpoints](FiniteElement& element)
+        {
+            addMidpoints(element, 3);
+        }
+    );
 }

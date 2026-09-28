@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <unordered_set>
 #include <vector>
 #include "AneuMeshLoader.h"
 
@@ -91,6 +92,50 @@ int main(int argc, char* argv[])
         std::cout << nodeId << ' ';
     }
 
+    std::cout << '\n';
+
+    const std::vector<std::unordered_set<std::size_t>> adjacency =
+        mesh.buildNodeAdjacency();
+
+    std::cout << "Neighbors of node 13: ";
+
+    for (const std::size_t neighborId : adjacency[13])
+    {
+        std::cout << neighborId << ' ';
+    }
+
+    std::cout << '\n';
+
+    std::cout << "\nBefore midpoint insertion:\n";
+    std::cout << "Nodes: " << mesh.getNodes().size() << '\n';
+    std::cout << "First tetrahedron nodes: "
+              << mesh.getElements().front().nodeIds.size()
+              << '\n';
+    std::cout << "First boundary element nodes: "
+              << mesh.getBoundaryElements().front().nodeIds.size()
+              << '\n';
+
+    mesh.insertMidpointNodes();
+
+    std::cout << "\nAfter midpoint insertion:\n";
+    std::cout << "Nodes: " << mesh.getNodes().size() << '\n';
+    std::cout << "First tetrahedron nodes: "
+              << mesh.getElements().front().nodeIds.size()
+              << '\n';
+    std::cout << "First boundary element nodes: "
+              << mesh.getBoundaryElements().front().nodeIds.size()
+              << '\n';
+
+    mesh.printFiniteElement(
+        std::cout,
+        mesh.getElements().front()
+    );
+    std::cout << '\n';
+
+    mesh.printFiniteElement(
+        std::cout,
+        mesh.getBoundaryElements().front()
+    );
     std::cout << '\n';
 
     return 0;

@@ -1,5 +1,7 @@
 #pragma once
 #include <ostream>
+#include <unordered_map>
+#include <unordered_set>
 #include <vector>
 #include "MeshTypes.h"
 
@@ -46,7 +48,17 @@ public:
         std::size_t boundaryId
     ) const;
 
+    std::vector<std::unordered_set<std::size_t>>
+    buildNodeAdjacency() const;
+
+    void insertMidpointNodes();
+
 private:
+    std::size_t getOrCreateMidpointNode(
+        const Edge& edge,
+        std::unordered_map<Edge, std::size_t, EdgeHash>& edgeMidpoints
+    );
+
     std::vector<Node> nodes_;
     std::vector<FiniteElement> elements_;
     std::vector<FiniteElement> boundaryElements_;
