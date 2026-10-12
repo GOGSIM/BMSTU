@@ -7,7 +7,7 @@ struct Node
 {
     std::size_t id{};
     double x{};
-    double y{};
+    double y{}; //фигурные скобки, is Vertex
     double z{};
     bool isVertex{};
 };

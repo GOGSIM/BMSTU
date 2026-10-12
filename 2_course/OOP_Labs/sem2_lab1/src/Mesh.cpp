@@ -200,7 +200,7 @@ std::vector<std::size_t> Mesh::findBoundaryNodesByBoundaryId(
 ) const
 {
     std::vector<std::size_t> result;
-    std::unordered_set<std::size_t> uniqueNodeIds;
+    std::unordered_set<std::size_t> uniqueNodeIds; //unerdered set
 
     std::for_each(
         boundaryElements_.cbegin(),
@@ -347,7 +347,7 @@ void Mesh::insertMidpointNodes()
     );
 
     const auto addMidpoints =
-        [this, &edgeMidpoints](
+        [this, &edgeMidpoints]( //ссылка слева, ссылка справа
             FiniteElement& element,
             std::size_t vertexCount
         )

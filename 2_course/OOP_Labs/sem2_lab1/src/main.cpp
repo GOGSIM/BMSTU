@@ -173,3 +173,7 @@ int main(int argc, char* argv[])
 
     return 0;
 }
+
+//cd 2_course/OOP_Labs/sem2_lab1
+//cmake --build build
+//.\build\Debug\sem2_lab1.exe .\MeshExample.aneu
