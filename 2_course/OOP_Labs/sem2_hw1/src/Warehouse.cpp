@@ -2,9 +2,11 @@
 
 #include <algorithm>
 #include <cstdio>
+#include <cstring>
 #include <fstream>
 #include <iomanip>
 #include <iostream>
+#include <limits>
 #include <stdexcept>
 #include <type_traits>
 
@@ -37,6 +39,166 @@ std::vector<ProductRecord> findRecords(const RecordMap& records, Predicate predi
     }
 
     return result;
+}
+
+template <typename Value>
+Value readValue(const std::string& prompt)
+{
+    Value value{};
+
+    while (true)
+    {
+        std::cout << prompt;
+        if (std::cin >> value)
+        {
+            return value;
+        }
+
+        if (std::cin.eof())
+        {
+            throw std::runtime_error("Input stream is closed.");
+        }
+
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        std::cout << "Incorrect input. Try again.\n";
+    }
+}
+
+template <typename Value>
+Value readNonNegativeValue(const std::string& prompt)
+{
+    while (true)
+    {
+        Value value = readValue<Value>(prompt);
+        if (value >= 0)
+        {
+            return value;
+        }
+
+        std::cout << "The value cannot be negative.\n";
+    }
+}
+
+std::size_t readIndex(const std::string& prompt)
+{
+    long long value = readNonNegativeValue<long long>(prompt);
+    return static_cast<std::size_t>(value);
+}
+
+Date readDate(const std::string& title)
+{
+    while (true)
+    {
+        std::cout << title << '\n';
+        Date date{};
+        date.day = readValue<int>("Day: ");
+        date.month = readValue<int>("Month: ");
+        date.year = readValue<int>("Year: ");
+
+        if (isValidDate(date))
+        {
+            return date;
+        }
+
+        std::cout << "Incorrect date. Enter it again.\n";
+    }
+}
+
+std::string readProductName()
+{
+    while (true)
+    {
+        std::cout << "Product name: ";
+        std::string name;
+        std::getline(std::cin >> std::ws, name);
+
+        if (std::cin.eof() && name.empty())
+        {
+            throw std::runtime_error("Input stream is closed.");
+        }
+
+        if (name.empty())
+        {
+            std::cout << "The name cannot be empty.\n";
+        }
+        else if (name.size() >= PRODUCT_NAME_SIZE)
+        {
+            std::cout << "The name must contain at most "
+                      << PRODUCT_NAME_SIZE - 1 << " characters.\n";
+        }
+        else
+        {
+            return name;
+        }
+    }
+}
+
+ProductRecord readProductRecord()
+{
+    ProductRecord record{};
+    record.warehouseNumber = readNonNegativeValue<int>("Warehouse number: ");
+    record.productCode = readNonNegativeValue<int>("Product code: ");
+
+    const std::string name = readProductName();
+    std::memcpy(record.productName, name.c_str(), name.size() + 1);
+
+    record.arrivalDate = readDate("Arrival date");
+    record.shelfLifeDays = readNonNegativeValue<int>("Shelf life in days: ");
+    record.quantity = readNonNegativeValue<int>("Quantity: ");
+    record.unitPrice = readNonNegativeValue<double>("Unit price: ");
+    return record;
+}
+
+void printRecord(const ProductRecord& record)
+{
+    std::cout << "Index: " << record.index
+              << ", warehouse: " << record.warehouseNumber
+              << ", code: " << record.productCode
+              << ", name: " << record.productName
+              << ", arrival: "
+              << std::setfill('0') << std::setw(2) << record.arrivalDate.day << '.'
+              << std::setw(2) << record.arrivalDate.month << '.'
+              << std::setw(4) << record.arrivalDate.year
+              << std::setfill(' ')
+              << ", shelf life: " << record.shelfLifeDays
+              << ", quantity: " << record.quantity
+              << ", unit price: " << std::fixed << std::setprecision(2)
+              << record.unitPrice << '\n';
+}
+
+void printRecords(const RecordMap& records)
+{
+    if (records.empty())
+    {
+        std::cout << "There are no warehouse records.\n";
+        return;
+    }
+
+    for (RecordMap::const_iterator iterator = records.begin();
+         iterator != records.end(); ++iterator)
+    {
+        std::cout << "Map key " << iterator->first << ": ";
+        printRecord(iterator->second);
+    }
+}
+
+void printAndSaveSearchResults(
+    const WarehouseStorage& storage,
+    const std::vector<ProductRecord>& results)
+{
+    if (results.empty())
+    {
+        std::cout << "No matching records found.\n";
+    }
+    else
+    {
+        std::for_each(results.begin(), results.end(), printRecord);
+    }
+
+    storage.saveSearchResults(results);
+    std::cout << "Found records: " << results.size()
+              << ". Results are saved to search_results.dat.\n";
 }
 
 }
@@ -370,15 +532,126 @@ void WarehouseStorage::createReport() const
 
 void runMenu()
 {
+    WarehouseStorage storage;
+
     try
     {
-        WarehouseStorage storage;
         storage.load();
-        std::cout << "Warehouse records loaded: " << storage.records().size() << '\n';
     }
     catch (const std::exception& error)
     {
         std::cout << "Error: " << error.what() << '\n';
+        return;
+    }
+
+    int choice = -1;
+    while (choice != 0)
+    {
+        std::cout << "\nWarehouse records\n"
+                  << "1. Show records\n"
+                  << "2. Add a record\n"
+                  << "3. Delete a record\n"
+                  << "4. Replace a record\n"
+                  << "5. Find by warehouse number\n"
+                  << "6. Find by product code\n"
+                  << "7. Find by arrival date\n"
+                  << "8. Find expired products\n"
+                  << "9. Find not expired products\n"
+                  << "10. Create text report\n"
+                  << "0. Return\n";
+
+        try
+        {
+            choice = readValue<int>("Choice: ");
+
+            switch (choice)
+            {
+            case 1:
+                printRecords(storage.records());
+                break;
+            case 2:
+            {
+                ProductRecord record = readProductRecord();
+                std::size_t index = storage.add(record);
+                std::cout << "Record added with index " << index << ".\n";
+                break;
+            }
+            case 3:
+            {
+                std::size_t index = readIndex("Record index: ");
+                if (storage.remove(index))
+                {
+                    std::cout << "Record deleted.\n";
+                }
+                else
+                {
+                    std::cout << "Record with this index does not exist.\n";
+                }
+                break;
+            }
+            case 4:
+            {
+                std::size_t index = readIndex("Record index: ");
+                if (storage.records().find(index) == storage.records().end())
+                {
+                    std::cout << "Record with this index does not exist.\n";
+                    break;
+                }
+
+                ProductRecord record = readProductRecord();
+                storage.replace(index, record);
+                std::cout << "Record replaced. Its index is unchanged.\n";
+                break;
+            }
+            case 5:
+            {
+                int number = readNonNegativeValue<int>("Warehouse number: ");
+                printAndSaveSearchResults(
+                    storage, storage.findByWarehouseNumber(number));
+                break;
+            }
+            case 6:
+            {
+                int code = readNonNegativeValue<int>("Product code: ");
+                printAndSaveSearchResults(storage, storage.findByProductCode(code));
+                break;
+            }
+            case 7:
+            {
+                Date date = readDate("Arrival date to find");
+                printAndSaveSearchResults(storage, storage.findByArrivalDate(date));
+                break;
+            }
+            case 8:
+            {
+                Date date = readDate("Control date");
+                printAndSaveSearchResults(storage, storage.findExpired(date));
+                break;
+            }
+            case 9:
+            {
+                Date date = readDate("Control date");
+                printAndSaveSearchResults(storage, storage.findNotExpired(date));
+                break;
+            }
+            case 10:
+                storage.createReport();
+                std::cout << "Report is saved to warehouse_report.txt.\n";
+                break;
+            case 0:
+                break;
+            default:
+                std::cout << "Unknown menu item.\n";
+            }
+        }
+        catch (const std::exception& error)
+        {
+            std::cout << "Error: " << error.what() << '\n';
+            if (std::cin.eof())
+            {
+                return;
+            }
+        }
     }
 }
 
