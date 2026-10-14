@@ -301,9 +301,14 @@ void WarehouseStorage::load()
         }
     }
 
-    if (!input.eof())
+    if (input.gcount() != 0)
     {
         throw std::runtime_error("Warehouse file contains an incomplete record.");
+    }
+
+    if (input.bad())
+    {
+        throw std::runtime_error("Cannot read the warehouse file.");
     }
 }
 

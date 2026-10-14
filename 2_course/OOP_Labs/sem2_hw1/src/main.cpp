@@ -13,6 +13,11 @@ int readMenuChoice()
 
     while (!(std::cin >> choice))
     {
+        if (std::cin.eof())
+        {
+            return 0;
+        }
+
         std::cin.clear();
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         std::cout << "Incorrect input. Enter an integer: ";
