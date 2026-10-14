@@ -1,5 +1,6 @@
 #include "Warehouse.h"
 
+#include <algorithm>
 #include <cstdio>
 #include <fstream>
 #include <iostream>
@@ -8,6 +9,36 @@
 
 namespace warehouse
 {
+
+namespace
+{
+
+template <typename Predicate>
+std::vector<ProductRecord> findRecords(const RecordMap& records, Predicate predicate)
+{
+    std::vector<ProductRecord> result;
+    RecordMap::const_iterator current = records.begin();
+
+    while (current != records.end())
+    {
+        current = std::find_if(
+            current, records.end(),
+            [&predicate](const RecordMap::value_type& pair)
+            {
+                return predicate(pair.second);
+            });
+
+        if (current != records.end())
+        {
+            result.push_back(current->second);
+            ++current;
+        }
+    }
+
+    return result;
+}
+
+}
 
 static_assert(std::is_trivially_copyable<ProductRecord>::value,
               "ProductRecord must be written as one binary object");
@@ -215,6 +246,49 @@ bool WarehouseStorage::replace(std::size_t index, ProductRecord record)
     rewriteFile(updatedRecords);
     records_ = updatedRecords;
     return true;
+}
+
+std::vector<ProductRecord> WarehouseStorage::findByWarehouseNumber(
+    int warehouseNumber) const
+{
+    return findRecords(records_, [warehouseNumber](const ProductRecord& record)
+    {
+        return record.warehouseNumber == warehouseNumber;
+    });
+}
+
+std::vector<ProductRecord> WarehouseStorage::findByProductCode(int productCode) const
+{
+    return findRecords(records_, [productCode](const ProductRecord& record)
+    {
+        return record.productCode == productCode;
+    });
+}
+
+std::vector<ProductRecord> WarehouseStorage::findByArrivalDate(const Date& date) const
+{
+    return findRecords(records_, [&date](const ProductRecord& record)
+    {
+        return compareDates(record.arrivalDate, date) == 0;
+    });
+}
+
+std::vector<ProductRecord> WarehouseStorage::findExpired(
+    const Date& controlDate) const
+{
+    return findRecords(records_, [&controlDate](const ProductRecord& record)
+    {
+        return isExpired(record, controlDate);
+    });
+}
+
+std::vector<ProductRecord> WarehouseStorage::findNotExpired(
+    const Date& controlDate) const
+{
+    return findRecords(records_, [&controlDate](const ProductRecord& record)
+    {
+        return !isExpired(record, controlDate);
+    });
 }
 
 void runMenu()

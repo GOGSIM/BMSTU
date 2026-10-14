@@ -4,6 +4,7 @@
 #include <cstddef>
 #include <map>
 #include <string>
+#include <vector>
 
 namespace warehouse
 {
@@ -52,6 +53,11 @@ public:
     std::size_t add(ProductRecord record);
     bool remove(std::size_t index);
     bool replace(std::size_t index, ProductRecord record);
+    std::vector<ProductRecord> findByWarehouseNumber(int warehouseNumber) const;
+    std::vector<ProductRecord> findByProductCode(int productCode) const;
+    std::vector<ProductRecord> findByArrivalDate(const Date& date) const;
+    std::vector<ProductRecord> findExpired(const Date& controlDate) const;
+    std::vector<ProductRecord> findNotExpired(const Date& controlDate) const;
 
 private:
     std::size_t nextIndex() const;
