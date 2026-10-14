@@ -291,6 +291,28 @@ std::vector<ProductRecord> WarehouseStorage::findNotExpired(
     });
 }
 
+void WarehouseStorage::saveSearchResults(
+    const std::vector<ProductRecord>& results) const
+{
+    std::ofstream output(SEARCH_RESULTS_FILE_NAME,
+                         std::ios::binary | std::ios::trunc);
+    if (!output)
+    {
+        throw std::runtime_error("Cannot create search results file.");
+    }
+
+    for (std::vector<ProductRecord>::const_iterator iterator = results.begin();
+         iterator != results.end(); ++iterator)
+    {
+        output.write(reinterpret_cast<const char*>(&*iterator),
+                     sizeof(ProductRecord));
+        if (!output)
+        {
+            throw std::runtime_error("Cannot write search results.");
+        }
+    }
+}
+
 void runMenu()
 {
     try
