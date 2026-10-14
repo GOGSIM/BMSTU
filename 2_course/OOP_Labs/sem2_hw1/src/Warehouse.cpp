@@ -51,6 +51,39 @@ const RecordMap& WarehouseStorage::records() const
     return records_;
 }
 
+std::size_t WarehouseStorage::nextIndex() const
+{
+    if (records_.empty())
+    {
+        return 1;
+    }
+
+    return records_.rbegin()->first + 1;
+}
+
+void WarehouseStorage::appendRecord(const ProductRecord& record) const
+{
+    std::ofstream output(fileName_, std::ios::binary | std::ios::app);
+    if (!output)
+    {
+        throw std::runtime_error("Cannot open warehouse file for appending.");
+    }
+
+    output.write(reinterpret_cast<const char*>(&record), sizeof(ProductRecord));
+    if (!output)
+    {
+        throw std::runtime_error("Cannot append a record to warehouse file.");
+    }
+}
+
+std::size_t WarehouseStorage::add(ProductRecord record)
+{
+    record.index = nextIndex();
+    appendRecord(record);
+    records_.insert(std::make_pair(record.index, record));
+    return record.index;
+}
+
 void runMenu()
 {
     try
