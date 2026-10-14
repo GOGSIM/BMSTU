@@ -1,3 +1,4 @@
+// Объявления первой части и необходимые стандартные библиотеки.
 #include "SequentialPart.h"
 
 #include <algorithm>
@@ -12,17 +13,23 @@
 #include <stdexcept>
 #include <vector>
 
+// Безымянное пространство имён скрывает служебные функции внутри файла.
 namespace
 {
+// Количество и границы генерируемых значений.
 const int RANDOM_NUMBER_COUNT = 100;
 const int MIN_RANDOM_VALUE = -50;
+// В диапазоне от -50 до 50 находится 101 целое число.
 const int RANDOM_VALUE_COUNT = 101;
 
+// Возвращает одно случайное целое число из диапазона [-50; 50].
 int generateRandomNumber()
 {
+    // Остаток от деления ограничивает rand нужным количеством значений.
     return MIN_RANDOM_VALUE + std::rand() % RANDOM_VALUE_COUNT;
 }
 
+// Читает номер пункта меню и очищает поток после неверного ввода.
 int readMenuChoice()
 {
     int choice = 0;
@@ -42,6 +49,7 @@ int readMenuChoice()
     return choice;
 }
 
+// Спрашивает способ загрузки и возвращает заполненный контейнер.
 template <typename Container>
 Container selectLoadMethod()
 {
@@ -68,6 +76,7 @@ Container selectLoadMethod()
     throw std::runtime_error("Unknown load method.");
 }
 
+// Спрашивает одну из трёх контейнерных версий modify.
 template <typename Container>
 Container selectModifyMethod(const Container& source)
 {
@@ -86,6 +95,7 @@ Container selectModifyMethod(const Container& source)
     if (choice == 2)
     {
         Container result;
+        // cbegin и cend передают функции весь диапазон исходного контейнера.
         sequential::modifyWithIterators(
             source.cbegin(),
             source.cend(),
@@ -102,6 +112,7 @@ Container selectModifyMethod(const Container& source)
     throw std::runtime_error("Unknown modification method.");
 }
 
+// Спрашивает способ записи готового контейнера в output.txt.
 template <typename Container>
 void selectOutputMethod(const Container& result)
 {
@@ -132,6 +143,7 @@ void selectOutputMethod(const Container& result)
     throw std::runtime_error("Unknown output method.");
 }
 
+// Объединяет выбор загрузки, изменения и вывода для одного типа контейнера.
 template <typename Container>
 void processContainer()
 {
@@ -146,6 +158,7 @@ void processContainer()
 
 namespace sequential
 {
+// Создаёт input.txt обычным циклом и оператором вывода <<.
 void createDataWithStreams(const std::string& fileName)
 {
     std::ofstream output(fileName);
@@ -166,9 +179,12 @@ void createDataWithStreams(const std::string& fileName)
     }
 }
 
+// Создаёт input.txt с помощью generate, copy и ostream_iterator.
 void createDataWithAlgorithms(const std::string& fileName)
 {
+    // vector сразу содержит ровно 100 элементов.
     std::vector<int> data(RANDOM_NUMBER_COUNT);
+    // generate вызывает generateRandomNumber отдельно для каждого элемента.
     std::generate(data.begin(), data.end(), generateRandomNumber);
 
     std::ofstream output(fileName);
@@ -178,6 +194,7 @@ void createDataWithAlgorithms(const std::string& fileName)
         throw std::runtime_error("Cannot open the input data file for writing.");
     }
 
+    // ostream_iterator записывает каждый элемент в поток и добавляет перевод строки.
     std::copy(
         data.cbegin(),
         data.cend(),
@@ -190,11 +207,13 @@ void createDataWithAlgorithms(const std::string& fileName)
     }
 }
 
+// Читает файл два раза: сначала вычисляет делитель, затем выполняет transform.
 void modifyWithTransform(
     const std::string& inputFileName,
     const std::string& outputFileName
 )
 {
+    // Первый проход загружает данные и позволяет проверить все ошибки.
     const std::vector<double> source =
         loadDataWithIterators<std::vector<double>>(inputFileName);
     const double divisor = detail::calculateDivisor(
@@ -202,6 +221,7 @@ void modifyWithTransform(
         source.cend()
     );
 
+    // Повторно открываем исходный файл для потокового преобразования.
     std::ifstream input(inputFileName);
     std::ofstream output(outputFileName);
 
@@ -220,15 +240,17 @@ void modifyWithTransform(
     double absoluteSum = 0.0;
     std::size_t elementCount = 0;
 
+    // transform читает число, применяет лямбда-функцию и сразу пишет результат.
     std::transform(
         std::istream_iterator<double>(input),
         std::istream_iterator<double>(),
         std::ostream_iterator<double>(output, "\n"),
+        // divisor копируется, а сумма и счётчик захватываются по ссылке через &.
         [divisor, &absoluteSum, &elementCount](double value)
         {
             const double result = value / divisor;
             absoluteSum += std::abs(result);
-            ++elementCount;
+            ++elementCount; // Префиксный ++ увеличивает счётчик на единицу.
             return result;
         }
     );
@@ -243,6 +265,7 @@ void modifyWithTransform(
         throw std::runtime_error("Cannot calculate statistics for empty data.");
     }
 
+    // После 100 преобразованных чисел дописываем сумму и среднее.
     output << absoluteSum << '\n'
            << absoluteSum / static_cast<double>(elementCount) << '\n';
 
@@ -252,6 +275,7 @@ void modifyWithTransform(
     }
 }
 
+// Показывает все операции первой части и обрабатывает исключения.
 void runMenu()
 {
     int choice = -1;
@@ -270,6 +294,7 @@ void runMenu()
 
         choice = readMenuChoice();
 
+        // try позволяет вернуть пользователя в меню после ошибки операции.
         try
         {
             switch (choice)
@@ -301,6 +326,7 @@ void runMenu()
                 std::cout << "Unknown menu item.\n";
             }
         }
+        // catch получает стандартное исключение по константной ссылке.
         catch (const std::exception& error)
         {
             std::cout << "Error: " << error.what() << '\n';

@@ -1,3 +1,4 @@
+// Объявления складской части и необходимые стандартные библиотеки.
 #include "Warehouse.h"
 
 #include <algorithm>
@@ -13,19 +14,26 @@
 namespace warehouse
 {
 
+// Безымянное пространство имён скрывает служебные функции внутри этого файла.
 namespace
 {
 
+// Predicate — тип переданной функции-условия. Так один алгоритм поиска можно
+// использовать для номера склада, кода, даты и срока хранения.
 template <typename Predicate>
+// Возвращает все записи карты, для которых predicate даёт true.
 std::vector<ProductRecord> findRecords(const RecordMap& records, Predicate predicate)
 {
     std::vector<ProductRecord> result;
     RecordMap::const_iterator current = records.begin();
 
+    // find_if каждый раз ищет следующее совпадение от текущей позиции.
     while (current != records.end())
     {
         current = std::find_if(
             current, records.end(),
+            // [&predicate] захватывает условие по ссылке, чтобы не копировать его.
+            // value_type карты — это пара: first является ключом, second — записью.
             [&predicate](const RecordMap::value_type& pair)
             {
                 return predicate(pair.second);
@@ -41,9 +49,12 @@ std::vector<ProductRecord> findRecords(const RecordMap& records, Predicate predi
     return result;
 }
 
+// Value — тип читаемого значения: например int, double или long long.
 template <typename Value>
+// Читает одно значение и повторяет запрос после неправильного ввода.
 Value readValue(const std::string& prompt)
 {
+    // Фигурные скобки создают начальное нулевое значение выбранного типа.
     Value value{};
 
     while (true)
@@ -59,12 +70,14 @@ Value readValue(const std::string& prompt)
             throw std::runtime_error("Input stream is closed.");
         }
 
+        // clear снимает ошибку потока, ignore удаляет остаток неверной строки.
         std::cin.clear();
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         std::cout << "Incorrect input. Try again.\n";
     }
 }
 
+// Обёртка над readValue, запрещающая отрицательные числа.
 template <typename Value>
 Value readNonNegativeValue(const std::string& prompt)
 {
@@ -80,12 +93,15 @@ Value readNonNegativeValue(const std::string& prompt)
     }
 }
 
+// Читает индекс через знаковый тип, чтобы отдельно отсеять отрицательное число.
 std::size_t readIndex(const std::string& prompt)
 {
     long long value = readNonNegativeValue<long long>(prompt);
+    // static_cast выполняет явное преобразование в тип индекса карты.
     return static_cast<std::size_t>(value);
 }
 
+// Читает дату целиком и не возвращает её, пока она не станет корректной.
 Date readDate(const std::string& title)
 {
     while (true)
@@ -105,12 +121,14 @@ Date readDate(const std::string& title)
     }
 }
 
+// Читает название с пробелами и проверяет вместимость массива ProductRecord.
 std::string readProductName()
 {
     while (true)
     {
         std::cout << "Product name: ";
         std::string name;
+        // ws удаляет оставшийся перевод строки, getline читает строку с пробелами.
         std::getline(std::cin >> std::ws, name);
 
         if (std::cin.eof() && name.empty())
@@ -134,13 +152,16 @@ std::string readProductName()
     }
 }
 
+// Собирает одну складскую запись из проверенных пользовательских значений.
 ProductRecord readProductRecord()
 {
+    // {} обнуляет все числовые поля и массив символов.
     ProductRecord record{};
     record.warehouseNumber = readNonNegativeValue<int>("Warehouse number: ");
     record.productCode = readNonNegativeValue<int>("Product code: ");
 
     const std::string name = readProductName();
+    // memcpy переносит символы вместе с завершающим нулём в фиксированный массив.
     std::memcpy(record.productName, name.c_str(), name.size() + 1);
 
     record.arrivalDate = readDate("Arrival date");
@@ -150,6 +171,7 @@ ProductRecord readProductRecord()
     return record;
 }
 
+// Выводит все поля одной записи в понятном текстовом виде.
 void printRecord(const ProductRecord& record)
 {
     std::cout << "Index: " << record.index
@@ -167,6 +189,7 @@ void printRecord(const ProductRecord& record)
               << record.unitPrice << '\n';
 }
 
+// Выводит все элементы карты; first — индекс, second — сама запись.
 void printRecords(const RecordMap& records)
 {
     if (records.empty())
@@ -183,6 +206,7 @@ void printRecords(const RecordMap& records)
     }
 }
 
+// Показывает найденные записи и одновременно сохраняет их в отдельный файл.
 void printAndSaveSearchResults(
     const WarehouseStorage& storage,
     const std::vector<ProductRecord>& results)
@@ -193,6 +217,7 @@ void printAndSaveSearchResults(
     }
     else
     {
+        // for_each вызывает printRecord для каждого элемента vector.
         std::for_each(results.begin(), results.end(), printRecord);
     }
 
@@ -203,14 +228,18 @@ void printAndSaveSearchResults(
 
 }
 
+// static_assert проверяется при компиляции. Запись обязана безопасно копироваться
+// как набор байтов, потому что read и write работают со всем объектом сразу.
 static_assert(std::is_trivially_copyable<ProductRecord>::value,
               "ProductRecord must be written as one binary object");
 
+// Определяет високосный год по правилам григорианского календаря.
 bool isLeapYear(int year)
 {
     return year % 400 == 0 || (year % 4 == 0 && year % 100 != 0);
 }
 
+// Возвращает число дней в месяце или ноль для неверного номера месяца.
 int daysInMonth(int month, int year)
 {
     const int days[] = {31, 28, 31, 30, 31, 30,
@@ -229,14 +258,17 @@ int daysInMonth(int month, int year)
     return days[month - 1];
 }
 
+// Проверяет год, месяц и допустимый номер дня внутри месяца.
 bool isValidDate(const Date& date)
 {
     return date.year > 0 && date.month >= 1 && date.month <= 12 &&
            date.day >= 1 && date.day <= daysInMonth(date.month, date.year);
 }
 
+// Переводит дату в единый порядковый номер дня для простых вычислений.
 long long dateToDays(const Date& date)
 {
+    // long long оставляет запас для произведения года на количество дней.
     long long previousYear = static_cast<long long>(date.year) - 1;
     long long result = previousYear * 365 + previousYear / 4 -
                        previousYear / 100 + previousYear / 400;
@@ -249,6 +281,7 @@ long long dateToDays(const Date& date)
     return result + date.day;
 }
 
+// Сравнивает две даты: -1 — левая раньше, 0 — равны, 1 — левая позже.
 int compareDates(const Date& left, const Date& right)
 {
     long long leftDays = dateToDays(left);
@@ -265,21 +298,25 @@ int compareDates(const Date& left, const Date& right)
     return 0;
 }
 
+// Проверяет, наступил ли день после окончания срока хранения товара.
 bool isExpired(const ProductRecord& record, const Date& controlDate)
 {
     long long expirationDay = dateToDays(record.arrivalDate) + record.shelfLifeDays;
     return dateToDays(controlDate) > expirationDay;
 }
 
+// Список инициализации после двоеточия сразу задаёт имя рабочего файла.
 WarehouseStorage::WarehouseStorage(const std::string& fileName)
     : fileName_(fileName)
 {
 }
 
+// Загружает бинарные ProductRecord в map или создаёт новый пустой файл.
 void WarehouseStorage::load()
 {
     records_.clear();
 
+    // binary запрещает текстовые преобразования байтов при чтении.
     std::ifstream input(fileName_, std::ios::binary);
     if (!input)
     {
@@ -292,15 +329,20 @@ void WarehouseStorage::load()
     }
 
     ProductRecord record{};
+    // reinterpret_cast представляет адрес структуры как адрес массива байтов.
+    // sizeof сообщает точный размер одного объекта ProductRecord.
     while (input.read(reinterpret_cast<char*>(&record), sizeof(ProductRecord)))
     {
+        // Последний символ принудительно завершается нулём для безопасного вывода.
         record.productName[PRODUCT_NAME_SIZE - 1] = '\0';
+        // insert возвращает пару, где second показывает успешность вставки.
         if (!records_.insert(std::make_pair(record.index, record)).second)
         {
             throw std::runtime_error("Duplicate record index in warehouse file.");
         }
     }
 
+    // Ненулевой gcount означает, что в конце осталась неполная структура.
     if (input.gcount() != 0)
     {
         throw std::runtime_error("Warehouse file contains an incomplete record.");
@@ -312,11 +354,13 @@ void WarehouseStorage::load()
     }
 }
 
+// Возвращает карту только для чтения, не создавая её копию.
 const RecordMap& WarehouseStorage::records() const
 {
     return records_;
 }
 
+// Вычисляет следующий индекс как максимальный существующий индекс плюс один.
 std::size_t WarehouseStorage::nextIndex() const
 {
     if (records_.empty())
@@ -324,17 +368,21 @@ std::size_t WarehouseStorage::nextIndex() const
         return 1;
     }
 
+    // rbegin у отсортированной map указывает на пару с наибольшим ключом.
     return records_.rbegin()->first + 1;
 }
 
+// Дописывает одну структуру целиком в конец основного бинарного файла.
 void WarehouseStorage::appendRecord(const ProductRecord& record) const
 {
+    // app устанавливает позицию записи в конец файла.
     std::ofstream output(fileName_, std::ios::binary | std::ios::app);
     if (!output)
     {
         throw std::runtime_error("Cannot open warehouse file for appending.");
     }
 
+    // const char* нужен потому, что write принимает указатель на сырые байты.
     output.write(reinterpret_cast<const char*>(&record), sizeof(ProductRecord));
     if (!output)
     {
@@ -342,6 +390,7 @@ void WarehouseStorage::appendRecord(const ProductRecord& record) const
     }
 }
 
+// Назначает новой записи уникальный индекс, сохраняет её и добавляет в map.
 std::size_t WarehouseStorage::add(ProductRecord record)
 {
     record.index = nextIndex();
@@ -350,8 +399,10 @@ std::size_t WarehouseStorage::add(ProductRecord record)
     return record.index;
 }
 
+// Полностью записывает обновлённую карту во временный файл и заменяет основной.
 void WarehouseStorage::rewriteFile(const RecordMap& updatedRecords) const
 {
+    // trunc очищает прежний временный файл перед новой записью.
     std::ofstream output(TEMPORARY_FILE_NAME, std::ios::binary | std::ios::trunc);
     if (!output)
     {
@@ -361,6 +412,7 @@ void WarehouseStorage::rewriteFile(const RecordMap& updatedRecords) const
     for (RecordMap::const_iterator iterator = updatedRecords.begin();
          iterator != updatedRecords.end(); ++iterator)
     {
+        // iterator->second получает ProductRecord из пары map.
         output.write(reinterpret_cast<const char*>(&iterator->second),
                      sizeof(ProductRecord));
         if (!output)
@@ -369,6 +421,7 @@ void WarehouseStorage::rewriteFile(const RecordMap& updatedRecords) const
         }
     }
 
+    // Файл закрывается до операций удаления и переименования.
     output.close();
     if (!output)
     {
@@ -380,6 +433,7 @@ void WarehouseStorage::rewriteFile(const RecordMap& updatedRecords) const
         throw std::runtime_error("Cannot remove the old warehouse file.");
     }
 
+    // rename превращает готовый временный файл в новый основной файл.
     if (std::rename(TEMPORARY_FILE_NAME.c_str(), fileName_.c_str()) != 0)
     {
         throw std::runtime_error(
@@ -387,6 +441,7 @@ void WarehouseStorage::rewriteFile(const RecordMap& updatedRecords) const
     }
 }
 
+// Удаляет запись по индексу и сохраняет обновлённый набор через временный файл.
 bool WarehouseStorage::remove(std::size_t index)
 {
     if (records_.find(index) == records_.end())
@@ -394,6 +449,7 @@ bool WarehouseStorage::remove(std::size_t index)
         return false;
     }
 
+    // Сначала меняется копия карты; рабочая карта обновится после успешной записи.
     RecordMap updatedRecords = records_;
     updatedRecords.erase(index);
     rewriteFile(updatedRecords);
@@ -401,6 +457,7 @@ bool WarehouseStorage::remove(std::size_t index)
     return true;
 }
 
+// Заменяет поля найденной записи, но сохраняет её прежний уникальный индекс.
 bool WarehouseStorage::replace(std::size_t index, ProductRecord record)
 {
     RecordMap::const_iterator found = records_.find(index);
@@ -410,6 +467,7 @@ bool WarehouseStorage::replace(std::size_t index, ProductRecord record)
     }
 
     record.index = index;
+    // Оператор [] обращается к значению map по заданному ключу.
     RecordMap updatedRecords = records_;
     updatedRecords[index] = record;
     rewriteFile(updatedRecords);
@@ -417,15 +475,18 @@ bool WarehouseStorage::replace(std::size_t index, ProductRecord record)
     return true;
 }
 
+// Ищет все товары, находящиеся на указанном складе.
 std::vector<ProductRecord> WarehouseStorage::findByWarehouseNumber(
     int warehouseNumber) const
 {
+    // [warehouseNumber] копирует искомый номер внутрь лямбда-функции.
     return findRecords(records_, [warehouseNumber](const ProductRecord& record)
     {
         return record.warehouseNumber == warehouseNumber;
     });
 }
 
+// Ищет все записи с указанным кодом товара.
 std::vector<ProductRecord> WarehouseStorage::findByProductCode(int productCode) const
 {
     return findRecords(records_, [productCode](const ProductRecord& record)
@@ -434,14 +495,17 @@ std::vector<ProductRecord> WarehouseStorage::findByProductCode(int productCode) 
     });
 }
 
+// Ищет все записи с точным совпадением даты поступления.
 std::vector<ProductRecord> WarehouseStorage::findByArrivalDate(const Date& date) const
 {
+    // [&date] использует переданную дату по константной ссылке.
     return findRecords(records_, [&date](const ProductRecord& record)
     {
         return compareDates(record.arrivalDate, date) == 0;
     });
 }
 
+// Возвращает товары, просроченные на контрольную дату.
 std::vector<ProductRecord> WarehouseStorage::findExpired(
     const Date& controlDate) const
 {
@@ -451,6 +515,7 @@ std::vector<ProductRecord> WarehouseStorage::findExpired(
     });
 }
 
+// Возвращает товары, срок хранения которых ещё не закончился.
 std::vector<ProductRecord> WarehouseStorage::findNotExpired(
     const Date& controlDate) const
 {
@@ -460,9 +525,11 @@ std::vector<ProductRecord> WarehouseStorage::findNotExpired(
     });
 }
 
+// Перезаписывает файл поиска целыми бинарными структурами ProductRecord.
 void WarehouseStorage::saveSearchResults(
     const std::vector<ProductRecord>& results) const
 {
+    // trunc гарантирует, что результаты прошлого поиска будут удалены.
     std::ofstream output(SEARCH_RESULTS_FILE_NAME,
                          std::ios::binary | std::ios::trunc);
     if (!output)
@@ -473,6 +540,7 @@ void WarehouseStorage::saveSearchResults(
     for (std::vector<ProductRecord>::const_iterator iterator = results.begin();
          iterator != results.end(); ++iterator)
     {
+        // &*iterator получает адрес объекта, на который указывает итератор vector.
         output.write(reinterpret_cast<const char*>(&*iterator),
                      sizeof(ProductRecord));
         if (!output)
@@ -482,6 +550,7 @@ void WarehouseStorage::saveSearchResults(
     }
 }
 
+// Создаёт текстовую таблицу и общий итог стоимости всех позиций.
 void WarehouseStorage::createReport() const
 {
     std::ofstream output(REPORT_FILE_NAME, std::ios::trunc);
@@ -490,6 +559,7 @@ void WarehouseStorage::createReport() const
         throw std::runtime_error("Cannot create warehouse report.");
     }
 
+    // left, right, setw и setfill управляют выравниванием столбцов.
     output << std::left
            << std::setw(8) << "Index"
            << std::setw(12) << "Warehouse"
@@ -506,6 +576,7 @@ void WarehouseStorage::createReport() const
          iterator != records_.end(); ++iterator)
     {
         const ProductRecord& record = iterator->second;
+        // Стоимость позиции равна количеству, умноженному на цену единицы.
         double positionTotal = record.quantity * record.unitPrice;
         grandTotal += positionTotal;
 
@@ -521,6 +592,7 @@ void WarehouseStorage::createReport() const
                << std::setfill(' ') << std::left << "  "
                << std::setw(12) << record.shelfLifeDays
                << std::setw(10) << record.quantity
+               // fixed и setprecision(2) оставляют две цифры после точки.
                << std::setw(14) << std::fixed << std::setprecision(2)
                << record.unitPrice
                << positionTotal << '\n';
@@ -535,10 +607,12 @@ void WarehouseStorage::createReport() const
     }
 }
 
+// Загружает склад и запускает все операции второй части через подменю.
 void runMenu()
 {
     WarehouseStorage storage;
 
+    // Ошибка начальной загрузки не позволяет безопасно продолжить работу.
     try
     {
         storage.load();
@@ -569,6 +643,7 @@ void runMenu()
         {
             choice = readValue<int>("Choice: ");
 
+            // Отдельные фигурные скобки создают локальную область для переменных case.
             switch (choice)
             {
             case 1:
@@ -649,6 +724,7 @@ void runMenu()
                 std::cout << "Unknown menu item.\n";
             }
         }
+        // Ошибка одной операции выводится, после чего меню продолжает работу.
         catch (const std::exception& error)
         {
             std::cout << "Error: " << error.what() << '\n';
