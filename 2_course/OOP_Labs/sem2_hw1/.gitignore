@@ -1,0 +1,7 @@
+build/
+input.txt
+output.txt
+warehouse.dat
+warehouse.tmp
+search_results.dat
+warehouse_report.txt
