@@ -178,6 +178,30 @@ void modifyWithIterators(Iterator begin, Iterator end, Container& result)
     detail::appendAbsoluteStatistics(result);
 }
 
+template <typename Container>
+Container modifyWithForEach(const Container& source)
+{
+    typedef typename Container::value_type ValueType;
+    const ValueType divisor = detail::calculateDivisor(
+        source.cbegin(),
+        source.cend()
+    );
+
+    Container result(source);
+
+    std::for_each(
+        result.begin(),
+        result.end(),
+        [divisor](ValueType& value)
+        {
+            value /= divisor;
+        }
+    );
+
+    detail::appendAbsoluteStatistics(result);
+    return result;
+}
+
 void runMenu();
 }
 
