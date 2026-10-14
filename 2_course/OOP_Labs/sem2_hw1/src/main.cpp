@@ -1,5 +1,8 @@
 #include <iostream>
 #include <limits>
+#include <ctime>
+#include <cstdlib>
+#include "SequentialPart.h"
 
 namespace
 {
@@ -17,11 +20,6 @@ int readMenuChoice()
     return choice;
 }
 
-void runSequentialMenu()
-{
-    std::cout << "Sequential containers part is not implemented yet.\n";
-}
-
 void runWarehouseMenu()
 {
     std::cout << "Associative container part is not implemented yet.\n";
@@ -30,6 +28,8 @@ void runWarehouseMenu()
 
 int main()
 {
+    std::srand(static_cast<unsigned int>(std::time(nullptr)));
+
     int choice = -1;
 
     while (choice != 0)
@@ -45,7 +45,7 @@ int main()
         switch (choice)
         {
         case 1:
-            runSequentialMenu();
+            sequential::runMenu();
             break;
         case 2:
             runWarehouseMenu();

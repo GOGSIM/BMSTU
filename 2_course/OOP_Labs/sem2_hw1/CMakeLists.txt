@@ -7,5 +7,9 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_executable(sem2_hw1
     src/main.cpp
+    src/SequentialPart.cpp
 )
+
+target_include_directories(sem2_hw1 PRIVATE include)
+
 
