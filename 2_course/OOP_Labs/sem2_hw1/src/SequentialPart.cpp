@@ -3,6 +3,7 @@
 #include <algorithm>
 #include <cstdlib>
 #include <fstream>
+#include <iomanip>
 #include <iostream>
 #include <iterator>
 #include <limits>
@@ -78,6 +79,68 @@ void createDataWithAlgorithms(const std::string& fileName)
     if (!output)
     {
         throw std::runtime_error("Cannot write all generated data to the file.");
+    }
+}
+
+void modifyWithTransform(
+    const std::string& inputFileName,
+    const std::string& outputFileName
+)
+{
+    const std::vector<double> source =
+        loadDataWithIterators<std::vector<double>>(inputFileName);
+    const double divisor = detail::calculateDivisor(
+        source.cbegin(),
+        source.cend()
+    );
+
+    std::ifstream input(inputFileName);
+    std::ofstream output(outputFileName);
+
+    if (!input)
+    {
+        throw std::runtime_error("Cannot open the input data file.");
+    }
+
+    if (!output)
+    {
+        throw std::runtime_error("Cannot open the result file for writing.");
+    }
+
+    output << std::setprecision(15);
+
+    double absoluteSum = 0.0;
+    std::size_t elementCount = 0;
+
+    std::transform(
+        std::istream_iterator<double>(input),
+        std::istream_iterator<double>(),
+        std::ostream_iterator<double>(output, "\n"),
+        [divisor, &absoluteSum, &elementCount](double value)
+        {
+            const double result = value / divisor;
+            absoluteSum += std::abs(result);
+            ++elementCount;
+            return result;
+        }
+    );
+
+    if (!input.eof())
+    {
+        throw std::runtime_error("The input data file contains an invalid value.");
+    }
+
+    if (elementCount == 0)
+    {
+        throw std::runtime_error("Cannot calculate statistics for empty data.");
+    }
+
+    output << absoluteSum << '\n'
+           << absoluteSum / static_cast<double>(elementCount) << '\n';
+
+    if (!output)
+    {
+        throw std::runtime_error("Cannot write all transformed data to the file.");
     }
 }
 

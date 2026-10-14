@@ -202,6 +202,10 @@ Container modifyWithForEach(const Container& source)
     return result;
 }
 
+void modifyWithTransform(
+    const std::string& inputFileName,
+    const std::string& outputFileName
+);
 void runMenu();
 }
 
