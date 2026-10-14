@@ -1,10 +1,13 @@
 #include "SequentialPart.h"
 
+#include <algorithm>
 #include <cstdlib>
 #include <fstream>
 #include <iostream>
+#include <iterator>
 #include <limits>
 #include <stdexcept>
+#include <vector>
 
 namespace
 {
@@ -54,6 +57,30 @@ void createDataWithStreams(const std::string& fileName)
     }
 }
 
+void createDataWithAlgorithms(const std::string& fileName)
+{
+    std::vector<int> data(RANDOM_NUMBER_COUNT);
+    std::generate(data.begin(), data.end(), generateRandomNumber);
+
+    std::ofstream output(fileName);
+
+    if (!output)
+    {
+        throw std::runtime_error("Cannot open the input data file for writing.");
+    }
+
+    std::copy(
+        data.cbegin(),
+        data.cend(),
+        std::ostream_iterator<int>(output, "\n")
+    );
+
+    if (!output)
+    {
+        throw std::runtime_error("Cannot write all generated data to the file.");
+    }
+}
+
 void runMenu()
 {
     int choice = -1;
@@ -62,6 +89,7 @@ void runMenu()
     {
         std::cout << "\nSequential containers\n"
                   << "1. Create input.txt with file streams\n"
+                  << "2. Create input.txt with generate and copy\n"
                   << "0. Return\n"
                   << "Choice: ";
 
@@ -73,6 +101,10 @@ void runMenu()
             {
             case 1:
                 createDataWithStreams(INPUT_FILE_NAME);
+                std::cout << "The file input.txt contains 100 random numbers.\n";
+                break;
+            case 2:
+                createDataWithAlgorithms(INPUT_FILE_NAME);
                 std::cout << "The file input.txt contains 100 random numbers.\n";
                 break;
             case 0:

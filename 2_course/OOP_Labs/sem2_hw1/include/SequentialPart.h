@@ -9,6 +9,7 @@ const std::string INPUT_FILE_NAME = "input.txt";
 const std::string OUTPUT_FILE_NAME = "output.txt";
 
 void createDataWithStreams(const std::string& fileName);
+void createDataWithAlgorithms(const std::string& fileName);
 void runMenu();
 }
 
