@@ -159,6 +159,25 @@ Container modifyContainer(const Container& source)
     return result;
 }
 
+template <typename Iterator, typename Container>
+void modifyWithIterators(Iterator begin, Iterator end, Container& result)
+{
+    typedef typename std::iterator_traits<Iterator>::value_type SourceValueType;
+    typedef typename Container::value_type ResultValueType;
+
+    const SourceValueType divisor = detail::calculateDivisor(begin, end);
+    result.clear();
+
+    for (Iterator position = begin; position != end; ++position)
+    {
+        result.push_back(
+            static_cast<ResultValueType>(*position / divisor)
+        );
+    }
+
+    detail::appendAbsoluteStatistics(result);
+}
+
 void runMenu();
 }
 
