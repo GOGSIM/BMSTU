@@ -3,6 +3,7 @@
 #include <ctime>
 #include <cstdlib>
 #include "SequentialPart.h"
+#include "Warehouse.h"
 
 namespace
 {
@@ -20,10 +21,6 @@ int readMenuChoice()
     return choice;
 }
 
-void runWarehouseMenu()
-{
-    std::cout << "Associative container part is not implemented yet.\n";
-}
 }
 
 int main()
@@ -48,7 +45,7 @@ int main()
             sequential::runMenu();
             break;
         case 2:
-            runWarehouseMenu();
+            warehouse::runMenu();
             break;
         case 0:
             break;
