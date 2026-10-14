@@ -3,6 +3,7 @@
 #include <algorithm>
 #include <cstdio>
 #include <fstream>
+#include <iomanip>
 #include <iostream>
 #include <stdexcept>
 #include <type_traits>
@@ -131,6 +132,7 @@ void WarehouseStorage::load()
     ProductRecord record{};
     while (input.read(reinterpret_cast<char*>(&record), sizeof(ProductRecord)))
     {
+        record.productName[PRODUCT_NAME_SIZE - 1] = '\0';
         if (!records_.insert(std::make_pair(record.index, record)).second)
         {
             throw std::runtime_error("Duplicate record index in warehouse file.");
@@ -310,6 +312,59 @@ void WarehouseStorage::saveSearchResults(
         {
             throw std::runtime_error("Cannot write search results.");
         }
+    }
+}
+
+void WarehouseStorage::createReport() const
+{
+    std::ofstream output(REPORT_FILE_NAME, std::ios::trunc);
+    if (!output)
+    {
+        throw std::runtime_error("Cannot create warehouse report.");
+    }
+
+    output << std::left
+           << std::setw(8) << "Index"
+           << std::setw(12) << "Warehouse"
+           << std::setw(10) << "Code"
+           << std::setw(25) << "Name"
+           << std::setw(12) << "Arrival"
+           << std::setw(12) << "Shelf life"
+           << std::setw(10) << "Quantity"
+           << std::setw(14) << "Unit price"
+           << "Total\n";
+
+    double grandTotal = 0.0;
+    for (RecordMap::const_iterator iterator = records_.begin();
+         iterator != records_.end(); ++iterator)
+    {
+        const ProductRecord& record = iterator->second;
+        double positionTotal = record.quantity * record.unitPrice;
+        grandTotal += positionTotal;
+
+        output << std::left
+               << std::setw(8) << iterator->first
+               << std::setw(12) << record.warehouseNumber
+               << std::setw(10) << record.productCode
+               << std::setw(25) << record.productName
+               << std::setfill('0') << std::right
+               << std::setw(2) << record.arrivalDate.day << '.'
+               << std::setw(2) << record.arrivalDate.month << '.'
+               << std::setw(4) << record.arrivalDate.year
+               << std::setfill(' ') << std::left << "  "
+               << std::setw(12) << record.shelfLifeDays
+               << std::setw(10) << record.quantity
+               << std::setw(14) << std::fixed << std::setprecision(2)
+               << record.unitPrice
+               << positionTotal << '\n';
+    }
+
+    output << "\nGrand total: " << std::fixed << std::setprecision(2)
+           << grandTotal << '\n';
+
+    if (!output)
+    {
+        throw std::runtime_error("Cannot write warehouse report.");
     }
 }
 

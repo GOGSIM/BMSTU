@@ -59,6 +59,7 @@ public:
     std::vector<ProductRecord> findExpired(const Date& controlDate) const;
     std::vector<ProductRecord> findNotExpired(const Date& controlDate) const;
     void saveSearchResults(const std::vector<ProductRecord>& results) const;
+    void createReport() const;
 
 private:
     std::size_t nextIndex() const;
