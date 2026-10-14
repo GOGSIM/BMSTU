@@ -43,10 +43,13 @@ public:
     void load();
     const RecordMap& records() const;
     std::size_t add(ProductRecord record);
+    bool remove(std::size_t index);
+    bool replace(std::size_t index, ProductRecord record);
 
 private:
     std::size_t nextIndex() const;
     void appendRecord(const ProductRecord& record) const;
+    void rewriteFile(const RecordMap& updatedRecords) const;
 
     std::string fileName_;
     RecordMap records_;

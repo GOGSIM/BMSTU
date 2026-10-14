@@ -1,5 +1,6 @@
 #include "Warehouse.h"
 
+#include <cstdio>
 #include <fstream>
 #include <iostream>
 #include <stdexcept>
@@ -82,6 +83,73 @@ std::size_t WarehouseStorage::add(ProductRecord record)
     appendRecord(record);
     records_.insert(std::make_pair(record.index, record));
     return record.index;
+}
+
+void WarehouseStorage::rewriteFile(const RecordMap& updatedRecords) const
+{
+    std::ofstream output(TEMPORARY_FILE_NAME, std::ios::binary | std::ios::trunc);
+    if (!output)
+    {
+        throw std::runtime_error("Cannot create temporary warehouse file.");
+    }
+
+    for (RecordMap::const_iterator iterator = updatedRecords.begin();
+         iterator != updatedRecords.end(); ++iterator)
+    {
+        output.write(reinterpret_cast<const char*>(&iterator->second),
+                     sizeof(ProductRecord));
+        if (!output)
+        {
+            throw std::runtime_error("Cannot write a record to temporary file.");
+        }
+    }
+
+    output.close();
+    if (!output)
+    {
+        throw std::runtime_error("Cannot close temporary warehouse file.");
+    }
+
+    if (std::remove(fileName_.c_str()) != 0)
+    {
+        throw std::runtime_error("Cannot remove the old warehouse file.");
+    }
+
+    if (std::rename(TEMPORARY_FILE_NAME.c_str(), fileName_.c_str()) != 0)
+    {
+        throw std::runtime_error(
+            "Cannot replace warehouse file. Data remains in the temporary file.");
+    }
+}
+
+bool WarehouseStorage::remove(std::size_t index)
+{
+    if (records_.find(index) == records_.end())
+    {
+        return false;
+    }
+
+    RecordMap updatedRecords = records_;
+    updatedRecords.erase(index);
+    rewriteFile(updatedRecords);
+    records_ = updatedRecords;
+    return true;
+}
+
+bool WarehouseStorage::replace(std::size_t index, ProductRecord record)
+{
+    RecordMap::const_iterator found = records_.find(index);
+    if (found == records_.end())
+    {
+        return false;
+    }
+
+    record.index = index;
+    RecordMap updatedRecords = records_;
+    updatedRecords[index] = record;
+    rewriteFile(updatedRecords);
+    records_ = updatedRecords;
+    return true;
 }
 
 void runMenu()
