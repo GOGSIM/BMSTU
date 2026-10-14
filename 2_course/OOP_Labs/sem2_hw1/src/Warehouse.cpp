@@ -12,6 +12,71 @@ namespace warehouse
 static_assert(std::is_trivially_copyable<ProductRecord>::value,
               "ProductRecord must be written as one binary object");
 
+bool isLeapYear(int year)
+{
+    return year % 400 == 0 || (year % 4 == 0 && year % 100 != 0);
+}
+
+int daysInMonth(int month, int year)
+{
+    const int days[] = {31, 28, 31, 30, 31, 30,
+                        31, 31, 30, 31, 30, 31};
+
+    if (month < 1 || month > 12)
+    {
+        return 0;
+    }
+
+    if (month == 2 && isLeapYear(year))
+    {
+        return 29;
+    }
+
+    return days[month - 1];
+}
+
+bool isValidDate(const Date& date)
+{
+    return date.year > 0 && date.month >= 1 && date.month <= 12 &&
+           date.day >= 1 && date.day <= daysInMonth(date.month, date.year);
+}
+
+long long dateToDays(const Date& date)
+{
+    long long previousYear = static_cast<long long>(date.year) - 1;
+    long long result = previousYear * 365 + previousYear / 4 -
+                       previousYear / 100 + previousYear / 400;
+
+    for (int month = 1; month < date.month; ++month)
+    {
+        result += daysInMonth(month, date.year);
+    }
+
+    return result + date.day;
+}
+
+int compareDates(const Date& left, const Date& right)
+{
+    long long leftDays = dateToDays(left);
+    long long rightDays = dateToDays(right);
+
+    if (leftDays < rightDays)
+    {
+        return -1;
+    }
+    if (leftDays > rightDays)
+    {
+        return 1;
+    }
+    return 0;
+}
+
+bool isExpired(const ProductRecord& record, const Date& controlDate)
+{
+    long long expirationDay = dateToDays(record.arrivalDate) + record.shelfLifeDays;
+    return dateToDays(controlDate) > expirationDay;
+}
+
 WarehouseStorage::WarehouseStorage(const std::string& fileName)
     : fileName_(fileName)
 {

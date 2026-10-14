@@ -35,6 +35,13 @@ struct ProductRecord
 
 typedef std::map<std::size_t, ProductRecord> RecordMap;
 
+bool isLeapYear(int year);
+int daysInMonth(int month, int year);
+bool isValidDate(const Date& date);
+long long dateToDays(const Date& date);
+int compareDates(const Date& left, const Date& right);
+bool isExpired(const ProductRecord& record, const Date& controlDate);
+
 class WarehouseStorage
 {
 public:
