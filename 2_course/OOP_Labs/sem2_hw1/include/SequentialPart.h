@@ -4,6 +4,7 @@
 #include <algorithm>
 #include <cmath>
 #include <fstream>
+#include <iomanip>
 #include <iterator>
 #include <numeric>
 #include <stdexcept>
@@ -200,6 +201,59 @@ Container modifyWithForEach(const Container& source)
 
     detail::appendAbsoluteStatistics(result);
     return result;
+}
+
+template <typename Container>
+void outputResultWithStreams(
+    const Container& data,
+    const std::string& fileName
+)
+{
+    std::ofstream output(fileName);
+
+    if (!output)
+    {
+        throw std::runtime_error("Cannot open the result file for writing.");
+    }
+
+    output << std::setprecision(15);
+
+    for (const typename Container::value_type& value : data)
+    {
+        output << value << '\n';
+    }
+
+    if (!output)
+    {
+        throw std::runtime_error("Cannot write all result data to the file.");
+    }
+}
+
+template <typename Container>
+void outputResultWithIterators(
+    const Container& data,
+    const std::string& fileName
+)
+{
+    std::ofstream output(fileName);
+
+    if (!output)
+    {
+        throw std::runtime_error("Cannot open the result file for writing.");
+    }
+
+    output << std::setprecision(15);
+
+    std::copy(
+        data.cbegin(),
+        data.cend(),
+        std::ostream_iterator<typename Container::value_type>(output, "\n")
+    );
+
+    if (!output)
+    {
+        throw std::runtime_error("Cannot write all result data to the file.");
+    }
 }
 
 void modifyWithTransform(

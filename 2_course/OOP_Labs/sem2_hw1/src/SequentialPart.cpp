@@ -2,10 +2,12 @@
 
 #include <algorithm>
 #include <cstdlib>
+#include <deque>
 #include <fstream>
 #include <iomanip>
 #include <iostream>
 #include <iterator>
+#include <list>
 #include <limits>
 #include <stdexcept>
 #include <vector>
@@ -33,6 +35,107 @@ int readMenuChoice()
     }
 
     return choice;
+}
+
+template <typename Container>
+Container selectLoadMethod()
+{
+    std::cout << "1. Load with file streams\n"
+              << "2. Load with stream iterators and copy\n"
+              << "Choice: ";
+
+    const int choice = readMenuChoice();
+
+    if (choice == 1)
+    {
+        return sequential::loadDataWithStreams<Container>(
+            sequential::INPUT_FILE_NAME
+        );
+    }
+
+    if (choice == 2)
+    {
+        return sequential::loadDataWithIterators<Container>(
+            sequential::INPUT_FILE_NAME
+        );
+    }
+
+    throw std::runtime_error("Unknown load method.");
+}
+
+template <typename Container>
+Container selectModifyMethod(const Container& source)
+{
+    std::cout << "1. Modify the container\n"
+              << "2. Modify with iterator arguments\n"
+              << "3. Modify with for_each\n"
+              << "Choice: ";
+
+    const int choice = readMenuChoice();
+
+    if (choice == 1)
+    {
+        return sequential::modifyContainer(source);
+    }
+
+    if (choice == 2)
+    {
+        Container result;
+        sequential::modifyWithIterators(
+            source.cbegin(),
+            source.cend(),
+            result
+        );
+        return result;
+    }
+
+    if (choice == 3)
+    {
+        return sequential::modifyWithForEach(source);
+    }
+
+    throw std::runtime_error("Unknown modification method.");
+}
+
+template <typename Container>
+void selectOutputMethod(const Container& result)
+{
+    std::cout << "1. Output with file streams\n"
+              << "2. Output with a stream iterator and copy\n"
+              << "Choice: ";
+
+    const int choice = readMenuChoice();
+
+    if (choice == 1)
+    {
+        sequential::outputResultWithStreams(
+            result,
+            sequential::OUTPUT_FILE_NAME
+        );
+        return;
+    }
+
+    if (choice == 2)
+    {
+        sequential::outputResultWithIterators(
+            result,
+            sequential::OUTPUT_FILE_NAME
+        );
+        return;
+    }
+
+    throw std::runtime_error("Unknown output method.");
+}
+
+template <typename Container>
+void processContainer()
+{
+    const Container source = selectLoadMethod<Container>();
+    const Container result = selectModifyMethod(source);
+    selectOutputMethod(result);
+
+    std::cout << "The result contains " << result.size()
+              << " values and is saved to output.txt.\n";
 }
 }
 
@@ -153,6 +256,10 @@ void runMenu()
         std::cout << "\nSequential containers\n"
                   << "1. Create input.txt with file streams\n"
                   << "2. Create input.txt with generate and copy\n"
+                  << "3. Process a vector\n"
+                  << "4. Process a deque\n"
+                  << "5. Process a list\n"
+                  << "6. Process the file with transform and stream iterators\n"
                   << "0. Return\n"
                   << "Choice: ";
 
@@ -169,6 +276,19 @@ void runMenu()
             case 2:
                 createDataWithAlgorithms(INPUT_FILE_NAME);
                 std::cout << "The file input.txt contains 100 random numbers.\n";
+                break;
+            case 3:
+                processContainer<std::vector<double>>();
+                break;
+            case 4:
+                processContainer<std::deque<double>>();
+                break;
+            case 5:
+                processContainer<std::list<double>>();
+                break;
+            case 6:
+                modifyWithTransform(INPUT_FILE_NAME, OUTPUT_FILE_NAME);
+                std::cout << "The transformed data is saved to output.txt.\n";
                 break;
             case 0:
                 break;
