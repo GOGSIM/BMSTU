@@ -1,12 +1,12 @@
 #include <QApplication>
-#include <QWidget>
+
+#include "CalculatorWindow.h"
 
 int main(int argc, char* argv[])
 {
     QApplication application(argc, argv);
 
-    QWidget window;
-    window.setWindowTitle("Калькулятор");
+    CalculatorWindow window;
     window.show();
 
     return application.exec();
