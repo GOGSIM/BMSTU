@@ -1,5 +1,6 @@
 #pragma once
 
+#include <QString>
 #include <QWidget>
 
 class QLineEdit;
@@ -19,8 +20,14 @@ private slots:
     void slotDigitClicked();
     void slotPointClicked();
     void slotClear();
+    void slotBinaryOperationClicked();
+    void slotEquals();
 
 private:
+    void showValue(double value);
+    void showError();
+    bool calculate(double rightOperand, double& result) const;
+
     QLineEdit* display_;
     QRadioButton* ordinaryModeButton_;
     QRadioButton* engineeringModeButton_;
@@ -29,5 +36,7 @@ private:
     QWidget* engineeringPanel_;
     bool waitingForNewValue_;
     bool errorState_;
+    double storedValue_;
+    QString pendingOperation_;
 };
 

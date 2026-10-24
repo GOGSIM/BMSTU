@@ -1,5 +1,7 @@
 #include "CalculatorWindow.h"
 
+#include <cmath>
+
 #include <QFontDatabase>
 #include <QGridLayout>
 #include <QHBoxLayout>
@@ -19,7 +21,8 @@ CalculatorWindow::CalculatorWindow(QWidget* parent)
       buttonPanelsLayout_(new QHBoxLayout),
       engineeringPanel_(new QWidget(this)),
       waitingForNewValue_(true),
-      errorState_(false)
+      errorState_(false),
+      storedValue_(0.0)
 {
     setWindowTitle("Калькулятор (обычный)");
 
@@ -114,6 +117,24 @@ CalculatorWindow::CalculatorWindow(QWidget* parent)
 
     connect(pointButton, SIGNAL(clicked()), this, SLOT(slotPointClicked()));
 
+    const QList<QPushButton*> binaryOperationButtons = {
+        addButton,
+        subtractButton,
+        multiplyButton,
+        divideButton
+    };
+
+    for (QPushButton* button : binaryOperationButtons) {
+        connect(
+            button,
+            SIGNAL(clicked()),
+            this,
+            SLOT(slotBinaryOperationClicked())
+        );
+    }
+
+    connect(equalsButton, SIGNAL(clicked()), this, SLOT(slotEquals()));
+
     QGridLayout* engineeringLayout = new QGridLayout(engineeringPanel_);
 
     engineeringLayout->addWidget(new QPushButton("sinh", engineeringPanel_), 0, 0);
@@ -205,5 +226,111 @@ void CalculatorWindow::slotClear()
     display_->setText("0");
     waitingForNewValue_ = true;
     errorState_ = false;
+    storedValue_ = 0.0;
+    pendingOperation_.clear();
+}
+
+void CalculatorWindow::slotBinaryOperationClicked()
+{
+    QPushButton* button = qobject_cast<QPushButton*>(sender());
+
+    if (button == nullptr || errorState_) {
+        return;
+    }
+
+    bool conversionOk = false;
+    const double currentValue = display_->text().toDouble(&conversionOk);
+
+    if (!conversionOk) {
+        showError();
+        return;
+    }
+
+    if (!pendingOperation_.isEmpty() && !waitingForNewValue_) {
+        double result = 0.0;
+
+        if (!calculate(currentValue, result)) {
+            showError();
+            return;
+        }
+
+        storedValue_ = result;
+        showValue(result);
+    } else if (pendingOperation_.isEmpty()) {
+        storedValue_ = currentValue;
+    }
+
+    pendingOperation_ = button->text();
+    waitingForNewValue_ = true;
+}
+
+void CalculatorWindow::slotEquals()
+{
+    if (
+        errorState_
+        || pendingOperation_.isEmpty()
+        || waitingForNewValue_
+    ) {
+        return;
+    }
+
+    bool conversionOk = false;
+    const double rightOperand = display_->text().toDouble(&conversionOk);
+    double result = 0.0;
+
+    if (!conversionOk || !calculate(rightOperand, result)) {
+        showError();
+        return;
+    }
+
+    showValue(result);
+    storedValue_ = result;
+    pendingOperation_.clear();
+    waitingForNewValue_ = true;
+}
+
+void CalculatorWindow::showValue(double value)
+{
+    if (!std::isfinite(value)) {
+        showError();
+        return;
+    }
+
+    if (std::abs(value) < 1e-15) {
+        value = 0.0;
+    }
+
+    display_->setText(QString::number(value, 'g', 15));
+    errorState_ = false;
+}
+
+void CalculatorWindow::showError()
+{
+    display_->setText("Ошибка");
+    waitingForNewValue_ = true;
+    errorState_ = true;
+    storedValue_ = 0.0;
+    pendingOperation_.clear();
+}
+
+bool CalculatorWindow::calculate(double rightOperand, double& result) const
+{
+    if (pendingOperation_ == "+") {
+        result = storedValue_ + rightOperand;
+    } else if (pendingOperation_ == "-") {
+        result = storedValue_ - rightOperand;
+    } else if (pendingOperation_ == "*") {
+        result = storedValue_ * rightOperand;
+    } else if (pendingOperation_ == "/") {
+        if (rightOperand == 0.0) {
+            return false;
+        }
+
+        result = storedValue_ / rightOperand;
+    } else {
+        return false;
+    }
+
+    return std::isfinite(result);
 }
 
