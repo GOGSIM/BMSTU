@@ -317,7 +317,6 @@ void CalculatorWindow::keyPressEvent(QKeyEvent* event)
 
     switch (event->key()) {
     case Qt::Key_Period:
-    case Qt::Key_Decimal:
         clickButton(".");
         break;
     case Qt::Key_Plus:
