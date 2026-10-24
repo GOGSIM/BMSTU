@@ -236,6 +236,18 @@ CalculatorWindow::CalculatorWindow(QWidget* parent)
                 SLOT(slotBinaryOperationClicked())
             );
         }
+
+        if (
+            button->text() == "n!"
+            || button->text() == "π"
+        ) {
+            connect(
+                button,
+                SIGNAL(clicked()),
+                this,
+                SLOT(slotSpecialOperationClicked())
+            );
+        }
     }
 
     engineeringPanel_->hide();
@@ -407,7 +419,7 @@ void CalculatorWindow::slotOrdinaryUnaryOperationClicked()
     }
 
     showValue(result);
-    waitingForNewValue_ = true;
+    waitingForNewValue_ = pendingOperation_.isEmpty();
 }
 
 void CalculatorWindow::slotTrigonometricOperationClicked()
@@ -439,7 +451,7 @@ void CalculatorWindow::slotTrigonometricOperationClicked()
     }
 
     showValue(result);
-    waitingForNewValue_ = true;
+    waitingForNewValue_ = pendingOperation_.isEmpty();
 }
 
 void CalculatorWindow::slotHyperbolicOperationClicked()
@@ -471,7 +483,7 @@ void CalculatorWindow::slotHyperbolicOperationClicked()
     }
 
     showValue(result);
-    waitingForNewValue_ = true;
+    waitingForNewValue_ = pendingOperation_.isEmpty();
 }
 
 void CalculatorWindow::slotLogarithmicOperationClicked()
@@ -513,7 +525,7 @@ void CalculatorWindow::slotLogarithmicOperationClicked()
     }
 
     showValue(result);
-    waitingForNewValue_ = true;
+    waitingForNewValue_ = pendingOperation_.isEmpty();
 }
 
 void CalculatorWindow::slotPowerOperationClicked()
@@ -545,7 +557,49 @@ void CalculatorWindow::slotPowerOperationClicked()
     }
 
     showValue(result);
-    waitingForNewValue_ = true;
+    waitingForNewValue_ = pendingOperation_.isEmpty();
+}
+
+void CalculatorWindow::slotSpecialOperationClicked()
+{
+    QPushButton* button = qobject_cast<QPushButton*>(sender());
+
+    if (button == nullptr) {
+        return;
+    }
+
+    if (button->text() == "π") {
+        showValue(std::acos(-1.0));
+        waitingForNewValue_ = pendingOperation_.isEmpty();
+        return;
+    }
+
+    if (button->text() != "n!" || errorState_) {
+        return;
+    }
+
+    bool conversionOk = false;
+    const double value = display_->text().toDouble(&conversionOk);
+    const double integerValue = std::round(value);
+
+    if (
+        !conversionOk
+        || value < 0.0
+        || value > 170.0
+        || std::abs(value - integerValue) >= 1e-12
+    ) {
+        showError();
+        return;
+    }
+
+    double result = 1.0;
+
+    for (int number = 2; number <= static_cast<int>(integerValue); ++number) {
+        result *= number;
+    }
+
+    showValue(result);
+    waitingForNewValue_ = pendingOperation_.isEmpty();
 }
 
 void CalculatorWindow::showValue(double value)
