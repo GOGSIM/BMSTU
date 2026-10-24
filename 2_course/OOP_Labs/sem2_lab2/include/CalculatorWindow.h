@@ -25,6 +25,7 @@ private slots:
     void slotOrdinaryUnaryOperationClicked();
     void slotTrigonometricOperationClicked();
     void slotHyperbolicOperationClicked();
+    void slotLogarithmicOperationClicked();
 
 private:
     void showValue(double value);
