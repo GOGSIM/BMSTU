@@ -5,6 +5,7 @@
 #include <QFontDatabase>
 #include <QGridLayout>
 #include <QHBoxLayout>
+#include <QKeyEvent>
 #include <QLayout>
 #include <QLineEdit>
 #include <QList>
@@ -264,8 +265,59 @@ CalculatorWindow::CalculatorWindow(QWidget* parent)
     );
     connect(clearButton_, SIGNAL(clicked()), this, SLOT(slotClear()));
 
+    const QList<QPushButton*> allButtons = findChildren<QPushButton*>();
+
+    for (QPushButton* button : allButtons) {
+        button->setFocusPolicy(Qt::NoFocus);
+    }
+
+    ordinaryModeButton_->setFocusPolicy(Qt::NoFocus);
+    engineeringModeButton_->setFocusPolicy(Qt::NoFocus);
+    setFocusPolicy(Qt::StrongFocus);
+
     setLayout(mainLayout);
     setFixedSize(sizeHint());
+}
+
+void CalculatorWindow::keyPressEvent(QKeyEvent* event)
+{
+    if (event->key() >= Qt::Key_0 && event->key() <= Qt::Key_9) {
+        const int digit = event->key() - Qt::Key_0;
+        clickButton(QString::number(digit));
+        event->accept();
+        return;
+    }
+
+    switch (event->key()) {
+    case Qt::Key_Period:
+    case Qt::Key_Decimal:
+        clickButton(".");
+        break;
+    case Qt::Key_Plus:
+        clickButton("+");
+        break;
+    case Qt::Key_Minus:
+        clickButton("-");
+        break;
+    case Qt::Key_Asterisk:
+        clickButton("*");
+        break;
+    case Qt::Key_Slash:
+        clickButton("/");
+        break;
+    case Qt::Key_Enter:
+    case Qt::Key_Return:
+        clickButton("=");
+        break;
+    case Qt::Key_Escape:
+        clickButton("C");
+        break;
+    default:
+        QWidget::keyPressEvent(event);
+        return;
+    }
+
+    event->accept();
 }
 
 void CalculatorWindow::slotModeChanged()
@@ -673,5 +725,19 @@ bool CalculatorWindow::calculate(double rightOperand, double& result) const
     }
 
     return std::isfinite(result);
+}
+
+bool CalculatorWindow::clickButton(const QString& text)
+{
+    const QList<QPushButton*> buttons = findChildren<QPushButton*>();
+
+    for (QPushButton* button : buttons) {
+        if (button->text() == text && button->isVisible()) {
+            button->click();
+            return true;
+        }
+    }
+
+    return false;
 }
 

@@ -5,6 +5,7 @@
 
 class QLineEdit;
 class QHBoxLayout;
+class QKeyEvent;
 class QPushButton;
 class QRadioButton;
 
@@ -14,6 +15,9 @@ class CalculatorWindow : public QWidget
 
 public:
     explicit CalculatorWindow(QWidget* parent = nullptr);
+
+protected:
+    void keyPressEvent(QKeyEvent* event) override;
 
 private slots:
     void slotModeChanged();
@@ -33,6 +37,7 @@ private:
     void showValue(double value);
     void showError();
     bool calculate(double rightOperand, double& result) const;
+    bool clickButton(const QString& text);
 
     QLineEdit* display_;
     QRadioButton* ordinaryModeButton_;
