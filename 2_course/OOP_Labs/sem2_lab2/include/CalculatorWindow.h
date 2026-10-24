@@ -23,6 +23,7 @@ private slots:
     void slotBinaryOperationClicked();
     void slotEquals();
     void slotOrdinaryUnaryOperationClicked();
+    void slotTrigonometricOperationClicked();
 
 private:
     void showValue(double value);

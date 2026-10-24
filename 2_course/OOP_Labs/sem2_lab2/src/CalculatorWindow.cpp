@@ -169,6 +169,24 @@ CalculatorWindow::CalculatorWindow(QWidget* parent)
     engineeringLayout->addWidget(new QPushButton("³√x", engineeringPanel_), 3, 2);
     engineeringLayout->addWidget(new QPushButton("ʸ√x", engineeringPanel_), 3, 3);
 
+    const QList<QPushButton*> engineeringButtons =
+        engineeringPanel_->findChildren<QPushButton*>();
+
+    for (QPushButton* button : engineeringButtons) {
+        if (
+            button->text() == "sin"
+            || button->text() == "cos"
+            || button->text() == "tan"
+        ) {
+            connect(
+                button,
+                SIGNAL(clicked()),
+                this,
+                SLOT(slotTrigonometricOperationClicked())
+            );
+        }
+    }
+
     engineeringPanel_->hide();
 
     buttonPanelsLayout_->addWidget(engineeringPanel_);
@@ -333,6 +351,38 @@ void CalculatorWindow::slotOrdinaryUnaryOperationClicked()
         }
 
         result = 1.0 / value;
+    } else {
+        return;
+    }
+
+    showValue(result);
+    waitingForNewValue_ = true;
+}
+
+void CalculatorWindow::slotTrigonometricOperationClicked()
+{
+    QPushButton* button = qobject_cast<QPushButton*>(sender());
+
+    if (button == nullptr || errorState_) {
+        return;
+    }
+
+    bool conversionOk = false;
+    const double value = display_->text().toDouble(&conversionOk);
+
+    if (!conversionOk) {
+        showError();
+        return;
+    }
+
+    double result = 0.0;
+
+    if (button->text() == "sin") {
+        result = std::sin(value);
+    } else if (button->text() == "cos") {
+        result = std::cos(value);
+    } else if (button->text() == "tan") {
+        result = std::tan(value);
     } else {
         return;
     }
