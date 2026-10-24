@@ -22,6 +22,7 @@ private slots:
     void slotClear();
     void slotBinaryOperationClicked();
     void slotEquals();
+    void slotOrdinaryUnaryOperationClicked();
 
 private:
     void showValue(double value);

@@ -134,6 +134,18 @@ CalculatorWindow::CalculatorWindow(QWidget* parent)
     }
 
     connect(equalsButton, SIGNAL(clicked()), this, SLOT(slotEquals()));
+    connect(
+        squareRootButton,
+        SIGNAL(clicked()),
+        this,
+        SLOT(slotOrdinaryUnaryOperationClicked())
+    );
+    connect(
+        reciprocalButton,
+        SIGNAL(clicked()),
+        this,
+        SLOT(slotOrdinaryUnaryOperationClicked())
+    );
 
     QGridLayout* engineeringLayout = new QGridLayout(engineeringPanel_);
 
@@ -286,6 +298,46 @@ void CalculatorWindow::slotEquals()
     showValue(result);
     storedValue_ = result;
     pendingOperation_.clear();
+    waitingForNewValue_ = true;
+}
+
+void CalculatorWindow::slotOrdinaryUnaryOperationClicked()
+{
+    QPushButton* button = qobject_cast<QPushButton*>(sender());
+
+    if (button == nullptr || errorState_) {
+        return;
+    }
+
+    bool conversionOk = false;
+    const double value = display_->text().toDouble(&conversionOk);
+
+    if (!conversionOk) {
+        showError();
+        return;
+    }
+
+    double result = 0.0;
+
+    if (button->text() == "sqrt") {
+        if (value < 0.0) {
+            showError();
+            return;
+        }
+
+        result = std::sqrt(value);
+    } else if (button->text() == "1/x") {
+        if (value == 0.0) {
+            showError();
+            return;
+        }
+
+        result = 1.0 / value;
+    } else {
+        return;
+    }
+
+    showValue(result);
     waitingForNewValue_ = true;
 }
 
