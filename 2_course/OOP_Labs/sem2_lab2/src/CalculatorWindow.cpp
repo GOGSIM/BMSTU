@@ -211,6 +211,31 @@ CalculatorWindow::CalculatorWindow(QWidget* parent)
                 SLOT(slotLogarithmicOperationClicked())
             );
         }
+
+        if (
+            button->text() == "x²"
+            || button->text() == "x³"
+            || button->text() == "³√x"
+        ) {
+            connect(
+                button,
+                SIGNAL(clicked()),
+                this,
+                SLOT(slotPowerOperationClicked())
+            );
+        }
+
+        if (
+            button->text() == "xʸ"
+            || button->text() == "ʸ√x"
+        ) {
+            connect(
+                button,
+                SIGNAL(clicked()),
+                this,
+                SLOT(slotBinaryOperationClicked())
+            );
+        }
     }
 
     engineeringPanel_->hide();
@@ -491,6 +516,38 @@ void CalculatorWindow::slotLogarithmicOperationClicked()
     waitingForNewValue_ = true;
 }
 
+void CalculatorWindow::slotPowerOperationClicked()
+{
+    QPushButton* button = qobject_cast<QPushButton*>(sender());
+
+    if (button == nullptr || errorState_) {
+        return;
+    }
+
+    bool conversionOk = false;
+    const double value = display_->text().toDouble(&conversionOk);
+
+    if (!conversionOk) {
+        showError();
+        return;
+    }
+
+    double result = 0.0;
+
+    if (button->text() == "x²") {
+        result = value * value;
+    } else if (button->text() == "x³") {
+        result = value * value * value;
+    } else if (button->text() == "³√x") {
+        result = std::cbrt(value);
+    } else {
+        return;
+    }
+
+    showValue(result);
+    waitingForNewValue_ = true;
+}
+
 void CalculatorWindow::showValue(double value)
 {
     if (!std::isfinite(value)) {
@@ -529,6 +586,28 @@ bool CalculatorWindow::calculate(double rightOperand, double& result) const
         }
 
         result = storedValue_ / rightOperand;
+    } else if (pendingOperation_ == "xʸ") {
+        result = std::pow(storedValue_, rightOperand);
+    } else if (pendingOperation_ == "ʸ√x") {
+        if (rightOperand == 0.0) {
+            return false;
+        }
+
+        if (storedValue_ < 0.0) {
+            const double integerDegree = std::round(rightOperand);
+            const bool isIntegerDegree =
+                std::abs(rightOperand - integerDegree) < 1e-12;
+            const bool isOddDegree =
+                std::fmod(std::abs(integerDegree), 2.0) == 1.0;
+
+            if (!isIntegerDegree || !isOddDegree) {
+                return false;
+            }
+
+            result = -std::pow(-storedValue_, 1.0 / rightOperand);
+        } else {
+            result = std::pow(storedValue_, 1.0 / rightOperand);
+        }
     } else {
         return false;
     }
