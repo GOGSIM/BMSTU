@@ -18,6 +18,7 @@ private slots:
     void slotModeChanged();
     void slotDigitClicked();
     void slotPointClicked();
+    void slotClear();
 
 private:
     QLineEdit* display_;

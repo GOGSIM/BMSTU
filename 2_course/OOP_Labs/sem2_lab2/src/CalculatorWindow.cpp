@@ -147,6 +147,7 @@ CalculatorWindow::CalculatorWindow(QWidget* parent)
         this,
         SLOT(slotModeChanged())
     );
+    connect(clearButton_, SIGNAL(clicked()), this, SLOT(slotClear()));
 
     setLayout(mainLayout);
     setFixedSize(sizeHint());
@@ -197,5 +198,12 @@ void CalculatorWindow::slotPointClicked()
     if (!display_->text().contains('.')) {
         display_->setText(display_->text() + '.');
     }
+}
+
+void CalculatorWindow::slotClear()
+{
+    display_->setText("0");
+    waitingForNewValue_ = true;
+    errorState_ = false;
 }
 
