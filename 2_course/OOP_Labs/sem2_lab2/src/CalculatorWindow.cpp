@@ -275,6 +275,33 @@ CalculatorWindow::CalculatorWindow(QWidget* parent)
     engineeringModeButton_->setFocusPolicy(Qt::NoFocus);
     setFocusPolicy(Qt::StrongFocus);
 
+    setStyleSheet(
+        "QWidget {"
+        "    font-size: 14px;"
+        "}"
+        "QLineEdit {"
+        "    background-color: white;"
+        "    border: 1px solid #777777;"
+        "    padding: 6px;"
+        "}"
+        "QPushButton {"
+        "    min-width: 48px;"
+        "    min-height: 38px;"
+        "    background-color: #f1f1f1;"
+        "    border: 1px solid #999999;"
+        "    border-radius: 3px;"
+        "}"
+        "QPushButton:hover {"
+        "    background-color: #e2e2e2;"
+        "}"
+        "QPushButton:pressed {"
+        "    background-color: #cccccc;"
+        "}"
+        "QRadioButton {"
+        "    spacing: 6px;"
+        "}"
+    );
+
     setLayout(mainLayout);
     setFixedSize(sizeHint());
 }
