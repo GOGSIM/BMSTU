@@ -16,6 +16,8 @@ public:
 
 private slots:
     void slotModeChanged();
+    void slotDigitClicked();
+    void slotPointClicked();
 
 private:
     QLineEdit* display_;
@@ -24,5 +26,7 @@ private:
     QPushButton* clearButton_;
     QHBoxLayout* buttonPanelsLayout_;
     QWidget* engineeringPanel_;
+    bool waitingForNewValue_;
+    bool errorState_;
 };
 

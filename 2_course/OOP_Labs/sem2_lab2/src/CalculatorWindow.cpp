@@ -5,6 +5,7 @@
 #include <QHBoxLayout>
 #include <QLayout>
 #include <QLineEdit>
+#include <QList>
 #include <QPushButton>
 #include <QRadioButton>
 #include <QVBoxLayout>
@@ -16,7 +17,9 @@ CalculatorWindow::CalculatorWindow(QWidget* parent)
       engineeringModeButton_(new QRadioButton("Инженерный", this)),
       clearButton_(new QPushButton("C", this)),
       buttonPanelsLayout_(new QHBoxLayout),
-      engineeringPanel_(new QWidget(this))
+      engineeringPanel_(new QWidget(this)),
+      waitingForNewValue_(true),
+      errorState_(false)
 {
     setWindowTitle("Калькулятор (обычный)");
 
@@ -92,6 +95,25 @@ CalculatorWindow::CalculatorWindow(QWidget* parent)
     ordinaryLayout->addWidget(pointButton, 3, 2);
     ordinaryLayout->addWidget(addButton, 3, 3);
 
+    const QList<QPushButton*> digitButtons = {
+        button0,
+        button1,
+        button2,
+        button3,
+        button4,
+        button5,
+        button6,
+        button7,
+        button8,
+        button9
+    };
+
+    for (QPushButton* button : digitButtons) {
+        connect(button, SIGNAL(clicked()), this, SLOT(slotDigitClicked()));
+    }
+
+    connect(pointButton, SIGNAL(clicked()), this, SLOT(slotPointClicked()));
+
     QGridLayout* engineeringLayout = new QGridLayout(engineeringPanel_);
 
     engineeringLayout->addWidget(new QPushButton("sinh", engineeringPanel_), 0, 0);
@@ -143,5 +165,37 @@ void CalculatorWindow::slotModeChanged()
 
     layout()->activate();
     setFixedSize(sizeHint());
+}
+
+void CalculatorWindow::slotDigitClicked()
+{
+    QPushButton* button = qobject_cast<QPushButton*>(sender());
+
+    if (button == nullptr) {
+        return;
+    }
+
+    if (waitingForNewValue_ || errorState_ || display_->text() == "0") {
+        display_->setText(button->text());
+        waitingForNewValue_ = false;
+        errorState_ = false;
+        return;
+    }
+
+    display_->setText(display_->text() + button->text());
+}
+
+void CalculatorWindow::slotPointClicked()
+{
+    if (waitingForNewValue_ || errorState_) {
+        display_->setText("0.");
+        waitingForNewValue_ = false;
+        errorState_ = false;
+        return;
+    }
+
+    if (!display_->text().contains('.')) {
+        display_->setText(display_->text() + '.');
+    }
 }
 
