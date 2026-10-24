@@ -185,6 +185,19 @@ CalculatorWindow::CalculatorWindow(QWidget* parent)
                 SLOT(slotTrigonometricOperationClicked())
             );
         }
+
+        if (
+            button->text() == "sinh"
+            || button->text() == "cosh"
+            || button->text() == "tanh"
+        ) {
+            connect(
+                button,
+                SIGNAL(clicked()),
+                this,
+                SLOT(slotHyperbolicOperationClicked())
+            );
+        }
     }
 
     engineeringPanel_->hide();
@@ -383,6 +396,38 @@ void CalculatorWindow::slotTrigonometricOperationClicked()
         result = std::cos(value);
     } else if (button->text() == "tan") {
         result = std::tan(value);
+    } else {
+        return;
+    }
+
+    showValue(result);
+    waitingForNewValue_ = true;
+}
+
+void CalculatorWindow::slotHyperbolicOperationClicked()
+{
+    QPushButton* button = qobject_cast<QPushButton*>(sender());
+
+    if (button == nullptr || errorState_) {
+        return;
+    }
+
+    bool conversionOk = false;
+    const double value = display_->text().toDouble(&conversionOk);
+
+    if (!conversionOk) {
+        showError();
+        return;
+    }
+
+    double result = 0.0;
+
+    if (button->text() == "sinh") {
+        result = std::sinh(value);
+    } else if (button->text() == "cosh") {
+        result = std::cosh(value);
+    } else if (button->text() == "tanh") {
+        result = std::tanh(value);
     } else {
         return;
     }
