@@ -34,6 +34,7 @@ CalculatorWindow::CalculatorWindow(QWidget* parent)
     display_->setAlignment(Qt::AlignRight);
     display_->setFont(displayFont);
     display_->setMinimumHeight(50);
+    display_->setMaxLength(24);
 
     ordinaryModeButton_->setChecked(true);
 
@@ -445,6 +446,11 @@ void CalculatorWindow::slotTrigonometricOperationClicked()
     } else if (button->text() == "cos") {
         result = std::cos(value);
     } else if (button->text() == "tan") {
+        if (std::abs(std::cos(value)) < 1e-12) {
+            showError();
+            return;
+        }
+
         result = std::tan(value);
     } else {
         return;
