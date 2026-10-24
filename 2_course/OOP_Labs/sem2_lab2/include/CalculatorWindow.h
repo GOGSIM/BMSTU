@@ -14,11 +14,15 @@ class CalculatorWindow : public QWidget
 public:
     explicit CalculatorWindow(QWidget* parent = nullptr);
 
+private slots:
+    void slotModeChanged();
+
 private:
     QLineEdit* display_;
     QRadioButton* ordinaryModeButton_;
     QRadioButton* engineeringModeButton_;
     QPushButton* clearButton_;
     QHBoxLayout* buttonPanelsLayout_;
+    QWidget* engineeringPanel_;
 };
 

@@ -3,6 +3,7 @@
 #include <QFontDatabase>
 #include <QGridLayout>
 #include <QHBoxLayout>
+#include <QLayout>
 #include <QLineEdit>
 #include <QPushButton>
 #include <QRadioButton>
@@ -14,7 +15,8 @@ CalculatorWindow::CalculatorWindow(QWidget* parent)
       ordinaryModeButton_(new QRadioButton("Обычный", this)),
       engineeringModeButton_(new QRadioButton("Инженерный", this)),
       clearButton_(new QPushButton("C", this)),
-      buttonPanelsLayout_(new QHBoxLayout)
+      buttonPanelsLayout_(new QHBoxLayout),
+      engineeringPanel_(new QWidget(this))
 {
     setWindowTitle("Калькулятор (обычный)");
 
@@ -90,8 +92,56 @@ CalculatorWindow::CalculatorWindow(QWidget* parent)
     ordinaryLayout->addWidget(pointButton, 3, 2);
     ordinaryLayout->addWidget(addButton, 3, 3);
 
+    QGridLayout* engineeringLayout = new QGridLayout(engineeringPanel_);
+
+    engineeringLayout->addWidget(new QPushButton("sinh", engineeringPanel_), 0, 0);
+    engineeringLayout->addWidget(new QPushButton("sin", engineeringPanel_), 0, 1);
+    engineeringLayout->addWidget(new QPushButton("exp", engineeringPanel_), 0, 2);
+    engineeringLayout->addWidget(new QPushButton("x²", engineeringPanel_), 0, 3);
+
+    engineeringLayout->addWidget(new QPushButton("cosh", engineeringPanel_), 1, 0);
+    engineeringLayout->addWidget(new QPushButton("cos", engineeringPanel_), 1, 1);
+    engineeringLayout->addWidget(new QPushButton("ln", engineeringPanel_), 1, 2);
+    engineeringLayout->addWidget(new QPushButton("x³", engineeringPanel_), 1, 3);
+
+    engineeringLayout->addWidget(new QPushButton("tanh", engineeringPanel_), 2, 0);
+    engineeringLayout->addWidget(new QPushButton("tan", engineeringPanel_), 2, 1);
+    engineeringLayout->addWidget(new QPushButton("log", engineeringPanel_), 2, 2);
+    engineeringLayout->addWidget(new QPushButton("xʸ", engineeringPanel_), 2, 3);
+
+    engineeringLayout->addWidget(new QPushButton("n!", engineeringPanel_), 3, 0);
+    engineeringLayout->addWidget(new QPushButton("π", engineeringPanel_), 3, 1);
+    engineeringLayout->addWidget(new QPushButton("³√x", engineeringPanel_), 3, 2);
+    engineeringLayout->addWidget(new QPushButton("ʸ√x", engineeringPanel_), 3, 3);
+
+    engineeringPanel_->hide();
+
+    buttonPanelsLayout_->addWidget(engineeringPanel_);
     buttonPanelsLayout_->addWidget(ordinaryPanel);
 
+    connect(
+        engineeringModeButton_,
+        SIGNAL(toggled(bool)),
+        this,
+        SLOT(slotModeChanged())
+    );
+
     setLayout(mainLayout);
+    setFixedSize(sizeHint());
+}
+
+void CalculatorWindow::slotModeChanged()
+{
+    const bool engineeringMode = engineeringModeButton_->isChecked();
+
+    engineeringPanel_->setVisible(engineeringMode);
+    setWindowTitle(
+        engineeringMode
+            ? "Калькулятор (инженерный)"
+            : "Калькулятор (обычный)"
+    );
+
+    layout()->activate();
+    setFixedSize(sizeHint());
 }
 
