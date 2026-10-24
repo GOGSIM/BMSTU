@@ -766,4 +766,3 @@ bool CalculatorWindow::clickButton(const QString& text)
 
     return false;
 }
-

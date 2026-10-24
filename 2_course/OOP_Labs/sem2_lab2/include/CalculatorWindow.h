@@ -50,4 +50,3 @@ private:
     double storedValue_;
     QString pendingOperation_;
 };
-
