@@ -14,6 +14,8 @@
 #include <QVBoxLayout>
 
 CalculatorWindow::CalculatorWindow(QWidget* parent)
+    // После двоеточия идёт список инициализации: базовый класс и поля
+    // создаются сразу с нужными значениями до выполнения тела конструктора.
     : QWidget(parent),
       display_(new QLineEdit(this)),
       ordinaryModeButton_(new QRadioButton("Обычный", this)),
@@ -27,9 +29,12 @@ CalculatorWindow::CalculatorWindow(QWidget* parent)
 {
     setWindowTitle("Калькулятор (обычный)");
 
+    // Берём системный моноширинный шрифт, чтобы цифры не меняли ширину.
     QFont displayFont = QFontDatabase::systemFont(QFontDatabase::FixedFont);
     displayFont.setPointSize(22);
 
+    // Стрелка -> вызывает метод объекта, адрес которого хранится в указателе.
+    // Пользователь видит дисплей, но не может редактировать его напрямую.
     display_->setText("0");
     display_->setReadOnly(true);
     display_->setAlignment(Qt::AlignRight);
@@ -39,6 +44,7 @@ CalculatorWindow::CalculatorWindow(QWidget* parent)
 
     ordinaryModeButton_->setChecked(true);
 
+    // Компоновщики автоматически размещают элементы без ручных координат.
     QVBoxLayout* modeButtonsLayout = new QVBoxLayout;
     modeButtonsLayout->addWidget(ordinaryModeButton_);
     modeButtonsLayout->addWidget(engineeringModeButton_);
@@ -53,9 +59,11 @@ CalculatorWindow::CalculatorWindow(QWidget* parent)
     mainLayout->addLayout(modeRowLayout);
     mainLayout->addLayout(buttonPanelsLayout_);
 
+    // parent передаётся в конструктор виджета: Qt сам удалит дочерний объект.
     QWidget* ordinaryPanel = new QWidget(this);
     QGridLayout* ordinaryLayout = new QGridLayout(ordinaryPanel);
 
+    // Создаём кнопки обычного режима и задаём их текст.
     QPushButton* button7 = new QPushButton("7", ordinaryPanel);
     QPushButton* button8 = new QPushButton("8", ordinaryPanel);
     QPushButton* button9 = new QPushButton("9", ordinaryPanel);
@@ -100,6 +108,8 @@ CalculatorWindow::CalculatorWindow(QWidget* parent)
     ordinaryLayout->addWidget(pointButton, 3, 2);
     ordinaryLayout->addWidget(addButton, 3, 3);
 
+    // QList — шаблонный контейнер Qt. Тип внутри <...> говорит, что список
+    // хранит указатели именно на QPushButton.
     const QList<QPushButton*> digitButtons = {
         button0,
         button1,
@@ -113,7 +123,9 @@ CalculatorWindow::CalculatorWindow(QWidget* parent)
         button9
     };
 
+    // Все цифровые кнопки посылают сигнал clicked одному общему слоту.
     for (QPushButton* button : digitButtons) {
+        // SIGNAL и SLOT записывают сигнатуры сигнала и обработчика для Qt.
         connect(button, SIGNAL(clicked()), this, SLOT(slotDigitClicked()));
     }
 
@@ -126,6 +138,7 @@ CalculatorWindow::CalculatorWindow(QWidget* parent)
         divideButton
     };
 
+    // Один обработчик различает операции по тексту на нажатой кнопке.
     for (QPushButton* button : binaryOperationButtons) {
         connect(
             button,
@@ -149,6 +162,8 @@ CalculatorWindow::CalculatorWindow(QWidget* parent)
         SLOT(slotOrdinaryUnaryOperationClicked())
     );
 
+    // Инженерные кнопки находятся на отдельной панели: так её можно целиком
+    // показать или скрыть при переключении режима.
     QGridLayout* engineeringLayout = new QGridLayout(engineeringPanel_);
 
     engineeringLayout->addWidget(new QPushButton("sinh", engineeringPanel_), 0, 0);
@@ -171,9 +186,12 @@ CalculatorWindow::CalculatorWindow(QWidget* parent)
     engineeringLayout->addWidget(new QPushButton("³√x", engineeringPanel_), 3, 2);
     engineeringLayout->addWidget(new QPushButton("ʸ√x", engineeringPanel_), 3, 3);
 
+    // findChildren<T>() — шаблонный метод. В угловых скобках указан тип
+    // дочерних объектов, которые нужно найти на инженерной панели.
     const QList<QPushButton*> engineeringButtons =
         engineeringPanel_->findChildren<QPushButton*>();
 
+    // Подключаем каждую группу операций к своему общему слоту.
     for (QPushButton* button : engineeringButtons) {
         if (
             button->text() == "sin"
@@ -254,6 +272,7 @@ CalculatorWindow::CalculatorWindow(QWidget* parent)
 
     engineeringPanel_->hide();
 
+    // Инженерная панель стоит слева, обычная клавиатура — справа.
     buttonPanelsLayout_->addWidget(engineeringPanel_);
     buttonPanelsLayout_->addWidget(ordinaryPanel);
 
@@ -265,8 +284,10 @@ CalculatorWindow::CalculatorWindow(QWidget* parent)
     );
     connect(clearButton_, SIGNAL(clicked()), this, SLOT(slotClear()));
 
+    // Шаблонный вызов ищет все кнопки среди дочерних объектов окна.
     const QList<QPushButton*> allButtons = findChildren<QPushButton*>();
 
+    // Кнопки не забирают фокус, поэтому ввод с клавиатуры получает окно.
     for (QPushButton* button : allButtons) {
         button->setFocusPolicy(Qt::NoFocus);
     }
@@ -275,6 +296,7 @@ CalculatorWindow::CalculatorWindow(QWidget* parent)
     engineeringModeButton_->setFocusPolicy(Qt::NoFocus);
     setFocusPolicy(Qt::StrongFocus);
 
+    // QSS похож на CSS и задаёт общий внешний вид элементов Qt Widgets.
     setStyleSheet(
         "QWidget {"
         "    font-size: 14px;"
@@ -302,19 +324,23 @@ CalculatorWindow::CalculatorWindow(QWidget* parent)
         "}"
     );
 
+    // Передаём окну главный компоновщик и фиксируем вычисленный им размер.
     setLayout(mainLayout);
     setFixedSize(sizeHint());
 }
 
 void CalculatorWindow::keyPressEvent(QKeyEvent* event)
 {
+    // Коды цифр идут подряд, поэтому вычитание Key_0 даёт число от 0 до 9.
     if (event->key() >= Qt::Key_0 && event->key() <= Qt::Key_9) {
         const int digit = event->key() - Qt::Key_0;
+        // Клавиатура запускает ту же кнопку, что и мышь: логика не дублируется.
         clickButton(QString::number(digit));
         event->accept();
         return;
     }
 
+    // switch выбирает действие по коду специальной клавиши.
     switch (event->key()) {
     case Qt::Key_Period:
         clickButton(".");
@@ -333,12 +359,14 @@ void CalculatorWindow::keyPressEvent(QKeyEvent* event)
         break;
     case Qt::Key_Enter:
     case Qt::Key_Return:
+        // Два case подряд обрабатывают обе клавиши Enter одинаково.
         clickButton("=");
         break;
     case Qt::Key_Escape:
         clickButton("C");
         break;
     default:
+        // Неизвестную клавишу передаём стандартному обработчику QWidget.
         QWidget::keyPressEvent(event);
         return;
     }
@@ -350,25 +378,32 @@ void CalculatorWindow::slotModeChanged()
 {
     const bool engineeringMode = engineeringModeButton_->isChecked();
 
+    // Панель меняет видимость, а состояние текущего вычисления сохраняется.
     engineeringPanel_->setVisible(engineeringMode);
+    // Условный оператор ?: выбирает один из двух заголовков окна.
     setWindowTitle(
         engineeringMode
             ? "Калькулятор (инженерный)"
             : "Калькулятор (обычный)"
     );
 
+    // После изменения видимости заново вычисляем подходящий размер окна.
     layout()->activate();
     setFixedSize(sizeHint());
 }
 
 void CalculatorWindow::slotDigitClicked()
 {
+    // sender() возвращает объект, который послал сигнал. qobject_cast<T>() —
+    // безопасное Qt-приведение к типу из угловых скобок.
     QPushButton* button = qobject_cast<QPushButton*>(sender());
 
+    // При неудачном приведении qobject_cast возвращает nullptr.
     if (button == nullptr) {
         return;
     }
 
+    // Новая цифра заменяет ноль, предыдущий результат или сообщение об ошибке.
     if (waitingForNewValue_ || errorState_ || display_->text() == "0") {
         display_->setText(button->text());
         waitingForNewValue_ = false;
@@ -376,11 +411,13 @@ void CalculatorWindow::slotDigitClicked()
         return;
     }
 
+    // Иначе дописываем цифру справа к уже введённому тексту.
     display_->setText(display_->text() + button->text());
 }
 
 void CalculatorWindow::slotPointClicked()
 {
+    // Новое дробное число начинаем с понятной записи "0.".
     if (waitingForNewValue_ || errorState_) {
         display_->setText("0.");
         waitingForNewValue_ = false;
@@ -388,6 +425,7 @@ void CalculatorWindow::slotPointClicked()
         return;
     }
 
+    // contains не позволяет добавить в одно число вторую точку.
     if (!display_->text().contains('.')) {
         display_->setText(display_->text() + '.');
     }
@@ -395,6 +433,7 @@ void CalculatorWindow::slotPointClicked()
 
 void CalculatorWindow::slotClear()
 {
+    // Возвращаем и интерфейс, и внутреннее состояние к начальному виду.
     display_->setText("0");
     waitingForNewValue_ = true;
     errorState_ = false;
@@ -404,6 +443,7 @@ void CalculatorWindow::slotClear()
 
 void CalculatorWindow::slotBinaryOperationClicked()
 {
+    // Получаем конкретную кнопку, хотя все бинарные операции используют слот.
     QPushButton* button = qobject_cast<QPushButton*>(sender());
 
     if (button == nullptr || errorState_) {
@@ -411,6 +451,7 @@ void CalculatorWindow::slotBinaryOperationClicked()
     }
 
     bool conversionOk = false;
+    // toDouble записывает в conversionOk, получилось ли преобразовать текст.
     const double currentValue = display_->text().toDouble(&conversionOk);
 
     if (!conversionOk) {
@@ -418,6 +459,8 @@ void CalculatorWindow::slotBinaryOperationClicked()
         return;
     }
 
+    // Если операция уже ожидалась, сначала завершаем предыдущую. Благодаря
+    // этому выражение 2 + 3 + сразу показывает промежуточный результат 5.
     if (!pendingOperation_.isEmpty() && !waitingForNewValue_) {
         double result = 0.0;
 
@@ -429,15 +472,18 @@ void CalculatorWindow::slotBinaryOperationClicked()
         storedValue_ = result;
         showValue(result);
     } else if (pendingOperation_.isEmpty()) {
+        // Для первой операции запоминаем число слева от оператора.
         storedValue_ = currentValue;
     }
 
+    // Текст кнопки служит простым обозначением ожидающей операции.
     pendingOperation_ = button->text();
     waitingForNewValue_ = true;
 }
 
 void CalculatorWindow::slotEquals()
 {
+    // Без двух операндов и операции вычислять нечего.
     if (
         errorState_
         || pendingOperation_.isEmpty()
@@ -450,11 +496,13 @@ void CalculatorWindow::slotEquals()
     const double rightOperand = display_->text().toDouble(&conversionOk);
     double result = 0.0;
 
+    // calculate возвращает false при недопустимой операции.
     if (!conversionOk || !calculate(rightOperand, result)) {
         showError();
         return;
     }
 
+    // После "=" результат остаётся на дисплее и может стать новым операндом.
     showValue(result);
     storedValue_ = result;
     pendingOperation_.clear();
@@ -479,7 +527,9 @@ void CalculatorWindow::slotOrdinaryUnaryOperationClicked()
 
     double result = 0.0;
 
+    // Унарная операция использует только текущее число с дисплея.
     if (button->text() == "sqrt") {
+        // В вещественных числах квадратный корень отрицательного не определён.
         if (value < 0.0) {
             showError();
             return;
@@ -487,6 +537,7 @@ void CalculatorWindow::slotOrdinaryUnaryOperationClicked()
 
         result = std::sqrt(value);
     } else if (button->text() == "1/x") {
+        // Деление на ноль запрещено.
         if (value == 0.0) {
             showError();
             return;
@@ -498,6 +549,8 @@ void CalculatorWindow::slotOrdinaryUnaryOperationClicked()
     }
 
     showValue(result);
+    // Если бинарная операция не ждёт второй операнд, следующий ввод заменит
+    // результат; иначе результат остаётся вторым операндом этой операции.
     waitingForNewValue_ = pendingOperation_.isEmpty();
 }
 
@@ -519,11 +572,15 @@ void CalculatorWindow::slotTrigonometricOperationClicked()
 
     double result = 0.0;
 
+    // Функции std::sin, std::cos и std::tan принимают угол в радианах.
+    // Префикс std:: указывает, что функции находятся в стандартном пространстве имён.
     if (button->text() == "sin") {
         result = std::sin(value);
     } else if (button->text() == "cos") {
         result = std::cos(value);
     } else if (button->text() == "tan") {
+        // tan не существует, когда cos близок к нулю. Сравнение выполняется
+        // с малой погрешностью, потому что double хранит числа приближённо.
         if (std::abs(std::cos(value)) < 1e-12) {
             showError();
             return;
@@ -556,6 +613,7 @@ void CalculatorWindow::slotHyperbolicOperationClicked()
 
     double result = 0.0;
 
+    // Выбираем гиперболическую функцию по надписи общей кнопки-отправителя.
     if (button->text() == "sinh") {
         result = std::sinh(value);
     } else if (button->text() == "cosh") {
@@ -588,9 +646,11 @@ void CalculatorWindow::slotLogarithmicOperationClicked()
 
     double result = 0.0;
 
+    // exp вычисляет e в степени текущего числа.
     if (button->text() == "exp") {
         result = std::exp(value);
     } else if (button->text() == "ln") {
+        // Оба вещественных логарифма определены только для чисел больше нуля.
         if (value <= 0.0) {
             showError();
             return;
@@ -630,11 +690,13 @@ void CalculatorWindow::slotPowerOperationClicked()
 
     double result = 0.0;
 
+    // Для небольших целых степеней достаточно обычного умножения.
     if (button->text() == "x²") {
         result = value * value;
     } else if (button->text() == "x³") {
         result = value * value * value;
     } else if (button->text() == "³√x") {
+        // cbrt корректно извлекает кубический корень и из отрицательного числа.
         result = std::cbrt(value);
     } else {
         return;
@@ -653,6 +715,7 @@ void CalculatorWindow::slotSpecialOperationClicked()
     }
 
     if (button->text() == "π") {
+        // arccos(-1) равен π и не требует отдельной константы платформы.
         showValue(std::acos(-1.0));
         waitingForNewValue_ = pendingOperation_.isEmpty();
         return;
@@ -666,6 +729,8 @@ void CalculatorWindow::slotSpecialOperationClicked()
     const double value = display_->text().toDouble(&conversionOk);
     const double integerValue = std::round(value);
 
+    // Факториал определён для целых неотрицательных чисел. После 170
+    // результат уже не помещается в тип double.
     if (
         !conversionOk
         || value < 0.0
@@ -678,6 +743,8 @@ void CalculatorWindow::slotSpecialOperationClicked()
 
     double result = 1.0;
 
+    // static_cast<int> — явное преобразование double в int после проверки,
+    // что значение действительно целое и находится в допустимом диапазоне.
     for (int number = 2; number <= static_cast<int>(integerValue); ++number) {
         result *= number;
     }
@@ -688,21 +755,25 @@ void CalculatorWindow::slotSpecialOperationClicked()
 
 void CalculatorWindow::showValue(double value)
 {
+    // isfinite отсеивает бесконечность и NaN (неопределённый числовой результат).
     if (!std::isfinite(value)) {
         showError();
         return;
     }
 
+    // Очень малое значение выводим как 0, а не как погрешность вида 1e-16.
     if (std::abs(value) < 1e-15) {
         value = 0.0;
     }
 
+    // Формат 'g' выбирает обычную или научную запись, 15 — число значащих цифр.
     display_->setText(QString::number(value, 'g', 15));
     errorState_ = false;
 }
 
 void CalculatorWindow::showError()
 {
+    // После ошибки любая цифра начинает новое вычисление с чистого состояния.
     display_->setText("Ошибка");
     waitingForNewValue_ = true;
     errorState_ = true;
@@ -712,6 +783,7 @@ void CalculatorWindow::showError()
 
 bool CalculatorWindow::calculate(double rightOperand, double& result) const
 {
+    // storedValue_ — левый операнд, rightOperand — правый.
     if (pendingOperation_ == "+") {
         result = storedValue_ + rightOperand;
     } else if (pendingOperation_ == "-") {
@@ -725,13 +797,17 @@ bool CalculatorWindow::calculate(double rightOperand, double& result) const
 
         result = storedValue_ / rightOperand;
     } else if (pendingOperation_ == "xʸ") {
+        // pow возводит сохранённое основание в введённую степень.
         result = std::pow(storedValue_, rightOperand);
     } else if (pendingOperation_ == "ʸ√x") {
+        // Нулевая степень корня привела бы к делению 1 / 0.
         if (rightOperand == 0.0) {
             return false;
         }
 
         if (storedValue_ < 0.0) {
+            // Из отрицательного числа вещественный корень существует только
+            // при целой нечётной степени.
             const double integerDegree = std::round(rightOperand);
             const bool isIntegerDegree =
                 std::abs(rightOperand - integerDegree) < 1e-12;
@@ -742,6 +818,7 @@ bool CalculatorWindow::calculate(double rightOperand, double& result) const
                 return false;
             }
 
+            // Для отрицательного числа отдельно считаем модуль и возвращаем знак.
             result = -std::pow(-storedValue_, 1.0 / rightOperand);
         } else {
             result = std::pow(storedValue_, 1.0 / rightOperand);
@@ -750,6 +827,7 @@ bool CalculatorWindow::calculate(double rightOperand, double& result) const
         return false;
     }
 
+    // Даже допустимая формула может выйти за диапазон double.
     return std::isfinite(result);
 }
 
@@ -758,7 +836,9 @@ bool CalculatorWindow::clickButton(const QString& text)
     const QList<QPushButton*> buttons = findChildren<QPushButton*>();
 
     for (QPushButton* button : buttons) {
+        // Скрытые инженерные кнопки недоступны в обычном режиме.
         if (button->text() == text && button->isVisible()) {
+            // click программно посылает тот же сигнал clicked, что и мышь.
             button->click();
             return true;
         }
