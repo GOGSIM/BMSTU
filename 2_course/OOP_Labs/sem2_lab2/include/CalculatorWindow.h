@@ -3,6 +3,7 @@
 #include <QWidget>
 
 class QLineEdit;
+class QHBoxLayout;
 class QPushButton;
 class QRadioButton;
 
@@ -18,5 +19,6 @@ private:
     QRadioButton* ordinaryModeButton_;
     QRadioButton* engineeringModeButton_;
     QPushButton* clearButton_;
+    QHBoxLayout* buttonPanelsLayout_;
 };
 

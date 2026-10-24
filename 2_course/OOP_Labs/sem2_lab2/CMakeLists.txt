@@ -22,3 +22,7 @@ target_link_libraries(sem2_lab2_calculator
     PRIVATE Qt${QT_VERSION_MAJOR}::Widgets
 )
 
+if(MSVC)
+    target_compile_options(sem2_lab2_calculator PRIVATE /utf-8)
+endif()
+
