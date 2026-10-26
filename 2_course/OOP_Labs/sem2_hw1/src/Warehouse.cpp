@@ -236,6 +236,7 @@ static_assert(std::is_trivially_copyable<ProductRecord>::value,
 // Определяет високосный год по правилам григорианского календаря.
 bool isLeapYear(int year)
 {
+    // || означает «или», && — «и», а % возвращает остаток от деления.
     return year % 400 == 0 || (year % 4 == 0 && year % 100 != 0);
 }
 
@@ -305,6 +306,7 @@ bool isExpired(const ProductRecord& record, const Date& controlDate)
     return dateToDays(controlDate) > expirationDay;
 }
 
+// Запись WarehouseStorage:: показывает, что функция относится к этому классу.
 // Список инициализации после двоеточия сразу задаёт имя рабочего файла.
 WarehouseStorage::WarehouseStorage(const std::string& fileName)
     : fileName_(fileName)
@@ -375,6 +377,7 @@ std::size_t WarehouseStorage::nextIndex() const
 // Дописывает одну структуру целиком в конец основного бинарного файла.
 void WarehouseStorage::appendRecord(const ProductRecord& record) const
 {
+    // Вертикальная черта | объединяет два флага открытия: binary и app.
     // app устанавливает позицию записи в конец файла.
     std::ofstream output(fileName_, std::ios::binary | std::ios::app);
     if (!output)

@@ -38,6 +38,7 @@ int readMenuChoice()
 int main()
 {
     // static_cast явно преобразует время в тип, который принимает srand.
+    // nullptr означает отсутствие указателя: функции time не нужен адрес результата.
     std::srand(static_cast<unsigned int>(std::time(nullptr)));
 
     int choice = -1;

@@ -15,6 +15,8 @@
 // Пространство имён первой части задания.
 namespace sequential
 {
+// Префикс std:: показывает, что string и другие имена взяты из стандартной
+// библиотеки C++, а не объявлены в нашей программе.
 // Общие имена входного и выходного файлов.
 const std::string INPUT_FILE_NAME = "input.txt";
 const std::string OUTPUT_FILE_NAME = "output.txt";
@@ -193,6 +195,8 @@ Container modifyContainer(const Container& source)
 
 // Вторая версия modify работает только с границами диапазона итераторов.
 template <typename Iterator, typename Container>
+// Знак & у result означает передачу по ссылке: функция заполняет исходный
+// контейнер результата, а не его временную копию.
 void modifyWithIterators(Iterator begin, Iterator end, Container& result)
 {
     // iterator_traits получает тип элемента независимо от вида итератора.
