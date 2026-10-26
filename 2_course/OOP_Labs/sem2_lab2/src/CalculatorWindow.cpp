@@ -13,6 +13,8 @@
 #include <QRadioButton>
 #include <QVBoxLayout>
 
+// Оператор :: показывает, что конструктор относится к классу CalculatorWindow,
+// хотя его реализация находится отдельно от объявления класса в .h-файле.
 CalculatorWindow::CalculatorWindow(QWidget* parent)
     // После двоеточия идёт список инициализации: базовый класс и поля
     // создаются сразу с нужными значениями до выполнения тела конструктора.
@@ -498,6 +500,7 @@ void CalculatorWindow::slotBinaryOperationClicked()
     // Получаем конкретную кнопку, хотя все бинарные операции используют слот.
     QPushButton* button = qobject_cast<QPushButton*>(sender());
 
+    // Оператор || означает «ИЛИ»: достаточно выполнения одного из условий.
     if (button == nullptr || errorState_) {
         return;
     }
@@ -513,6 +516,8 @@ void CalculatorWindow::slotBinaryOperationClicked()
 
     // Если операция уже ожидалась, сначала завершаем предыдущую. Благодаря
     // этому выражение 2 + 3 + сразу показывает промежуточный результат 5.
+    // && означает «И», а ! меняет true на false. Поэтому блок выполняется,
+    // когда операция уже выбрана и калькулятор получил второй операнд.
     if (!pendingOperation_.isEmpty() && !waitingForNewValue_) {
         double result = 0.0;
 
@@ -633,6 +638,7 @@ void CalculatorWindow::slotTrigonometricOperationClicked()
     } else if (button->text() == "tan") {
         // tan не существует, когда cos близок к нулю. Сравнение выполняется
         // с малой погрешностью, потому что double хранит числа приближённо.
+        // Запись 1e-12 в C++ означает 1 * 10 в степени -12.
         if (std::abs(std::cos(value)) < 1e-12) {
             showError();
             return;
