@@ -27,6 +27,8 @@ CalculatorWindow::CalculatorWindow(QWidget* parent)
       errorState_(false),
       storedValue_(0.0)
 {
+    // objectName позволяет обратиться именно к главному окну в QSS через
+    // селектор QWidget#calculatorWindow, не меняя фон всех дочерних виджетов.
     setObjectName("calculatorWindow");
     setWindowTitle("Калькулятор (обычный)");
 
@@ -36,6 +38,7 @@ CalculatorWindow::CalculatorWindow(QWidget* parent)
 
     // Стрелка -> вызывает метод объекта, адрес которого хранится в указателе.
     // Пользователь видит дисплей, но не может редактировать его напрямую.
+    // Имя display используется ниже, чтобы задать экрану отдельные цвета.
     display_->setObjectName("display");
     display_->setText("0");
     display_->setReadOnly(true);
@@ -47,6 +50,7 @@ CalculatorWindow::CalculatorWindow(QWidget* parent)
     ordinaryModeButton_->setChecked(true);
 
     // Компоновщики автоматически размещают элементы без ручных координат.
+    // setSpacing задаёт одинаковое расстояние между соседними элементами.
     QVBoxLayout* modeButtonsLayout = new QVBoxLayout;
     modeButtonsLayout->setSpacing(4);
     modeButtonsLayout->addWidget(ordinaryModeButton_);
@@ -88,6 +92,7 @@ CalculatorWindow::CalculatorWindow(QWidget* parent)
     QPushButton* button3 = new QPushButton("3", ordinaryPanel);
     QPushButton* subtractButton = new QPushButton("-", ordinaryPanel);
     QPushButton* equalsButton = new QPushButton("=", ordinaryPanel);
+    // По имени equalsButton QSS выделяет кнопку результата синим цветом.
     equalsButton->setObjectName("equalsButton");
 
     QPushButton* button0 = new QPushButton("0", ordinaryPanel);
@@ -133,7 +138,8 @@ CalculatorWindow::CalculatorWindow(QWidget* parent)
 
     // Все цифровые кнопки посылают сигнал clicked одному общему слоту.
     for (QPushButton* button : digitButtons) {
-        // clicked(bool) передаёт состояние кнопки, но нашему слоту оно не нужно.
+        // В Qt 6 полная сигнатура сигнала — clicked(bool). Параметр сообщает,
+        // отмечена ли кнопка, но обычному QPushButton и нашему слоту он не нужен.
         connect(button, SIGNAL(clicked(bool)), this, SLOT(slotDigitClicked()));
     }
 
@@ -306,11 +312,13 @@ CalculatorWindow::CalculatorWindow(QWidget* parent)
     engineeringModeButton_->setFocusPolicy(Qt::NoFocus);
     setFocusPolicy(Qt::StrongFocus);
 
+    // По имени clearButton QSS отдельно выделяет очистку красным цветом.
     clearButton_->setObjectName("clearButton");
 
     // QSS похож на CSS и задаёт общий внешний вид элементов Qt Widgets.
     // Цвет текста задаётся явно, поэтому интерфейс одинаково читается при
-    // светлой и тёмной системной теме.
+    // светлой и тёмной системной теме. Символ # в селекторе означает поиск
+    // элемента по objectName, установленному выше.
     setStyleSheet(
         "QWidget#calculatorWindow {"
         "    background-color: #202733;"
