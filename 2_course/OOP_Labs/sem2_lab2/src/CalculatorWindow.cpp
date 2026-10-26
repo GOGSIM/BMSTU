@@ -27,34 +27,40 @@ CalculatorWindow::CalculatorWindow(QWidget* parent)
       errorState_(false),
       storedValue_(0.0)
 {
+    setObjectName("calculatorWindow");
     setWindowTitle("Калькулятор (обычный)");
 
     // Берём системный моноширинный шрифт, чтобы цифры не меняли ширину.
     QFont displayFont = QFontDatabase::systemFont(QFontDatabase::FixedFont);
-    displayFont.setPointSize(22);
+    displayFont.setPointSize(24);
 
     // Стрелка -> вызывает метод объекта, адрес которого хранится в указателе.
     // Пользователь видит дисплей, но не может редактировать его напрямую.
+    display_->setObjectName("display");
     display_->setText("0");
     display_->setReadOnly(true);
     display_->setAlignment(Qt::AlignRight);
     display_->setFont(displayFont);
-    display_->setMinimumHeight(50);
+    display_->setMinimumHeight(58);
     display_->setMaxLength(24);
 
     ordinaryModeButton_->setChecked(true);
 
     // Компоновщики автоматически размещают элементы без ручных координат.
     QVBoxLayout* modeButtonsLayout = new QVBoxLayout;
+    modeButtonsLayout->setSpacing(4);
     modeButtonsLayout->addWidget(ordinaryModeButton_);
     modeButtonsLayout->addWidget(engineeringModeButton_);
 
     QHBoxLayout* modeRowLayout = new QHBoxLayout;
+    modeRowLayout->setSpacing(10);
     modeRowLayout->addLayout(modeButtonsLayout);
     modeRowLayout->addStretch();
     modeRowLayout->addWidget(clearButton_);
 
     QVBoxLayout* mainLayout = new QVBoxLayout;
+    mainLayout->setContentsMargins(14, 14, 14, 14);
+    mainLayout->setSpacing(10);
     mainLayout->addWidget(display_);
     mainLayout->addLayout(modeRowLayout);
     mainLayout->addLayout(buttonPanelsLayout_);
@@ -62,6 +68,7 @@ CalculatorWindow::CalculatorWindow(QWidget* parent)
     // parent передаётся в конструктор виджета: Qt сам удалит дочерний объект.
     QWidget* ordinaryPanel = new QWidget(this);
     QGridLayout* ordinaryLayout = new QGridLayout(ordinaryPanel);
+    ordinaryLayout->setSpacing(6);
 
     // Создаём кнопки обычного режима и задаём их текст.
     QPushButton* button7 = new QPushButton("7", ordinaryPanel);
@@ -81,6 +88,7 @@ CalculatorWindow::CalculatorWindow(QWidget* parent)
     QPushButton* button3 = new QPushButton("3", ordinaryPanel);
     QPushButton* subtractButton = new QPushButton("-", ordinaryPanel);
     QPushButton* equalsButton = new QPushButton("=", ordinaryPanel);
+    equalsButton->setObjectName("equalsButton");
 
     QPushButton* button0 = new QPushButton("0", ordinaryPanel);
     QPushButton* pointButton = new QPushButton(".", ordinaryPanel);
@@ -125,11 +133,11 @@ CalculatorWindow::CalculatorWindow(QWidget* parent)
 
     // Все цифровые кнопки посылают сигнал clicked одному общему слоту.
     for (QPushButton* button : digitButtons) {
-        // SIGNAL и SLOT записывают сигнатуры сигнала и обработчика для Qt.
-        connect(button, SIGNAL(clicked()), this, SLOT(slotDigitClicked()));
+        // clicked(bool) передаёт состояние кнопки, но нашему слоту оно не нужно.
+        connect(button, SIGNAL(clicked(bool)), this, SLOT(slotDigitClicked()));
     }
 
-    connect(pointButton, SIGNAL(clicked()), this, SLOT(slotPointClicked()));
+    connect(pointButton, SIGNAL(clicked(bool)), this, SLOT(slotPointClicked()));
 
     const QList<QPushButton*> binaryOperationButtons = {
         addButton,
@@ -142,22 +150,22 @@ CalculatorWindow::CalculatorWindow(QWidget* parent)
     for (QPushButton* button : binaryOperationButtons) {
         connect(
             button,
-            SIGNAL(clicked()),
+            SIGNAL(clicked(bool)),
             this,
             SLOT(slotBinaryOperationClicked())
         );
     }
 
-    connect(equalsButton, SIGNAL(clicked()), this, SLOT(slotEquals()));
+    connect(equalsButton, SIGNAL(clicked(bool)), this, SLOT(slotEquals()));
     connect(
         squareRootButton,
-        SIGNAL(clicked()),
+        SIGNAL(clicked(bool)),
         this,
         SLOT(slotOrdinaryUnaryOperationClicked())
     );
     connect(
         reciprocalButton,
-        SIGNAL(clicked()),
+        SIGNAL(clicked(bool)),
         this,
         SLOT(slotOrdinaryUnaryOperationClicked())
     );
@@ -165,6 +173,7 @@ CalculatorWindow::CalculatorWindow(QWidget* parent)
     // Инженерные кнопки находятся на отдельной панели: так её можно целиком
     // показать или скрыть при переключении режима.
     QGridLayout* engineeringLayout = new QGridLayout(engineeringPanel_);
+    engineeringLayout->setSpacing(6);
 
     engineeringLayout->addWidget(new QPushButton("sinh", engineeringPanel_), 0, 0);
     engineeringLayout->addWidget(new QPushButton("sin", engineeringPanel_), 0, 1);
@@ -200,7 +209,7 @@ CalculatorWindow::CalculatorWindow(QWidget* parent)
         ) {
             connect(
                 button,
-                SIGNAL(clicked()),
+                SIGNAL(clicked(bool)),
                 this,
                 SLOT(slotTrigonometricOperationClicked())
             );
@@ -213,7 +222,7 @@ CalculatorWindow::CalculatorWindow(QWidget* parent)
         ) {
             connect(
                 button,
-                SIGNAL(clicked()),
+                SIGNAL(clicked(bool)),
                 this,
                 SLOT(slotHyperbolicOperationClicked())
             );
@@ -226,7 +235,7 @@ CalculatorWindow::CalculatorWindow(QWidget* parent)
         ) {
             connect(
                 button,
-                SIGNAL(clicked()),
+                SIGNAL(clicked(bool)),
                 this,
                 SLOT(slotLogarithmicOperationClicked())
             );
@@ -239,7 +248,7 @@ CalculatorWindow::CalculatorWindow(QWidget* parent)
         ) {
             connect(
                 button,
-                SIGNAL(clicked()),
+                SIGNAL(clicked(bool)),
                 this,
                 SLOT(slotPowerOperationClicked())
             );
@@ -251,7 +260,7 @@ CalculatorWindow::CalculatorWindow(QWidget* parent)
         ) {
             connect(
                 button,
-                SIGNAL(clicked()),
+                SIGNAL(clicked(bool)),
                 this,
                 SLOT(slotBinaryOperationClicked())
             );
@@ -263,7 +272,7 @@ CalculatorWindow::CalculatorWindow(QWidget* parent)
         ) {
             connect(
                 button,
-                SIGNAL(clicked()),
+                SIGNAL(clicked(bool)),
                 this,
                 SLOT(slotSpecialOperationClicked())
             );
@@ -273,6 +282,7 @@ CalculatorWindow::CalculatorWindow(QWidget* parent)
     engineeringPanel_->hide();
 
     // Инженерная панель стоит слева, обычная клавиатура — справа.
+    buttonPanelsLayout_->setSpacing(12);
     buttonPanelsLayout_->addWidget(engineeringPanel_);
     buttonPanelsLayout_->addWidget(ordinaryPanel);
 
@@ -282,7 +292,7 @@ CalculatorWindow::CalculatorWindow(QWidget* parent)
         this,
         SLOT(slotModeChanged())
     );
-    connect(clearButton_, SIGNAL(clicked()), this, SLOT(slotClear()));
+    connect(clearButton_, SIGNAL(clicked(bool)), this, SLOT(slotClear()));
 
     // Шаблонный вызов ищет все кнопки среди дочерних объектов окна.
     const QList<QPushButton*> allButtons = findChildren<QPushButton*>();
@@ -296,31 +306,60 @@ CalculatorWindow::CalculatorWindow(QWidget* parent)
     engineeringModeButton_->setFocusPolicy(Qt::NoFocus);
     setFocusPolicy(Qt::StrongFocus);
 
+    clearButton_->setObjectName("clearButton");
+
     // QSS похож на CSS и задаёт общий внешний вид элементов Qt Widgets.
+    // Цвет текста задаётся явно, поэтому интерфейс одинаково читается при
+    // светлой и тёмной системной теме.
     setStyleSheet(
+        "QWidget#calculatorWindow {"
+        "    background-color: #202733;"
+        "}"
         "QWidget {"
         "    font-size: 14px;"
         "}"
-        "QLineEdit {"
-        "    background-color: white;"
-        "    border: 1px solid #777777;"
-        "    padding: 6px;"
+        "QLineEdit#display {"
+        "    color: #111827;"
+        "    background-color: #f8fafc;"
+        "    border: 2px solid #64748b;"
+        "    border-radius: 6px;"
+        "    padding: 8px;"
+        "    selection-color: white;"
+        "    selection-background-color: #2563eb;"
         "}"
         "QPushButton {"
-        "    min-width: 48px;"
-        "    min-height: 38px;"
-        "    background-color: #f1f1f1;"
-        "    border: 1px solid #999999;"
-        "    border-radius: 3px;"
+        "    color: #f8fafc;"
+        "    min-width: 54px;"
+        "    min-height: 42px;"
+        "    background-color: #374151;"
+        "    border: 1px solid #64748b;"
+        "    border-radius: 6px;"
+        "    font-weight: 600;"
         "}"
         "QPushButton:hover {"
-        "    background-color: #e2e2e2;"
+        "    background-color: #4b5563;"
+        "    border-color: #94a3b8;"
         "}"
         "QPushButton:pressed {"
-        "    background-color: #cccccc;"
+        "    background-color: #1f2937;"
+        "}"
+        "QPushButton#clearButton {"
+        "    background-color: #b91c1c;"
+        "    border-color: #ef4444;"
+        "}"
+        "QPushButton#clearButton:hover {"
+        "    background-color: #dc2626;"
+        "}"
+        "QPushButton#equalsButton {"
+        "    background-color: #1d4ed8;"
+        "    border-color: #60a5fa;"
+        "}"
+        "QPushButton#equalsButton:hover {"
+        "    background-color: #2563eb;"
         "}"
         "QRadioButton {"
-        "    spacing: 6px;"
+        "    color: #f8fafc;"
+        "    spacing: 8px;"
         "}"
     );
 
