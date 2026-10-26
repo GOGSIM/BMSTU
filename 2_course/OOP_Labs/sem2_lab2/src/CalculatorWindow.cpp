@@ -16,6 +16,8 @@
 CalculatorWindow::CalculatorWindow(QWidget* parent)
     // После двоеточия идёт список инициализации: базовый класс и поля
     // создаются сразу с нужными значениями до выполнения тела конструктора.
+    // Передача this дочерним виджетам строит дерево владения QObject.
+    // Благодаря этому вручную вызывать delete для этих элементов не требуется.
     : QWidget(parent),
       display_(new QLineEdit(this)),
       ordinaryModeButton_(new QRadioButton("Обычный", this)),
@@ -49,7 +51,8 @@ CalculatorWindow::CalculatorWindow(QWidget* parent)
 
     ordinaryModeButton_->setChecked(true);
 
-    // Компоновщики автоматически размещают элементы без ручных координат.
+    // Компоновщики являются частью системы интерфейса Qt: они автоматически
+    // размещают элементы и пересчитывают размеры при изменении содержимого.
     // setSpacing задаёт одинаковое расстояние между соседними элементами.
     QVBoxLayout* modeButtonsLayout = new QVBoxLayout;
     modeButtonsLayout->setSpacing(4);
@@ -136,6 +139,8 @@ CalculatorWindow::CalculatorWindow(QWidget* parent)
         button9
     };
 
+    // Сигнально-слотовая связь разделяет источник события и его обработчик:
+    // кнопка знает только о сигнале clicked, а окно решает, что делать дальше.
     // Все цифровые кнопки посылают сигнал clicked одному общему слоту.
     for (QPushButton* button : digitButtons) {
         // В Qt 6 полная сигнатура сигнала — clicked(bool). Параметр сообщает,
