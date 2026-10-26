@@ -1,0 +1,5 @@
+build/
+builds/
+.vscode/
+CMakeUserPresets.json
+.qt/
