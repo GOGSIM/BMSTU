@@ -1,0 +1,28 @@
+{
+  "dataset": "Общественное питание в Москве, набор 1903",
+  "portal": "https://data.mos.ru/opendata/1903",
+  "source_url": "https://github.com/SergUSProject/BigDataProc_HomeWorks/blob/1c098ebd31d106d98c7d703ce4c09b3f26d98fef/spark/data/places.csv",
+  "dataset_date": "не указана в исходной копии",
+  "source_file": "places.csv",
+  "source_sha256": "e952281241c492fc8abd9c80e2c37d45a2fd848af5b28ddcf2aa918d15b5c90c",
+  "source_records": 769,
+  "source_types": {
+    "бар": 131,
+    "буфет": 22,
+    "закусочная": 11,
+    "кафе": 448,
+    "кафетерий": 22,
+    "магазин (отдел кулинарии)": 14,
+    "предприятие быстрого обслуживания": 15,
+    "ресторан": 68,
+    "столовая": 38
+  },
+  "xml_files": {
+    "cafes.xml": 448,
+    "coffeehouses.xml": 45,
+    "bars.xml": 131,
+    "fast_food.xml": 15
+  },
+  "coffee_selection": "Название соответствует регулярному выражению кофе|coffee|cofix|starbucks|шоколадниц|costa; это эвристическая выборка, может пересекаться с другими категориями",
+  "transformation": "Исходная выгрузка -> XML UTF-8. Идентификаторы и исходные значения сохранены. Координаты из geoData используются только при отсутствии отдельных полей WGS84."
+}

@@ -1,0 +1,213 @@
+<?xml version='1.0' encoding='utf-8'?>
+<catering category="Быстрое обслуживание">
+  <organization>
+    <global_id>637395750</global_id>
+    <Name>Крошка Картошка</Name>
+    <TypeObject>предприятие быстрого обслуживания</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Мясницкая улица, дом 30/1/2, строение 1</Address>
+    <SeatsCount>15</SeatsCount>
+    <Latitude_WGS84>55.76528752837034</Latitude_WGS84>
+    <Longitude_WGS84>37.63916423041074</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(495) 995-21-34</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>637549306</global_id>
+    <Name>KFC</Name>
+    <TypeObject>предприятие быстрого обслуживания</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, улица Земляной Вал, дом 29, строение 1</Address>
+    <SeatsCount>25</SeatsCount>
+    <Latitude_WGS84>55.75882862283858</Latitude_WGS84>
+    <Longitude_WGS84>37.660657269008894</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(495) 785-14-00</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>637549403</global_id>
+    <Name>Пицца Хат</Name>
+    <TypeObject>предприятие быстрого обслуживания</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Бауманская улица, дом 32, строение 2</Address>
+    <SeatsCount>29</SeatsCount>
+    <Latitude_WGS84>55.772090762087466</Latitude_WGS84>
+    <Longitude_WGS84>37.678311</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(495) 916-56-16</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>905406606</global_id>
+    <Name>Домино'с Пицца</Name>
+    <TypeObject>предприятие быстрого обслуживания</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Старая Басманная улица, дом 25, строение 5</Address>
+    <SeatsCount>16</SeatsCount>
+    <Latitude_WGS84>55.76761576078663</Latitude_WGS84>
+    <Longitude_WGS84>37.665336</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(495) 900-01-35</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>918057433</global_id>
+    <Name>Горячий хлеб</Name>
+    <TypeObject>предприятие быстрого обслуживания</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Бакунинская улица, дом 44-48, строение 1</Address>
+    <SeatsCount>0</SeatsCount>
+    <Latitude_WGS84>55.77628076330593</Latitude_WGS84>
+    <Longitude_WGS84>37.687826</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(800) 659-50-41</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>918059031</global_id>
+    <Name>Домино'с Пицца</Name>
+    <TypeObject>предприятие быстрого обслуживания</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Волховский переулок, дом 2</Address>
+    <SeatsCount>12</SeatsCount>
+    <Latitude_WGS84>55.772747762278506</Latitude_WGS84>
+    <Longitude_WGS84>37.684116</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(495) 900-01-79</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>918059101</global_id>
+    <Name>СтардогS</Name>
+    <TypeObject>предприятие быстрого обслуживания</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Нижний Сусальный переулок, дом 5, строение 19</Address>
+    <SeatsCount>0</SeatsCount>
+    <Latitude_WGS84>55.75931275837439</Latitude_WGS84>
+    <Longitude_WGS84>37.665965</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(495) 540-57-23</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>930777217</global_id>
+    <Name>ДАЙ КРАБА</Name>
+    <TypeObject>предприятие быстрого обслуживания</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, улица Маросейка, дом 4/2, строение 1</Address>
+    <SeatsCount>10</SeatsCount>
+    <Latitude_WGS84>55.75737875781276</Latitude_WGS84>
+    <Longitude_WGS84>37.634044</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(916) 973-16-49</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>930777220</global_id>
+    <Name>Ванильный шпатель</Name>
+    <TypeObject>предприятие быстрого обслуживания</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, улица Маросейка, дом 4/2, строение 1</Address>
+    <SeatsCount>6</SeatsCount>
+    <Latitude_WGS84>55.75737875781276</Latitude_WGS84>
+    <Longitude_WGS84>37.634044</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(916) 360-83-70</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>930777223</global_id>
+    <Name>Wood wood Burgers</Name>
+    <TypeObject>предприятие быстрого обслуживания</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, улица Маросейка, дом 4/2, строение 1</Address>
+    <SeatsCount>10</SeatsCount>
+    <Latitude_WGS84>55.75737875781276</Latitude_WGS84>
+    <Longitude_WGS84>37.634044</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(926) 329-01-84</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>930778312</global_id>
+    <Name>Fish burger</Name>
+    <TypeObject>предприятие быстрого обслуживания</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Мясницкая улица, дом 24/7, строение 8</Address>
+    <SeatsCount>0</SeatsCount>
+    <Latitude_WGS84>55.76300075944563</Latitude_WGS84>
+    <Longitude_WGS84>37.635698</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(963) 338-98-90</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>1026831093</global_id>
+    <Name>ШефДонер</Name>
+    <TypeObject>предприятие быстрого обслуживания</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Большая Почтовая улица, дом 38, строение 1</Address>
+    <SeatsCount>0</SeatsCount>
+    <Latitude_WGS84>55.781496764823366</Latitude_WGS84>
+    <Longitude_WGS84>37.696966999999994</Longitude_WGS84>
+    <PublicPhone>
+      <phone>нет телефона</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>1034727739</global_id>
+    <Name>Блинная</Name>
+    <TypeObject>предприятие быстрого обслуживания</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Спартаковская улица, дом 8</Address>
+    <SeatsCount>0</SeatsCount>
+    <Latitude_WGS84>55.77160176194528</Latitude_WGS84>
+    <Longitude_WGS84>37.67370800000001</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(977) 146-10-02</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>1034728915</global_id>
+    <Name>СтардогS</Name>
+    <TypeObject>предприятие быстрого обслуживания</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Бауманская улица, дом 32, строение 2</Address>
+    <SeatsCount>10</SeatsCount>
+    <Latitude_WGS84>55.772270762139804</Latitude_WGS84>
+    <Longitude_WGS84>37.678198</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(962) 200-28-28</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>1075023325</global_id>
+    <Name>Теремок</Name>
+    <TypeObject>предприятие быстрого обслуживания</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Нижний Сусальный переулок, дом 5, сооружение 1</Address>
+    <SeatsCount>40</SeatsCount>
+    <Latitude_WGS84>55.761279</Latitude_WGS84>
+    <Longitude_WGS84>37.663018</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(495) 956-27-30</phone>
+    </PublicPhone>
+  </organization>
+</catering>
