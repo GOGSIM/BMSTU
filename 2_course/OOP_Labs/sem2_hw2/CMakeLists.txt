@@ -12,6 +12,7 @@ find_package(Qt6 6.5 REQUIRED COMPONENTS Widgets Xml)
 add_library(xml_viewer_core
     include/XmlTreeModel.h src/XmlTreeModel.cpp
     include/MainWindow.h src/MainWindow.cpp
+    include/WindowsAccessibilityGuard.h src/WindowsAccessibilityGuard.cpp
 )
 target_include_directories(xml_viewer_core PUBLIC include)
 target_link_libraries(xml_viewer_core PUBLIC Qt6::Widgets Qt6::Xml)
@@ -39,5 +40,16 @@ if(BUILD_TESTING)
     target_compile_definitions(xml_viewer_tests PRIVATE
         TEST_DATA_DIR="${CMAKE_CURRENT_SOURCE_DIR}/data")
     add_test(NAME xml_viewer_tests COMMAND xml_viewer_tests -platform offscreen)
+    if(WIN32)
+        # Отдельный процесс проверяет настоящий Windows/UIA-мост, которого
+        # нет у offscreen-плагина. Клиент UIA имеет собственный тайм-аут.
+        add_executable(windows_responsiveness_tests tests/WindowsResponsivenessTests.cpp)
+        target_link_libraries(windows_responsiveness_tests PRIVATE Qt6::Test user32 ole32 oleaut32)
+        target_compile_definitions(windows_responsiveness_tests PRIVATE
+            TEST_DATA_DIR="${CMAKE_CURRENT_SOURCE_DIR}/data")
+        add_dependencies(windows_responsiveness_tests sem2_hw2_xml_viewer)
+        add_test(NAME windows_responsiveness_tests COMMAND windows_responsiveness_tests)
+        set_tests_properties(windows_responsiveness_tests PROPERTIES TIMEOUT 40)
+    endif()
 endif()
 
