@@ -1,0 +1,5 @@
+data/source/*.csv text eol=lf
+data/*.xml text eol=lf
+data/*.json text eol=lf
+tools/*.py text eol=lf
+

@@ -1,0 +1,633 @@
+<?xml version='1.0' encoding='utf-8'?>
+<catering category="Кофейни">
+  <organization>
+    <global_id>637379839</global_id>
+    <Name>Шоколадница</Name>
+    <TypeObject>кафе</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Бауманская улица, дом 33/2, строение 1</Address>
+    <SeatsCount>48</SeatsCount>
+    <Latitude_WGS84>55.77302899555391</Latitude_WGS84>
+    <Longitude_WGS84>37.678681276899106</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(495) 916-57-62</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>637395710</global_id>
+    <Name>Шоколадница</Name>
+    <TypeObject>кафе</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Мясницкая улица, дом 24/7, строение 2</Address>
+    <SeatsCount>55</SeatsCount>
+    <Latitude_WGS84>55.7632395206206</Latitude_WGS84>
+    <Longitude_WGS84>37.635798119170495</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(495) 924-28-43</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>637423121</global_id>
+    <Name>Cezve Coffee</Name>
+    <TypeObject>кафе</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Подсосенский переулок, дом 8, строение 2</Address>
+    <SeatsCount>20</SeatsCount>
+    <Latitude_WGS84>55.758257810643535</Latitude_WGS84>
+    <Longitude_WGS84>37.65002491767621</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(499) 404-06-02</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>637428484</global_id>
+    <Name>Шоколадница</Name>
+    <TypeObject>кафе</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Садовая-Черногрязская улица, дом 3Б, строение 1</Address>
+    <SeatsCount>65</SeatsCount>
+    <Latitude_WGS84>55.7672533819569</Latitude_WGS84>
+    <Longitude_WGS84>37.6522561536856</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(499) 975-18-71</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>637439237</global_id>
+    <Name>Jeffreys coffee</Name>
+    <TypeObject>кафе</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, улица Маросейка, дом 15</Address>
+    <SeatsCount>40</SeatsCount>
+    <Latitude_WGS84>55.757942694896094</Latitude_WGS84>
+    <Longitude_WGS84>37.636713612663165</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(495) 623-87-77</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>637440783</global_id>
+    <Name>Кофе-Бин</Name>
+    <TypeObject>кафе</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, улица Покровка, дом 21-23/25, строение 1</Address>
+    <SeatsCount>47</SeatsCount>
+    <Latitude_WGS84>55.75966593097089</Latitude_WGS84>
+    <Longitude_WGS84>37.647149227720604</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(925) 006-42-24</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>637462659</global_id>
+    <Name>Кофе пью</Name>
+    <TypeObject>кафе</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Чистопрудный бульвар, дом 9, строение 1</Address>
+    <SeatsCount>40</SeatsCount>
+    <Latitude_WGS84>55.7628592386437</Latitude_WGS84>
+    <Longitude_WGS84>37.643651627164196</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(495) 624-29-83</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>637462982</global_id>
+    <Name>Шоколадница</Name>
+    <TypeObject>кафе</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, улица Земляной Вал, дом 18-22, строение 2</Address>
+    <SeatsCount>48</SeatsCount>
+    <Latitude_WGS84>55.7595572693991</Latitude_WGS84>
+    <Longitude_WGS84>37.657148502928095</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(495) 917-93-63</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>637470057</global_id>
+    <Name>Jeffreys coffee</Name>
+    <TypeObject>кафе</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Ладожская улица, дом 8</Address>
+    <SeatsCount>30</SeatsCount>
+    <Latitude_WGS84>55.77123697558879</Latitude_WGS84>
+    <Longitude_WGS84>37.68302037197833</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(495) 664-37-46</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>637504567</global_id>
+    <Name>Розетка и Кофе</Name>
+    <TypeObject>кафе</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, улица Покровка, дом 17, строение 1</Address>
+    <SeatsCount>2</SeatsCount>
+    <Latitude_WGS84>55.75949743542305</Latitude_WGS84>
+    <Longitude_WGS84>37.6456679629678</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(966) 145-99-11</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>637504919</global_id>
+    <Name>Шоколадница</Name>
+    <TypeObject>кафе</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Мясницкая улица, дом 46, строение 1</Address>
+    <SeatsCount>40</SeatsCount>
+    <Latitude_WGS84>55.7682371676198</Latitude_WGS84>
+    <Longitude_WGS84>37.644617222409906</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(916) 499-97-24</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>637506130</global_id>
+    <Name>Шоколадница</Name>
+    <TypeObject>кафе</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, улица Маросейка, дом 3/13, строение 1</Address>
+    <SeatsCount>60</SeatsCount>
+    <Latitude_WGS84>55.757365863069296</Latitude_WGS84>
+    <Longitude_WGS84>37.631613873107504</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(495) 624-07-79</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>637533068</global_id>
+    <Name>Кофемания</Name>
+    <TypeObject>кафе</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, улица Покровка, дом 18/18, строение 3</Address>
+    <SeatsCount>72</SeatsCount>
+    <Latitude_WGS84>55.75913575832298</Latitude_WGS84>
+    <Longitude_WGS84>37.64611099999999</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(495) 781-16-90</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>637548825</global_id>
+    <Name>OMGcoffee</Name>
+    <TypeObject>кафе</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Нижний Сусальный переулок, дом 5, строение 10</Address>
+    <SeatsCount>55</SeatsCount>
+    <Latitude_WGS84>55.760610538549194</Latitude_WGS84>
+    <Longitude_WGS84>37.664356465886286</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(495) 722-69-54</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>637549120</global_id>
+    <Name>Кофейня «Правда кофе»</Name>
+    <TypeObject>кафе</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Нижний Сусальный переулок, дом 5, сооружение 1</Address>
+    <SeatsCount>2</SeatsCount>
+    <Latitude_WGS84>55.760410447511525</Latitude_WGS84>
+    <Longitude_WGS84>37.66231863263302</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(903) 685-72-72</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>878848397</global_id>
+    <Name>Розетка и кофе</Name>
+    <TypeObject>кафе</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Мясницкая улица, дом 24/7, строение 3</Address>
+    <SeatsCount>20</SeatsCount>
+    <Latitude_WGS84>55.76305634747901</Latitude_WGS84>
+    <Longitude_WGS84>37.636702226267104</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(967) 115-09-94</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>905399289</global_id>
+    <Name>Coffee Bo</Name>
+    <TypeObject>кафе</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Мясницкая улица, дом 32, строение 2</Address>
+    <SeatsCount>9</SeatsCount>
+    <Latitude_WGS84>55.76540017630813</Latitude_WGS84>
+    <Longitude_WGS84>37.63961753057647</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(985) 834-02-28</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>905399917</global_id>
+    <Name>ABC Coffee Roasters</Name>
+    <TypeObject>кафе</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, улица Покровка, дом 7/9-11, корпус 1</Address>
+    <SeatsCount>15</SeatsCount>
+    <Latitude_WGS84>55.75954259409095</Latitude_WGS84>
+    <Longitude_WGS84>37.64209694595681</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(495) 222-10-36</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>905400251</global_id>
+    <Name>Matreshka Coffee</Name>
+    <TypeObject>кафе</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, улица Казакова, дом 8, строение 6</Address>
+    <SeatsCount>8</SeatsCount>
+    <Latitude_WGS84>55.76225175922803</Latitude_WGS84>
+    <Longitude_WGS84>37.660675000000005</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(966) 073-59-57</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>905408285</global_id>
+    <Name>Шоколадница</Name>
+    <TypeObject>кафе</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Бауманская улица, дом 35/1</Address>
+    <SeatsCount>30</SeatsCount>
+    <Latitude_WGS84>55.771751761988895</Latitude_WGS84>
+    <Longitude_WGS84>37.679047</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(985) 316-24-46</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>918059251</global_id>
+    <Name>Шоколадница</Name>
+    <TypeObject>кафе</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Большой Спасоглинищевский переулок, дом 9/1, строение 16</Address>
+    <SeatsCount>30</SeatsCount>
+    <Latitude_WGS84>55.75433775692988</Latitude_WGS84>
+    <Longitude_WGS84>37.636965000000004</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(926) 992-24-87</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>918059254</global_id>
+    <Name>Шоколадница</Name>
+    <TypeObject>кафе</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Чистопрудный бульвар, дом 1А</Address>
+    <SeatsCount>30</SeatsCount>
+    <Latitude_WGS84>55.76469575993808</Latitude_WGS84>
+    <Longitude_WGS84>37.640041</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(499) 990-96-31</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>930778319</global_id>
+    <Name>Surf Coffee</Name>
+    <TypeObject>кафе</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Мясницкая улица, дом 16</Address>
+    <SeatsCount>10</SeatsCount>
+    <Latitude_WGS84>55.7609217588417</Latitude_WGS84>
+    <Longitude_WGS84>37.632523000000006</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(964) 583-59-65</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>930779011</global_id>
+    <Name>Starbucks</Name>
+    <TypeObject>кафе</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, улица Земляной Вал, дом 33</Address>
+    <SeatsCount>30</SeatsCount>
+    <Latitude_WGS84>55.75724575777414</Latitude_WGS84>
+    <Longitude_WGS84>37.65915</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(495) 648-95-80</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>930779249</global_id>
+    <Name>Шоколадница</Name>
+    <TypeObject>кафе</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, улица Земляной Вал, дом 33</Address>
+    <SeatsCount>10</SeatsCount>
+    <Latitude_WGS84>55.75724575777414</Latitude_WGS84>
+    <Longitude_WGS84>37.65915</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(495) 697-47-07</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>1026817614</global_id>
+    <Name>Кофе, Выпечка</Name>
+    <TypeObject>кафе</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, улица Покровка, дом 29</Address>
+    <SeatsCount>10</SeatsCount>
+    <Latitude_WGS84>55.76061175875166</Latitude_WGS84>
+    <Longitude_WGS84>37.64866899999999</Longitude_WGS84>
+    <PublicPhone>
+      <phone>нет телефона</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>1026830767</global_id>
+    <Name>Может, кофе</Name>
+    <TypeObject>кафе</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Спартаковская улица, дом 3, строение 3</Address>
+    <SeatsCount>2</SeatsCount>
+    <Latitude_WGS84>55.77056176164293</Latitude_WGS84>
+    <Longitude_WGS84>37.670657</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(903) 559-46-98</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>1026858513</global_id>
+    <Name>Лаванда Кофе</Name>
+    <TypeObject>кафе</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Нижняя Красносельская улица, дом 35, строение 48</Address>
+    <SeatsCount>5</SeatsCount>
+    <Latitude_WGS84>55.77497576292637</Latitude_WGS84>
+    <Longitude_WGS84>37.673037</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(901) 720-12-00</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>1026876426</global_id>
+    <Name>Кофейня «Правда кофе»</Name>
+    <TypeObject>кафе</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Бауманская улица, дом 33/2, строение 3</Address>
+    <SeatsCount>4</SeatsCount>
+    <Latitude_WGS84>55.77279176229128</Latitude_WGS84>
+    <Longitude_WGS84>37.679491</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(800) 555-19-66</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>1034726994</global_id>
+    <Name>Я, пицца и кофе</Name>
+    <TypeObject>кафе</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, улица Земляной Вал, дом 21/2, строение 1</Address>
+    <SeatsCount>5</SeatsCount>
+    <Latitude_WGS84>55.76066375876677</Latitude_WGS84>
+    <Longitude_WGS84>37.65849299999999</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(965) 445-06-56</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>1034728427</global_id>
+    <Name>Вау кофе</Name>
+    <TypeObject>кафетерий</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, улица Земляной Вал, дом 29, строение 1</Address>
+    <SeatsCount>1</SeatsCount>
+    <Latitude_WGS84>55.75714175774394</Latitude_WGS84>
+    <Longitude_WGS84>37.661059</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(925) 203-30-65</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>1034728428</global_id>
+    <Name>Вау кофе</Name>
+    <TypeObject>кафетерий</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, улица Земляной Вал, дом 29, строение 1</Address>
+    <SeatsCount>1</SeatsCount>
+    <Latitude_WGS84>55.75714175774394</Latitude_WGS84>
+    <Longitude_WGS84>37.661059</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(925) 203-30-65</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>1034728446</global_id>
+    <Name>Кофеман</Name>
+    <TypeObject>кафе</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Бауманская улица, дом 32, строение 2</Address>
+    <SeatsCount>2</SeatsCount>
+    <Latitude_WGS84>55.772090762087466</Latitude_WGS84>
+    <Longitude_WGS84>37.678311</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(964) 557-30-25</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>1034729041</global_id>
+    <Name>Кофе с собой</Name>
+    <TypeObject>кафе</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, улица Земляной Вал, дом 29, строение 1</Address>
+    <SeatsCount>2</SeatsCount>
+    <Latitude_WGS84>55.75714175774394</Latitude_WGS84>
+    <Longitude_WGS84>37.661059</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(800) 775-00-00</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>1046153291</global_id>
+    <Name>Coffee in</Name>
+    <TypeObject>кафетерий</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, улица Покровка, дом 7/9-11, корпус 1</Address>
+    <SeatsCount>0</SeatsCount>
+    <Latitude_WGS84>55.75920275834244</Latitude_WGS84>
+    <Longitude_WGS84>37.642036999999995</Longitude_WGS84>
+    <PublicPhone>
+      <phone>нет телефона</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>1046153364</global_id>
+    <Name>Элемент кофе</Name>
+    <TypeObject>кафетерий</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Старая Басманная улица, дом 38/2, строение 1Д</Address>
+    <SeatsCount>0</SeatsCount>
+    <Latitude_WGS84>55.76923576125748</Latitude_WGS84>
+    <Longitude_WGS84>37.67060000000001</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(985) 513-74-71</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>1046154008</global_id>
+    <Name>Сыр и Кофе</Name>
+    <TypeObject>кафе</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Хитровский переулок, дом 3/1, строение 4</Address>
+    <SeatsCount>15</SeatsCount>
+    <Latitude_WGS84>55.753397756656994</Latitude_WGS84>
+    <Longitude_WGS84>37.64331500000001</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(965) 158-65-92</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>1046154696</global_id>
+    <Name>Кофе Хауз</Name>
+    <TypeObject>кафе</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, улица Маросейка, дом 6-8, строение 1</Address>
+    <SeatsCount>50</SeatsCount>
+    <Latitude_WGS84>55.7574926419976</Latitude_WGS84>
+    <Longitude_WGS84>37.634628676039604</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(495) 221-83-01</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>1046155358</global_id>
+    <Name>Шоколадница</Name>
+    <TypeObject>кафе</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, улица Маросейка, дом 6-8, строение 1</Address>
+    <SeatsCount>72</SeatsCount>
+    <Latitude_WGS84>55.7575288644728</Latitude_WGS84>
+    <Longitude_WGS84>37.6358410345142</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(495) 621-97-97</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>1046155376</global_id>
+    <Name>Шоколадница</Name>
+    <TypeObject>кафе</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Мясницкая улица, дом 14/2, строение 1</Address>
+    <SeatsCount>95</SeatsCount>
+    <Latitude_WGS84>55.76074045588489</Latitude_WGS84>
+    <Longitude_WGS84>37.6320537553858</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(495) 643-28-64</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>1061824664</global_id>
+    <Name>OnePriceCoffee</Name>
+    <TypeObject>кафетерий</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, улица Маросейка, дом 4/2, строение 1</Address>
+    <SeatsCount>9</SeatsCount>
+    <Latitude_WGS84>55.757390757816246</Latitude_WGS84>
+    <Longitude_WGS84>37.63397799999999</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(495) 015-31-50</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>1061825226</global_id>
+    <Name>Гринс кофе</Name>
+    <TypeObject>кафетерий</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Бауманская улица, дом 32, строение 2</Address>
+    <SeatsCount>2</SeatsCount>
+    <Latitude_WGS84>55.772270762139804</Latitude_WGS84>
+    <Longitude_WGS84>37.678198</Longitude_WGS84>
+    <PublicPhone>
+      <phone>нет телефона</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>1075021399</global_id>
+    <Name>Кофемания</Name>
+    <TypeObject>кафе</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Кривоколенный переулок, дом 10, строение 4</Address>
+    <SeatsCount>36</SeatsCount>
+    <Latitude_WGS84>55.761146758907046</Latitude_WGS84>
+    <Longitude_WGS84>37.63600600000001</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(495) 114-55-74</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>1080933510</global_id>
+    <Name>Кофейня T&amp;W</Name>
+    <TypeObject>кафетерий</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Спартаковская улица, дом 8</Address>
+    <SeatsCount>0</SeatsCount>
+    <Latitude_WGS84>55.77160176194528</Latitude_WGS84>
+    <Longitude_WGS84>37.67370800000001</Longitude_WGS84>
+    <PublicPhone>
+      <phone>нет телефона</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>1080933528</global_id>
+    <Name>Кофейня «Magic»</Name>
+    <TypeObject>кафетерий</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Бауманская улица, дом 33/2, строение 1</Address>
+    <SeatsCount>20</SeatsCount>
+    <Latitude_WGS84>55.7730287623602</Latitude_WGS84>
+    <Longitude_WGS84>37.678875000000005</Longitude_WGS84>
+    <PublicPhone>
+      <phone>нет телефона</phone>
+    </PublicPhone>
+  </organization>
+</catering>

@@ -1,0 +1,1837 @@
+<?xml version='1.0' encoding='utf-8'?>
+<catering category="Бары">
+  <organization>
+    <global_id>637395432</global_id>
+    <Name>Beer Gik</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Мясницкая улица, дом 22, строение 1</Address>
+    <SeatsCount>10</SeatsCount>
+    <Latitude_WGS84>55.7620712031242</Latitude_WGS84>
+    <Longitude_WGS84>37.63441107333824</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(495) 624-80-14</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>637395564</global_id>
+    <Name>Пробка Гриль</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Мясницкая улица, дом 24/7, строение 1</Address>
+    <SeatsCount>120</SeatsCount>
+    <Latitude_WGS84>55.76248802260349</Latitude_WGS84>
+    <Longitude_WGS84>37.635630799561525</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(495) 966-15-91</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>637395643</global_id>
+    <Name>TEMPO DI PASTA</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Мясницкая улица, дом 24/7, строение 1</Address>
+    <SeatsCount>90</SeatsCount>
+    <Latitude_WGS84>55.762444</Latitude_WGS84>
+    <Longitude_WGS84>37.635593</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(499) 380-63-03</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>637410047</global_id>
+    <Name>Глав Пив Маг</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, улица Макаренко, дом 2/21, строение 1</Address>
+    <SeatsCount>40</SeatsCount>
+    <Latitude_WGS84>55.760578258669085</Latitude_WGS84>
+    <Longitude_WGS84>37.64691670791892</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(495) 916-23-25</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>637410049</global_id>
+    <Name>Beermood</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, улица Макаренко, дом 2/21, строение 1</Address>
+    <SeatsCount>45</SeatsCount>
+    <Latitude_WGS84>55.760578258669085</Latitude_WGS84>
+    <Longitude_WGS84>37.64691670791892</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(962) 365-39-99</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>637439238</global_id>
+    <Name>Хлеб и Вино</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, улица Маросейка, дом 15</Address>
+    <SeatsCount>54</SeatsCount>
+    <Latitude_WGS84>55.757956181695306</Latitude_WGS84>
+    <Longitude_WGS84>37.6368584852073</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(903) 147-44-12</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>637441113</global_id>
+    <Name>Veladora. Tacos y Tragos</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, улица Покровка, дом 2/1, строение 1</Address>
+    <SeatsCount>45</SeatsCount>
+    <Latitude_WGS84>55.75819203486044</Latitude_WGS84>
+    <Longitude_WGS84>37.63949697848996</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(985) 970-93-05</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>637504217</global_id>
+    <Name>Лора Крафт</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, улица Покровка, дом 1/13/6, строение 2</Address>
+    <SeatsCount>50</SeatsCount>
+    <Latitude_WGS84>55.758615</Latitude_WGS84>
+    <Longitude_WGS84>37.639024</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(929) 681-58-78</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>637504325</global_id>
+    <Name>Брюгге</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Бауманская улица, дом 48/13</Address>
+    <SeatsCount>150</SeatsCount>
+    <Latitude_WGS84>55.770014761483914</Latitude_WGS84>
+    <Longitude_WGS84>37.678948</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(499) 261-77-50</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>637504354</global_id>
+    <Name>Dark Patrik's Pub</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Большой Златоустинский переулок, дом 1, строение 1</Address>
+    <SeatsCount>60</SeatsCount>
+    <Latitude_WGS84>55.75987981934533</Latitude_WGS84>
+    <Longitude_WGS84>37.63173272766934</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(968) 810-18-88</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>637505026</global_id>
+    <Name>Бурбон Стрит</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Большой Златоустинский переулок, дом 7, строение 1</Address>
+    <SeatsCount>40</SeatsCount>
+    <Latitude_WGS84>55.7587000397128</Latitude_WGS84>
+    <Longitude_WGS84>37.6325794683543</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(495) 246-53-54</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>637505052</global_id>
+    <Name>ПРОПАГАНДА</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Большой Златоустинский переулок, дом 7, строение 1</Address>
+    <SeatsCount>80</SeatsCount>
+    <Latitude_WGS84>55.7586698552251</Latitude_WGS84>
+    <Longitude_WGS84>37.6326652990414</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(495) 623-34-94</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>637505590</global_id>
+    <Name>Во сколько начинается аперитив</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Кривоколенный переулок, дом 10, строение 5</Address>
+    <SeatsCount>50</SeatsCount>
+    <Latitude_WGS84>55.76165305707448</Latitude_WGS84>
+    <Longitude_WGS84>37.636017329016326</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(985) 233-40-88</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>637533030</global_id>
+    <Name>Имеджин</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, улица Покровка, дом 16</Address>
+    <SeatsCount>50</SeatsCount>
+    <Latitude_WGS84>55.759128656911</Latitude_WGS84>
+    <Longitude_WGS84>37.6456793771806</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(495) 623-57-87</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>637533036</global_id>
+    <Name>Бутылка, Кружка и Котел</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, улица Покровка, дом 48, строение 1</Address>
+    <SeatsCount>65</SeatsCount>
+    <Latitude_WGS84>55.76327489995497</Latitude_WGS84>
+    <Longitude_WGS84>37.65480775676176</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(926) 307-52-18</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>637533059</global_id>
+    <Name>Lumberjack Bar</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Большой Спасоглинищевский переулок, дом 3, строение 5</Address>
+    <SeatsCount>60</SeatsCount>
+    <Latitude_WGS84>55.7564180265924</Latitude_WGS84>
+    <Longitude_WGS84>37.6351973043515</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(967) 061-00-06</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>637533062</global_id>
+    <Name>Микроб</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Покровский бульвар, дом 6/20, строение 1</Address>
+    <SeatsCount>50</SeatsCount>
+    <Latitude_WGS84>55.7575107532396</Latitude_WGS84>
+    <Longitude_WGS84>37.6463338361787</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(495) 917-77-17</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>637533064</global_id>
+    <Name>МОНО</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Покровский бульвар, дом 6/20, строение 1</Address>
+    <SeatsCount>50</SeatsCount>
+    <Latitude_WGS84>55.757595630911126</Latitude_WGS84>
+    <Longitude_WGS84>37.64628918483862</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(495) 917-77-17</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>637533070</global_id>
+    <Name>OConnells Pub</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, улица Покровка, дом 18/18, строение 1</Address>
+    <SeatsCount>70</SeatsCount>
+    <Latitude_WGS84>55.75863</Latitude_WGS84>
+    <Longitude_WGS84>37.646363</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(985) 296-30-90</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>637533088</global_id>
+    <Name>Ред Брик</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Хохловский переулок, дом 10, строение 6</Address>
+    <SeatsCount>50</SeatsCount>
+    <Latitude_WGS84>55.75594797518132</Latitude_WGS84>
+    <Longitude_WGS84>37.644107031778894</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(495) 664-21-50</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>637548924</global_id>
+    <Name>Клуб «Gazgolder»</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Нижний Сусальный переулок, дом 5, строение 26</Address>
+    <SeatsCount>150</SeatsCount>
+    <Latitude_WGS84>55.759793150078174</Latitude_WGS84>
+    <Longitude_WGS84>37.666440894925415</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(916) 371-98-92</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>637549037</global_id>
+    <Name>Крафт-бар Колбаса</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Большой Спасоглинищевский переулок, дом 9/1, строение 16</Address>
+    <SeatsCount>40</SeatsCount>
+    <Latitude_WGS84>55.75445536236881</Latitude_WGS84>
+    <Longitude_WGS84>37.63693459718489</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(910) 418-88-47</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>637549267</global_id>
+    <Name>Хинкальная</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Мясницкая улица, дом 16</Address>
+    <SeatsCount>30</SeatsCount>
+    <Latitude_WGS84>55.7609939913909</Latitude_WGS84>
+    <Longitude_WGS84>37.632332705124895</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(926) 048-51-71</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>637549432</global_id>
+    <Name>Сижу курю</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, улица Земляной Вал, дом 7</Address>
+    <SeatsCount>40</SeatsCount>
+    <Latitude_WGS84>55.7624970618866</Latitude_WGS84>
+    <Longitude_WGS84>37.657577656371004</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(495) 916-24-44</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>637549583</global_id>
+    <Name>Мареа</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Лубянский проезд, дом 15, строение 2</Address>
+    <SeatsCount>48</SeatsCount>
+    <Latitude_WGS84>55.7568345945054</Latitude_WGS84>
+    <Longitude_WGS84>37.6320644842234</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(495) 621-31-79</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>639249298</global_id>
+    <Name>Рюмка Пива</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, улица Фридриха Энгельса, дом 21</Address>
+    <SeatsCount>12</SeatsCount>
+    <Latitude_WGS84>55.77282206141401</Latitude_WGS84>
+    <Longitude_WGS84>37.68315535051811</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(495) 220-28-48</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>639249301</global_id>
+    <Name>Волчья Стая</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Мясницкая улица, дом 38, строение 1</Address>
+    <SeatsCount>120</SeatsCount>
+    <Latitude_WGS84>55.76613012167925</Latitude_WGS84>
+    <Longitude_WGS84>37.640150038050756</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(906) 730-22-82</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>639249539</global_id>
+    <Name>Птица-Синица</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Большой Спасоглинищевский переулок, дом 3, строение 5</Address>
+    <SeatsCount>30</SeatsCount>
+    <Latitude_WGS84>55.75644217793486</Latitude_WGS84>
+    <Longitude_WGS84>37.63516008815909</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(905) 703-42-59</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>639249851</global_id>
+    <Name>Ирланский бар Сильверс</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, улица Машкова, дом 28/20, строение 1</Address>
+    <SeatsCount>46</SeatsCount>
+    <Latitude_WGS84>55.76463054437207</Latitude_WGS84>
+    <Longitude_WGS84>37.65485424200006</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(495) 917-17-70</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>861065617</global_id>
+    <Name>Фуд-бар «Грабли»</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, улица Солянка, дом 1/2, строение 1</Address>
+    <SeatsCount>80</SeatsCount>
+    <Latitude_WGS84>55.75416136120048</Latitude_WGS84>
+    <Longitude_WGS84>37.63794715732829</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(499) 678-26-78</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>861065618</global_id>
+    <Name>Red Rocket Bar</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Лубянский проезд, дом 19, строение 1</Address>
+    <SeatsCount>47</SeatsCount>
+    <Latitude_WGS84>55.75576700886714</Latitude_WGS84>
+    <Longitude_WGS84>37.63362292469012</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(905) 782-28-28</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>861065796</global_id>
+    <Name>Harat's Pub</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, улица Покровка, дом 6</Address>
+    <SeatsCount>120</SeatsCount>
+    <Latitude_WGS84>55.75862775817546</Latitude_WGS84>
+    <Longitude_WGS84>37.642273</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(499) 400-03-23</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>861065827</global_id>
+    <Name>Beer Harbor</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, улица Покровка, дом 21-23/25, строение 1</Address>
+    <SeatsCount>41</SeatsCount>
+    <Latitude_WGS84>55.759798843276215</Latitude_WGS84>
+    <Longitude_WGS84>37.647079433889886</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(495) 211-28-61</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>861066003</global_id>
+    <Name>Караоке-бар Ян Пен</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, улица Покровка, дом 3/7, строение 1Г</Address>
+    <SeatsCount>40</SeatsCount>
+    <Latitude_WGS84>55.75880181506143</Latitude_WGS84>
+    <Longitude_WGS84>37.63983685688517</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(495) 798-40-98</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>878846234</global_id>
+    <Name>Джим энд Джек</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Мясницкая улица, дом 38, строение 1</Address>
+    <SeatsCount>42</SeatsCount>
+    <Latitude_WGS84>55.76613012167925</Latitude_WGS84>
+    <Longitude_WGS84>37.640150038050756</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(963) 976-91-20</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>878847062</global_id>
+    <Name>Батчери</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Бауманская улица, дом 54, строение 1</Address>
+    <SeatsCount>90</SeatsCount>
+    <Latitude_WGS84>55.769154591679055</Latitude_WGS84>
+    <Longitude_WGS84>37.679083442627736</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(499) 241-11-87</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>878847381</global_id>
+    <Name>Boilerman craft beer</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Рубцовская набережная, дом 2, корпус 1</Address>
+    <SeatsCount>16</SeatsCount>
+    <Latitude_WGS84>55.7746094492276</Latitude_WGS84>
+    <Longitude_WGS84>37.69626999146705</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(958) 633-97-71</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>878847746</global_id>
+    <Name>Молли Малоун</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Старая Басманная улица, владение 38</Address>
+    <SeatsCount>60</SeatsCount>
+    <Latitude_WGS84>55.7692179354164</Latitude_WGS84>
+    <Longitude_WGS84>37.66937775600403</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(495) 620-48-82</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>878847936</global_id>
+    <Name>BREWERY AND BAR POET</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Нижний Сусальный переулок, дом 5, строение 7</Address>
+    <SeatsCount>42</SeatsCount>
+    <Latitude_WGS84>55.759233758351435</Latitude_WGS84>
+    <Longitude_WGS84>37.663457</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(495) 136-63-11</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>905399928</global_id>
+    <Name>Рюмочная «Зинзивер»</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, улица Покровка, дом 14/2, строение 1</Address>
+    <SeatsCount>25</SeatsCount>
+    <Latitude_WGS84>55.75908675830873</Latitude_WGS84>
+    <Longitude_WGS84>37.645192</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(915) 329-48-22</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>905399944</global_id>
+    <Name>Bigati Bar</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, улица Земляной Вал, дом 1/4, строение 1</Address>
+    <SeatsCount>34</SeatsCount>
+    <Latitude_WGS84>55.76365575963591</Latitude_WGS84>
+    <Longitude_WGS84>37.65761400000001</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(977) 674-23-04</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>905400631</global_id>
+    <Name>JACK AND JANE</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Потаповский переулок, дом 5, строение 2</Address>
+    <SeatsCount>70</SeatsCount>
+    <Latitude_WGS84>55.761671739607834</Latitude_WGS84>
+    <Longitude_WGS84>37.640615056255164</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(966) 121-70-00</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>905401384</global_id>
+    <Name>Metafora Bar</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, улица Маросейка, дом 6-8, строение 1</Address>
+    <SeatsCount>75</SeatsCount>
+    <Latitude_WGS84>55.75720075776108</Latitude_WGS84>
+    <Longitude_WGS84>37.634602000000015</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(926) 074-61-90</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>905401407</global_id>
+    <Name>Табу бар вайн</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, улица Маросейка, дом 4/2, строение 1</Address>
+    <SeatsCount>15</SeatsCount>
+    <Latitude_WGS84>55.75737875781276</Latitude_WGS84>
+    <Longitude_WGS84>37.634044</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(495) 114-54-44</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>905404985</global_id>
+    <Name>Los Bandidos</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, улица Маросейка, дом 2/15, строение 1</Address>
+    <SeatsCount>70</SeatsCount>
+    <Latitude_WGS84>55.757176268838535</Latitude_WGS84>
+    <Longitude_WGS84>37.63250650513795</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(499) 750-89-92</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>909039547</global_id>
+    <Name>Legion</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, улица Машкова, дом 28/20, строение 1</Address>
+    <SeatsCount>40</SeatsCount>
+    <Latitude_WGS84>55.76456775990089</Latitude_WGS84>
+    <Longitude_WGS84>37.654943</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(977) 689-00-56</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>918057464</global_id>
+    <Name>13 Rules</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Волховский переулок, дом 2</Address>
+    <SeatsCount>24</SeatsCount>
+    <Latitude_WGS84>55.772747762278506</Latitude_WGS84>
+    <Longitude_WGS84>37.684116</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(965) 240-34-42</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>918057696</global_id>
+    <Name>Бык Ground</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, улица Маросейка, дом 15</Address>
+    <SeatsCount>36</SeatsCount>
+    <Latitude_WGS84>55.75792975797274</Latitude_WGS84>
+    <Longitude_WGS84>37.63684200000001</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(499) 962-41-53</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>918057885</global_id>
+    <Name>APARTAMENT Пар Бар</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Мясницкая улица, дом 18, строение 1</Address>
+    <SeatsCount>28</SeatsCount>
+    <Latitude_WGS84>55.76111575889806</Latitude_WGS84>
+    <Longitude_WGS84>37.632723000000006</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(977) 712-11-11</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>918057888</global_id>
+    <Name>Крапива</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Потаповский переулок, дом 5, строение 2</Address>
+    <SeatsCount>20</SeatsCount>
+    <Latitude_WGS84>55.761676759061004</Latitude_WGS84>
+    <Longitude_WGS84>37.640625000000014</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(985) 226-48-25</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>918057889</global_id>
+    <Name>Юнион Джек</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Потаповский переулок, дом 5, строение 2</Address>
+    <SeatsCount>20</SeatsCount>
+    <Latitude_WGS84>55.761676759061004</Latitude_WGS84>
+    <Longitude_WGS84>37.640625000000014</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(495) 621-47-17</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>918057899</global_id>
+    <Name>Политех</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Лубянский проезд, дом 5, строение 1</Address>
+    <SeatsCount>36</SeatsCount>
+    <Latitude_WGS84>55.7587887582222</Latitude_WGS84>
+    <Longitude_WGS84>37.62975999999999</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(495) 011-17-41</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>918058031</global_id>
+    <Name>Paradise SPA Club</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, улица Покровка, дом 40Б</Address>
+    <SeatsCount>30</SeatsCount>
+    <Latitude_WGS84>55.761091758891084</Latitude_WGS84>
+    <Longitude_WGS84>37.652546</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(495) 916-01-27</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>918058245</global_id>
+    <Name>Паттерна</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Старая Басманная улица, дом 6, строение 3</Address>
+    <SeatsCount>9</SeatsCount>
+    <Latitude_WGS84>55.76433475983319</Latitude_WGS84>
+    <Longitude_WGS84>37.657644999999995</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(926) 253-92-60</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>918058759</global_id>
+    <Name>Бавария</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Денисовский переулок, дом 30, строение 10</Address>
+    <SeatsCount>0</SeatsCount>
+    <Latitude_WGS84>55.76675076053523</Latitude_WGS84>
+    <Longitude_WGS84>37.67823800000001</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(495) 205-10-18</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>918058781</global_id>
+    <Name>Harat's Pub</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, улица Земляной Вал, дом 9</Address>
+    <SeatsCount>130</SeatsCount>
+    <Latitude_WGS84>55.76162175904504</Latitude_WGS84>
+    <Longitude_WGS84>37.65826199999999</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(499) 750-11-44</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>918058816</global_id>
+    <Name>Винчестер</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, улица Покровка, дом 3/7, строение 1А</Address>
+    <SeatsCount>80</SeatsCount>
+    <Latitude_WGS84>55.75875475821234</Latitude_WGS84>
+    <Longitude_WGS84>37.640502000000005</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(495) 208-28-30</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>930776587</global_id>
+    <Name>Mad wine bar</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Мясницкая улица, дом 24/7, строение 1</Address>
+    <SeatsCount>35</SeatsCount>
+    <Latitude_WGS84>55.762689759355275</Latitude_WGS84>
+    <Longitude_WGS84>37.635379</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(499) 380-63-03</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>930776606</global_id>
+    <Name>Свобода</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Кривоколенный переулок, дом 14, строение 1</Address>
+    <SeatsCount>49</SeatsCount>
+    <Latitude_WGS84>55.76233675925273</Latitude_WGS84>
+    <Longitude_WGS84>37.63771600000001</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(495) 021-72-21</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>930776726</global_id>
+    <Name>Экспромт beer &amp; meat</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, улица Солянка, дом 1/2, строение 1</Address>
+    <SeatsCount>25</SeatsCount>
+    <Latitude_WGS84>55.75391075680592</Latitude_WGS84>
+    <Longitude_WGS84>37.637592999999995</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(495) 621-97-26</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>930777211</global_id>
+    <Name>Boroda</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, улица Покровка, дом 16</Address>
+    <SeatsCount>70</SeatsCount>
+    <Latitude_WGS84>55.759054758299456</Latitude_WGS84>
+    <Longitude_WGS84>37.64578000000001</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(925) 479-95-41</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>930777389</global_id>
+    <Name>Лаунж-бар Яблоко</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Малая Почтовая улица, дом 2/2, строение 1</Address>
+    <SeatsCount>25</SeatsCount>
+    <Latitude_WGS84>55.770046761493234</Latitude_WGS84>
+    <Longitude_WGS84>37.68612499999999</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(495) 162-52-08</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>930777390</global_id>
+    <Name>Бистрофф</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Малая Почтовая улица, дом 2/2, строение 1</Address>
+    <SeatsCount>30</SeatsCount>
+    <Latitude_WGS84>55.770046761493234</Latitude_WGS84>
+    <Longitude_WGS84>37.68612499999999</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(919) 411-76-77</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>930777549</global_id>
+    <Name>Пробка</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Старая Басманная улица, дом 6, строение 3</Address>
+    <SeatsCount>38</SeatsCount>
+    <Latitude_WGS84>55.76433475983319</Latitude_WGS84>
+    <Longitude_WGS84>37.657644999999995</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(915) 186-10-11</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>930778303</global_id>
+    <Name>Down House</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Большой Спасоглинищевский переулок, дом 9/1, строение 16</Address>
+    <SeatsCount>70</SeatsCount>
+    <Latitude_WGS84>55.75433775692988</Latitude_WGS84>
+    <Longitude_WGS84>37.636965000000004</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(967) 251-75-55</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>1026816703</global_id>
+    <Name>Лаунж-бар Meduzzza</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Доброслободская улица, дом 7/1</Address>
+    <SeatsCount>30</SeatsCount>
+    <Latitude_WGS84>55.768190760953736</Latitude_WGS84>
+    <Longitude_WGS84>37.67387899999999</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(916) 502-36-48</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>1026817006</global_id>
+    <Name>Алкобуфет «Рюмка»</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Мясницкая улица, дом 32, строение 2</Address>
+    <SeatsCount>35</SeatsCount>
+    <Latitude_WGS84>55.765420760148736</Latitude_WGS84>
+    <Longitude_WGS84>37.639679</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(925) 224-10-60</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>1026817463</global_id>
+    <Name>Настоишная</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Лубянский проезд, дом 19, строение 1</Address>
+    <SeatsCount>49</SeatsCount>
+    <Latitude_WGS84>55.75573075733427</Latitude_WGS84>
+    <Longitude_WGS84>37.633549</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(800) 568-40-12</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>1026817612</global_id>
+    <Name>Pub 885</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>улица Покровка, дом 3/7, строение 1</Address>
+    <SeatsCount>70</SeatsCount>
+    <Latitude_WGS84>55.75875475821234</Latitude_WGS84>
+    <Longitude_WGS84>37.640502000000005</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(499) 382-88-58</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>1026817630</global_id>
+    <Name>Reddy. Bar</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, улица Земляной Вал, дом 32</Address>
+    <SeatsCount>42</SeatsCount>
+    <Latitude_WGS84>55.75709675773087</Latitude_WGS84>
+    <Longitude_WGS84>37.657112000000005</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(495) 128-05-78</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>1026830859</global_id>
+    <Name>PIVZAVOD77</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, улица Покровка, дом 17, строение 1</Address>
+    <SeatsCount>45</SeatsCount>
+    <Latitude_WGS84>55.75969175848445</Latitude_WGS84>
+    <Longitude_WGS84>37.645257</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(495) 626-31-77</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>1026830952</global_id>
+    <Name>True Stories</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Мясницкий проезд, дом 2/1</Address>
+    <SeatsCount>50</SeatsCount>
+    <Latitude_WGS84>55.76835776100229</Latitude_WGS84>
+    <Longitude_WGS84>37.646104</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(495) 646-23-18</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>1026847074</global_id>
+    <Name>KillFish</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, улица Покровка, дом 10, строение 2</Address>
+    <SeatsCount>35</SeatsCount>
+    <Latitude_WGS84>55.75898475827912</Latitude_WGS84>
+    <Longitude_WGS84>37.644347</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(800) 333-09-77</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>1026858494</global_id>
+    <Name>Атмосфера LoungeBar</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Нижняя Красносельская улица, дом 35, строение 48</Address>
+    <SeatsCount>30</SeatsCount>
+    <Latitude_WGS84>55.77497576292637</Latitude_WGS84>
+    <Longitude_WGS84>37.673037</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(965) 311-88-44</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>1026862312</global_id>
+    <Name>Секрет</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Нижний Сусальный переулок, дом 7, строение 8</Address>
+    <SeatsCount>270</SeatsCount>
+    <Latitude_WGS84>55.76071075878041</Latitude_WGS84>
+    <Longitude_WGS84>37.665694</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(495) 649-14-32</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>1026875107</global_id>
+    <Name>Клуб «Бумажная фабрика»</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Переведеновский переулок, дом 18, строение 6</Address>
+    <SeatsCount>12</SeatsCount>
+    <Latitude_WGS84>55.77898876409365</Latitude_WGS84>
+    <Longitude_WGS84>37.689708</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(495) 989-23-98</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>1026875432</global_id>
+    <Name>Kabuki</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, улица Земляной Вал, дом 33</Address>
+    <SeatsCount>30</SeatsCount>
+    <Latitude_WGS84>55.75780675793703</Latitude_WGS84>
+    <Longitude_WGS84>37.658813</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(495) 139-45-57</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>1026875555</global_id>
+    <Name>Москва</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Нижний Сусальный переулок, дом 5, строение 25</Address>
+    <SeatsCount>40</SeatsCount>
+    <Latitude_WGS84>55.76098875886115</Latitude_WGS84>
+    <Longitude_WGS84>37.663366</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(925) 286-00-41</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>1026876096</global_id>
+    <Name>Gazilla</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Нижний Сусальный переулок, дом 5, строение 1</Address>
+    <SeatsCount>40</SeatsCount>
+    <Latitude_WGS84>55.76131875895703</Latitude_WGS84>
+    <Longitude_WGS84>37.66306800000001</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(965) 266-22-22</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>1034727093</global_id>
+    <Name>Tim Family</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Бакунинская улица, дом 23-41</Address>
+    <SeatsCount>46</SeatsCount>
+    <Latitude_WGS84>55.775662763126185</Latitude_WGS84>
+    <Longitude_WGS84>37.684436000000005</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(916) 772-49-16</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>1034727383</global_id>
+    <Name>Пивной бар и Сидрерия</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, улица Маросейка, дом 4/2, строение 1</Address>
+    <SeatsCount>4</SeatsCount>
+    <Latitude_WGS84>55.757390757816246</Latitude_WGS84>
+    <Longitude_WGS84>37.63397799999999</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(916) 777-67-66</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>1034728490</global_id>
+    <Name>БИБЛИОТЕКА Shisha Lounge</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, улица Маросейка, дом 2/15, строение 1</Address>
+    <SeatsCount>53</SeatsCount>
+    <Latitude_WGS84>55.75707575772479</Latitude_WGS84>
+    <Longitude_WGS84>37.63194500000001</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(495) 135-47-23</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>1046151346</global_id>
+    <Name>Бонни и Клайд</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, улица Покровка, дом 3/7, строение 1А</Address>
+    <SeatsCount>46</SeatsCount>
+    <Latitude_WGS84>55.758776831318606</Latitude_WGS84>
+    <Longitude_WGS84>37.6404282861954</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(965) 427-55-55</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>1046153792</global_id>
+    <Name>Wine Express</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Чистопрудный бульвар, дом 12, корпус 4</Address>
+    <SeatsCount>20</SeatsCount>
+    <Latitude_WGS84>55.76157375903108</Latitude_WGS84>
+    <Longitude_WGS84>37.642942000000005</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(495) 651-95-15</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>1046154263</global_id>
+    <Name>UNDERDOG</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, улица Маросейка, дом 6-8, строение 1</Address>
+    <SeatsCount>30</SeatsCount>
+    <Latitude_WGS84>55.75720075776108</Latitude_WGS84>
+    <Longitude_WGS84>37.634602000000015</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(985) 420-02-28</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>1046154437</global_id>
+    <Name>Сюр</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Большой Трёхсвятительский переулок, дом 2/1, строение 8</Address>
+    <SeatsCount>15</SeatsCount>
+    <Latitude_WGS84>55.754860757081694</Latitude_WGS84>
+    <Longitude_WGS84>37.64299100000001</Longitude_WGS84>
+    <PublicPhone>
+      <phone>нет телефона</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>1061824674</global_id>
+    <Name>Крафтовый бар Гости</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Старокирочный переулок, дом 16/2, строение 1</Address>
+    <SeatsCount>30</SeatsCount>
+    <Latitude_WGS84>55.768144760940366</Latitude_WGS84>
+    <Longitude_WGS84>37.684037</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(985) 076-64-86</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>1061824936</global_id>
+    <Name>Barrel</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, 4-й Сыромятнический переулок, дом 1/8, строение 7</Address>
+    <SeatsCount>20</SeatsCount>
+    <Latitude_WGS84>55.75603975742397</Latitude_WGS84>
+    <Longitude_WGS84>37.664504</Longitude_WGS84>
+    <PublicPhone>
+      <phone>нет телефона</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>1061825542</global_id>
+    <Name>Friends place</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, улица Фридриха Энгельса, дом 25, строение 3</Address>
+    <SeatsCount>20</SeatsCount>
+    <Latitude_WGS84>55.773446762481754</Latitude_WGS84>
+    <Longitude_WGS84>37.684017</Longitude_WGS84>
+    <PublicPhone>
+      <phone>нет телефона</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>1061825603</global_id>
+    <Name>Дом, В Котором</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, улица Покровка, дом 14/2, строение 3</Address>
+    <SeatsCount>35</SeatsCount>
+    <Latitude_WGS84>55.75860675816936</Latitude_WGS84>
+    <Longitude_WGS84>37.64542900000001</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(916) 241-69-85</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>1061825641</global_id>
+    <Name>Мироф бар</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Мясницкая улица, дом 32, строение 2</Address>
+    <SeatsCount>14</SeatsCount>
+    <Latitude_WGS84>55.76543476015282</Latitude_WGS84>
+    <Longitude_WGS84>37.639646</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(985) 971-01-26</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>1061826897</global_id>
+    <Name>351 Bar</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, улица Фридриха Энгельса, дом 3-5, строение 1</Address>
+    <SeatsCount>25</SeatsCount>
+    <Latitude_WGS84>55.77156176193367</Latitude_WGS84>
+    <Longitude_WGS84>37.679877</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(926) 535-03-51</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>1075019966</global_id>
+    <Name>Арка Бар</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Большой Спасоглинищевский переулок, дом 9/1, строение 10</Address>
+    <SeatsCount>15</SeatsCount>
+    <Latitude_WGS84>55.754938757104334</Latitude_WGS84>
+    <Longitude_WGS84>37.637348</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(916) 873-11-28</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>1075019988</global_id>
+    <Name>Монгол Курултай</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, улица Казакова, дом 8, строение 2</Address>
+    <SeatsCount>40</SeatsCount>
+    <Latitude_WGS84>55.76265575934541</Latitude_WGS84>
+    <Longitude_WGS84>37.661502000000006</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(926) 915-91-08</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>1075019995</global_id>
+    <Name>Point Rouge</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Мясницкая улица, дом 8/2, строение 1</Address>
+    <SeatsCount>40</SeatsCount>
+    <Latitude_WGS84>55.75968475848241</Latitude_WGS84>
+    <Longitude_WGS84>37.631368</Longitude_WGS84>
+    <PublicPhone>
+      <phone>нет телефона</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>1075020003</global_id>
+    <Name>Jimmy Poy</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Лубянский проезд, дом 15, строение 2</Address>
+    <SeatsCount>40</SeatsCount>
+    <Latitude_WGS84>55.75681275764841</Latitude_WGS84>
+    <Longitude_WGS84>37.63234700000001</Longitude_WGS84>
+    <PublicPhone>
+      <phone>нет телефона</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>1075020092</global_id>
+    <Name>Караоке-клуб ТУТТИ</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, улица Покровка, дом 21-23/25, строение 1</Address>
+    <SeatsCount>40</SeatsCount>
+    <Latitude_WGS84>55.759715758491424</Latitude_WGS84>
+    <Longitude_WGS84>37.647201</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(499) 444-21-93</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>1075020093</global_id>
+    <Name>Звезда караоке</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, улица Маросейка, дом 6-8, строение 1</Address>
+    <SeatsCount>45</SeatsCount>
+    <Latitude_WGS84>55.75720075776108</Latitude_WGS84>
+    <Longitude_WGS84>37.634602000000015</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(926) 316-67-91</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>1075020171</global_id>
+    <Name>Волковская пивоварня</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Нижний Сусальный переулок, дом 5, строение 7</Address>
+    <SeatsCount>40</SeatsCount>
+    <Latitude_WGS84>55.75926075835928</Latitude_WGS84>
+    <Longitude_WGS84>37.663487</Longitude_WGS84>
+    <PublicPhone>
+      <phone>нет телефона</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>1075020172</global_id>
+    <Name>Пока никто не видит</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, улица Покровка, дом 17, строение 1</Address>
+    <SeatsCount>21</SeatsCount>
+    <Latitude_WGS84>55.7594987584284</Latitude_WGS84>
+    <Longitude_WGS84>37.645847</Longitude_WGS84>
+    <PublicPhone>
+      <phone>нет телефона</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>1075020173</global_id>
+    <Name>Sweet'n'Sour</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, улица Покровка, дом 15/16, строение 1</Address>
+    <SeatsCount>30</SeatsCount>
+    <Latitude_WGS84>55.75939875839936</Latitude_WGS84>
+    <Longitude_WGS84>37.644869</Longitude_WGS84>
+    <PublicPhone>
+      <phone>нет телефона</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>1075020174</global_id>
+    <Name>Beerhappens Jr</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Лубянский проезд, дом 25, строение 2</Address>
+    <SeatsCount>27</SeatsCount>
+    <Latitude_WGS84>55.75456775699664</Latitude_WGS84>
+    <Longitude_WGS84>37.63479899999999</Longitude_WGS84>
+    <PublicPhone>
+      <phone>нет телефона</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>1075020176</global_id>
+    <Name>Двор</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, улица Земляной Вал, дом 7</Address>
+    <SeatsCount>35</SeatsCount>
+    <Latitude_WGS84>55.76273875936951</Latitude_WGS84>
+    <Longitude_WGS84>37.65798699999999</Longitude_WGS84>
+    <PublicPhone>
+      <phone>нет телефона</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>1075020182</global_id>
+    <Name>Успех</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Ольховская улица, дом 14, строение 2</Address>
+    <SeatsCount>34</SeatsCount>
+    <Latitude_WGS84>55.77447176277981</Latitude_WGS84>
+    <Longitude_WGS84>37.67075500000001</Longitude_WGS84>
+    <PublicPhone>
+      <phone>нет телефона</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>1075020193</global_id>
+    <Name>Рюмочная мечта</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Большой Спасоглинищевский переулок, дом 9/1, строение 10</Address>
+    <SeatsCount>16</SeatsCount>
+    <Latitude_WGS84>55.754938757104334</Latitude_WGS84>
+    <Longitude_WGS84>37.637348</Longitude_WGS84>
+    <PublicPhone>
+      <phone>нет телефона</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>1075020197</global_id>
+    <Name>Lager Bar</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, улица Покровка, дом 17, строение 1</Address>
+    <SeatsCount>14</SeatsCount>
+    <Latitude_WGS84>55.7594987584284</Latitude_WGS84>
+    <Longitude_WGS84>37.645847</Longitude_WGS84>
+    <PublicPhone>
+      <phone>нет телефона</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>1075020199</global_id>
+    <Name>Drunk Punk Craft Bar</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Нижний Сусальный переулок, дом 5, строение 2</Address>
+    <SeatsCount>20</SeatsCount>
+    <Latitude_WGS84>55.7604187586956</Latitude_WGS84>
+    <Longitude_WGS84>37.662348</Longitude_WGS84>
+    <PublicPhone>
+      <phone>нет телефона</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>1075020205</global_id>
+    <Name>Дом 16</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, улица Покровка, дом 16</Address>
+    <SeatsCount>20</SeatsCount>
+    <Latitude_WGS84>55.75915575832878</Latitude_WGS84>
+    <Longitude_WGS84>37.645753</Longitude_WGS84>
+    <PublicPhone>
+      <phone>нет телефона</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>1075020211</global_id>
+    <Name>Бар Мотыга</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Лефортовский переулок, дом 12/50, строение 2</Address>
+    <SeatsCount>22</SeatsCount>
+    <Latitude_WGS84>55.769736761403124</Latitude_WGS84>
+    <Longitude_WGS84>37.678738</Longitude_WGS84>
+    <PublicPhone>
+      <phone>нет телефона</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>1075020214</global_id>
+    <Name>Джаз клуб А. Козлова</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, улица Маросейка, дом 9/2, строение 1</Address>
+    <SeatsCount>30</SeatsCount>
+    <Latitude_WGS84>55.757736757916724</Latitude_WGS84>
+    <Longitude_WGS84>37.63443899999999</Longitude_WGS84>
+    <PublicPhone>
+      <phone>нет телефона</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>1075020216</global_id>
+    <Name>ИглуБар</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Бакунинская улица, дом 69, строение 1</Address>
+    <SeatsCount>24</SeatsCount>
+    <Latitude_WGS84>55.77890076406806</Latitude_WGS84>
+    <Longitude_WGS84>37.690645</Longitude_WGS84>
+    <PublicPhone>
+      <phone>нет телефона</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>1075020254</global_id>
+    <Name>Караоке Атмосфера</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Нижний Сусальный переулок, дом 5, строение 8</Address>
+    <SeatsCount>28</SeatsCount>
+    <Latitude_WGS84>55.76029775866044</Latitude_WGS84>
+    <Longitude_WGS84>37.664857999999995</Longitude_WGS84>
+    <PublicPhone>
+      <phone>нет телефона</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>1075020256</global_id>
+    <Name>Дафт Рэббит Паб</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Большой Спасоглинищевский переулок, дом 3, строение 5</Address>
+    <SeatsCount>21</SeatsCount>
+    <Latitude_WGS84>55.75641475753285</Latitude_WGS84>
+    <Longitude_WGS84>37.635147</Longitude_WGS84>
+    <PublicPhone>
+      <phone>нет телефона</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>1075020261</global_id>
+    <Name>SPOT</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Садовая-Черногрязская улица, дом 8, строение 6</Address>
+    <SeatsCount>19</SeatsCount>
+    <Latitude_WGS84>55.76633376041404</Latitude_WGS84>
+    <Longitude_WGS84>37.651448</Longitude_WGS84>
+    <PublicPhone>
+      <phone>нет телефона</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>1075020442</global_id>
+    <Name>Punk Fiction Bar</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Ольховская улица, дом 14, строение 1</Address>
+    <SeatsCount>17</SeatsCount>
+    <Latitude_WGS84>55.774633762826916</Latitude_WGS84>
+    <Longitude_WGS84>37.67113799999999</Longitude_WGS84>
+    <PublicPhone>
+      <phone>нет телефона</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>1075020516</global_id>
+    <Name>Бар Вино и Огого</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Спартаковская площадь, дом 16/15, строение 2</Address>
+    <SeatsCount>23</SeatsCount>
+    <Latitude_WGS84>55.77629276330941</Latitude_WGS84>
+    <Longitude_WGS84>37.67961499999999</Longitude_WGS84>
+    <PublicPhone>
+      <phone>нет телефона</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>1075020744</global_id>
+    <Name>Культура</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, улица Маросейка, дом 6-8, строение 8</Address>
+    <SeatsCount>20</SeatsCount>
+    <Latitude_WGS84>55.75722775776892</Latitude_WGS84>
+    <Longitude_WGS84>37.63606400000001</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(916) 789-62-55</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>1075020771</global_id>
+    <Name>Hookah Time</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, улица Покровка, дом 7/9-11, корпус 1</Address>
+    <SeatsCount>32</SeatsCount>
+    <Latitude_WGS84>55.75920275834244</Latitude_WGS84>
+    <Longitude_WGS84>37.642036999999995</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(916) 420-22-98</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>1075023301</global_id>
+    <Name>KillFish</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Нижний Сусальный переулок, дом 5, строение 1</Address>
+    <SeatsCount>50</SeatsCount>
+    <Latitude_WGS84>55.761333758961385</Latitude_WGS84>
+    <Longitude_WGS84>37.663034999999994</Longitude_WGS84>
+    <PublicPhone>
+      <phone>нет телефона</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>1078558613</global_id>
+    <Name>Hop Spot Pub</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Старая Басманная улица, дом 14/2, строение 4</Address>
+    <SeatsCount>16</SeatsCount>
+    <Latitude_WGS84>55.76519676008365</Latitude_WGS84>
+    <Longitude_WGS84>37.660168000000006</Longitude_WGS84>
+    <PublicPhone>
+      <phone>нет телефона</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>1078558629</global_id>
+    <Name>Nua</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Мясницкая улица, дом 24/7, строение 1</Address>
+    <SeatsCount>27</SeatsCount>
+    <Latitude_WGS84>55.76252775930821</Latitude_WGS84>
+    <Longitude_WGS84>37.636484</Longitude_WGS84>
+    <PublicPhone>
+      <phone>нет телефона</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>1078558707</global_id>
+    <Name>Party Hard</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, улица Солянка, дом 1/2, строение 1</Address>
+    <SeatsCount>32</SeatsCount>
+    <Latitude_WGS84>55.75379475677225</Latitude_WGS84>
+    <Longitude_WGS84>37.63775499999999</Longitude_WGS84>
+    <PublicPhone>
+      <phone>нет телефона</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>1078558709</global_id>
+    <Name>Соль</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, улица Солянка, дом 1/2, строение 1</Address>
+    <SeatsCount>22</SeatsCount>
+    <Latitude_WGS84>55.75379475677225</Latitude_WGS84>
+    <Longitude_WGS84>37.63775499999999</Longitude_WGS84>
+    <PublicPhone>
+      <phone>нет телефона</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>1078558760</global_id>
+    <Name>My lounge room</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Гарднеровский переулок, дом 3, строение 4</Address>
+    <SeatsCount>60</SeatsCount>
+    <Latitude_WGS84>55.7665307604713</Latitude_WGS84>
+    <Longitude_WGS84>37.678305</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(890) 313-63-73</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>1078558794</global_id>
+    <Name>Axiom Pub</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Спартаковская площадь, дом 16/15, строение 1</Address>
+    <SeatsCount>18</SeatsCount>
+    <Latitude_WGS84>55.776729763436514</Latitude_WGS84>
+    <Longitude_WGS84>37.680184999999994</Longitude_WGS84>
+    <PublicPhone>
+      <phone>нет телефона</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>1078558798</global_id>
+    <Name>Bad crown</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Большой Спасоглинищевский переулок, дом 9/1, строение 16А</Address>
+    <SeatsCount>24</SeatsCount>
+    <Latitude_WGS84>55.75448475697255</Latitude_WGS84>
+    <Longitude_WGS84>37.637411</Longitude_WGS84>
+    <PublicPhone>
+      <phone>нет телефона</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>1078558800</global_id>
+    <Name>Suzuran bar</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Сверчков переулок, дом 8, строение 1</Address>
+    <SeatsCount>35</SeatsCount>
+    <Latitude_WGS84>55.76022275863868</Latitude_WGS84>
+    <Longitude_WGS84>37.63991200000001</Longitude_WGS84>
+    <PublicPhone>
+      <phone>нет телефона</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>1078558806</global_id>
+    <Name>Bolivar</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Потаповский переулок, дом 5, строение 2</Address>
+    <SeatsCount>23</SeatsCount>
+    <Latitude_WGS84>55.761676759061004</Latitude_WGS84>
+    <Longitude_WGS84>37.640625000000014</Longitude_WGS84>
+    <PublicPhone>
+      <phone>нет телефона</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>1080933603</global_id>
+    <Name>Пороселло</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Бауманская улица, дом 42</Address>
+    <SeatsCount>17</SeatsCount>
+    <Latitude_WGS84>55.77082376171911</Latitude_WGS84>
+    <Longitude_WGS84>37.67870800000001</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(926) 619-96-45</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>1081382581</global_id>
+    <Name>Йорик Убил Хамлета</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, улица Покровка, дом 16</Address>
+    <SeatsCount>40</SeatsCount>
+    <Latitude_WGS84>55.75915575832878</Latitude_WGS84>
+    <Longitude_WGS84>37.645753</Longitude_WGS84>
+    <PublicPhone>
+      <phone>(985) 472-48-21</phone>
+    </PublicPhone>
+  </organization>
+  <organization>
+    <global_id>1089379200</global_id>
+    <Name>Настоишная</Name>
+    <TypeObject>бар</TypeObject>
+    <AdmArea>Центральный административный округ</AdmArea>
+    <District>Басманный район</District>
+    <Address>город Москва, Нижний Сусальный переулок, дом 4, строение 3</Address>
+    <SeatsCount>36</SeatsCount>
+    <Latitude_WGS84>55.761688759064505</Latitude_WGS84>
+    <Longitude_WGS84>37.66275600000001</Longitude_WGS84>
+    <PublicPhone>
+      <phone>нет телефона</phone>
+    </PublicPhone>
+  </organization>
+</catering>

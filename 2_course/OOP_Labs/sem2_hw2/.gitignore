@@ -1,0 +1,7 @@
+build/
+builds/
+.vscode/
+.qt/
+CMakeUserPresets.json
+__pycache__/
+
