@@ -21,7 +21,8 @@ else()
     target_compile_options(xml_viewer_core PRIVATE -Wall -Wextra -Wpedantic)
 endif()
 
-add_executable(sem2_hw2_xml_viewer src/main.cpp)
+# WIN32 делает приложение оконным: отдельная консоль Windows ему не нужна.
+add_executable(sem2_hw2_xml_viewer WIN32 src/main.cpp)
 target_link_libraries(sem2_hw2_xml_viewer PRIVATE xml_viewer_core)
 # Данные копируются к exe, поэтому диалог открывается в нужном каталоге
 # даже при запуске программы из другого рабочего каталога.
