@@ -1,0 +1,8 @@
+<RCC>
+  <qresource prefix="/icons">
+    <file alias="newAction.png">icons/newAction.png</file>
+    <file alias="openAction.png">icons/openAction.png</file>
+    <file alias="saveAction.png">icons/saveAction.png</file>
+    <file alias="saveAllAction.png">icons/saveAllAction.png</file>
+  </qresource>
+</RCC>

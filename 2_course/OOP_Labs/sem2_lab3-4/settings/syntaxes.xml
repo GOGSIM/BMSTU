@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<settings>
+  <syntaxes>
+    <syntax id="cpp" name="C++" ext_list="c;cc;cpp;cxx;h;hh;hpp;hxx">
+      <rule>
+        <pattern value="\b(alignas|alignof|asm|auto|bool|break|case|catch|char|char16_t|char32_t|class|const|constexpr|const_cast|continue|decltype|default|delete|do|double|dynamic_cast|else|enum|explicit|export|extern|false|float|for|friend|goto|if|inline|int|long|mutable|namespace|new|noexcept|nullptr|operator|private|protected|public|register|reinterpret_cast|return|short|signed|sizeof|static|static_assert|static_cast|struct|switch|template|this|thread_local|throw|true|try|typedef|typeid|typename|union|unsigned|using|virtual|void|volatile|wchar_t|while|signals|slots|emit)\b"/>
+        <format foreground="#174EA6" font_weight="75"/>
+      </rule>
+      <rule><pattern value="\bQ[A-Za-z_][A-Za-z0-9_]*\b"/><format foreground="#7B1FA2"/></rule>
+      <rule><pattern value="\b(0[xX][0-9a-fA-F]+|[0-9]+(\.[0-9]+)?([eE][+-]?[0-9]+)?)[uUlLfF]*\b"/><format foreground="#9C4500"/></rule>
+      <rule><pattern value="^\s*#\s*[A-Za-z_]+"/><format foreground="#7B1FA2"/></rule>
+      <rule><pattern value="&quot;([^&quot;\\]|\\.)*&quot;"/><format foreground="#A31515"/></rule>
+      <rule><pattern value="'([^'\\]|\\.)*'"/><format foreground="#A31515"/></rule>
+      <rule><pattern value="//[^\n]*"/><format foreground="#008000" font_italic="true"/></rule>
+      <rule><pattern value="/\*" end="\*/"/><format foreground="#008000" font_italic="true"/></rule>
+    </syntax>
+  </syntaxes>
+</settings>
