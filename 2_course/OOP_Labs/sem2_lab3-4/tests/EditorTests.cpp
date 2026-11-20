@@ -283,6 +283,20 @@ private slots:
             coordinatesFound |= label->text().contains("Строка 2, столбец 5");
         QVERIFY(coordinatesFound);
     }
+    void closeKeyboardShortcuts()
+    {
+        std::unique_ptr<MainWindow> w(window());
+        w->show();
+        QVERIFY(QTest::qWaitForWindowActive(w.get()));
+        auto* tabs = w->findChild<QTabWidget*>("documentTabs");
+        w->newDocument();
+        QCOMPARE(tabs->count(), 2);
+        QTest::keyClick(w->currentEditor(), Qt::Key_W, Qt::ControlModifier);
+        QTRY_COMPARE(tabs->count(), 1);
+        w->newDocument();
+        QTest::keyClick(w->currentEditor(), Qt::Key_F4, Qt::ControlModifier);
+        QTRY_COMPARE(tabs->count(), 1);
+    }
     void exitCancellation()
     {
         std::unique_ptr<MainWindow> w(window());

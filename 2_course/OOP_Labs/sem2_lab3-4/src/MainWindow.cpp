@@ -100,6 +100,9 @@ void MainWindow::createActions()
     file->addSeparator();
     auto* close = add(file, tr("Закрыть"), "closeAction", QKeySequence::Close,
                       [this] { closeDocument(tabs_->currentIndex()); });
+    // На Windows StandardKey::Close выбирает Ctrl+F4. Явно поддерживаем
+    // также Ctrl+W, указанный в пользовательской инструкции.
+    close->setShortcuts({QKeySequence("Ctrl+W"), QKeySequence("Ctrl+F4")});
     auto* closeAllAction = add(file, tr("Закрыть все"), "closeAllAction", QKeySequence("Ctrl+Shift+W"),
                                [this] { closeAll(); });
     file->addSeparator();
